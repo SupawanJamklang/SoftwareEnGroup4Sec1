@@ -6,7 +6,9 @@
 * 643021228-3   นางสาวณัฐวดี         	สีหาเดช   	
 * 643021253-4   นางสาวศุภาวรรณ       เเจ่มกลาง
 
+643020039-1   นางสาวเจษรินทร์       สมานทอง  
 ![Profile Image](media/JetsarinS.jpg)
+
 ![Profile Image](media/KanyawitD.jpg)
 ![Profile Image](media/BannakornS.jpg)
 ![Profile Image](media/KitsanapongP.jpg)
