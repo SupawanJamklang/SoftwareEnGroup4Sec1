@@ -2,7 +2,7 @@ version: '3'
 
 services:
   prestashop:
-    image: prestashop/prestashop
+    image: bannakorns/g04_prestashop
     environment:
       - DB_SERVER=db
     ports:
