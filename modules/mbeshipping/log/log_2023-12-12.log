@@ -1,0 +1,4798 @@
+2023-12-12 9:53:54 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 9:53:54 - DEBUG --> 2023-12-12T09:53:54Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 9:53:55 - DEBUG --> 2023-12-12T09:53:55Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => 9Avlv3BP3C
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 9:53:55 - DEBUG --> 2023-12-12T09:53:55Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => 9Avlv3BP3C
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:04:25 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:04:25 - DEBUG --> 2023-12-12T10:04:25Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:04:26 - DEBUG --> 2023-12-12T10:04:26Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => IdchHl0azs
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 10:04:26 - DEBUG --> 2023-12-12T10:04:26Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => IdchHl0azs
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:06:54 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:06:54 - DEBUG --> 2023-12-12T10:06:54Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:06:55 - DEBUG --> 2023-12-12T10:06:55Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => Q6VbFiIL0K
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 10:06:55 - DEBUG --> 2023-12-12T10:06:55Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => Q6VbFiIL0K
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:12:15 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:12:15 - DEBUG --> 2023-12-12T10:12:15Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:12:15 - DEBUG --> 2023-12-12T10:12:15Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => THfIDngnIo
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 10:12:15 - DEBUG --> 2023-12-12T10:12:15Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => THfIDngnIo
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:15:21 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:15:21 - DEBUG --> 2023-12-12T10:15:21Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:15:41 - DEBUG --> MbeSoapClient __soapCall #1 ERROR: Error Fetching http headers
+2023-12-12 10:15:41 - DEBUG --> 2023-12-12T10:15:41Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+
+
+2023-12-12 10:15:41 - DEBUG --> 2023-12-12T10:15:41Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - STATUS NOT OK
+
+2023-12-12 10:15:41 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:15:41 - DEBUG --> 2023-12-12T10:15:41Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:15:42 - DEBUG --> 2023-12-12T10:15:42Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => G0ODSNoaFd
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 10:15:42 - DEBUG --> 2023-12-12T10:15:42Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => G0ODSNoaFd
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:20:57 - DEBUG --> Num Boxes: 1
+2023-12-12 10:20:57 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:20:57 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:20:57 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - ESTIMATE SHIPPING
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => dHMO6NLODY
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>dHMO6NLODY</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:20:57 - DEBUG --> 2023-12-12T10:20:57Z - 
+
+2023-12-12 10:20:57 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:20:57 - DEBUG --> Rates cache: 
+2023-12-12 10:20:58 - DEBUG --> Num Boxes: 1
+2023-12-12 10:20:58 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:20:58 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:20:58 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:20:58 - DEBUG --> 2023-12-12T10:20:58Z - ESTIMATE SHIPPING
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => o3nzqV2HAl
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>o3nzqV2HAl</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:20:59 - DEBUG --> 2023-12-12T10:20:59Z - 
+
+2023-12-12 10:20:59 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:20:59 - DEBUG --> Rates cache: 
+2023-12-12 10:21:02 - DEBUG --> Num Boxes: 1
+2023-12-12 10:21:02 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:21:02 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:21:02 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:21:02 - DEBUG --> 2023-12-12T10:21:02Z - ESTIMATE SHIPPING
+
+2023-12-12 10:21:02 - DEBUG --> 2023-12-12T10:21:02Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:21:02 - DEBUG --> 2023-12-12T10:21:02Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => s7KHuSyFO9
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>s7KHuSyFO9</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:21:03 - DEBUG --> 2023-12-12T10:21:03Z - 
+
+2023-12-12 10:21:03 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:21:03 - DEBUG --> Rates cache: 
+2023-12-12 10:21:07 - DEBUG --> Num Boxes: 1
+2023-12-12 10:21:07 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:21:07 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:21:07 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:21:07 - DEBUG --> 2023-12-12T10:21:07Z - ESTIMATE SHIPPING
+
+2023-12-12 10:21:07 - DEBUG --> 2023-12-12T10:21:07Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:21:07 - DEBUG --> 2023-12-12T10:21:07Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => rLJh0OtGPz
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>rLJh0OtGPz</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:21:08 - DEBUG --> 2023-12-12T10:21:08Z - 
+
+2023-12-12 10:21:08 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:21:08 - DEBUG --> Rates cache: 
+2023-12-12 10:22:01 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:01 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:22:01 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:22:01 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:22:01 - DEBUG --> 2023-12-12T10:22:01Z - ESTIMATE SHIPPING
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => 5MCcmxj3Xu
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>5MCcmxj3Xu</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:22:02 - DEBUG --> 2023-12-12T10:22:02Z - 
+
+2023-12-12 10:22:02 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:22:02 - DEBUG --> Rates cache: 
+2023-12-12 10:22:03 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:03 - DEBUG --> No rates cache found for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:22:03 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:22:03 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - ESTIMATE SHIPPING
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => rEtx5YaU8Y
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>rEtx5YaU8Y</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:22:03 - DEBUG --> 2023-12-12T10:22:03Z - 
+
+2023-12-12 10:22:03 - DEBUG --> Storing rates cache for 5c8b0dbe5e6c40c24e2f5d95a7051e07 and cart 37
+2023-12-12 10:22:03 - DEBUG --> Rates cache: 
+2023-12-12 10:22:39 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:39 - DEBUG --> No rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:39 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:22:39 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:22:39 - DEBUG --> 2023-12-12T10:22:39Z - ESTIMATE SHIPPING
+
+2023-12-12 10:22:39 - DEBUG --> 2023-12-12T10:22:39Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:22:39 - DEBUG --> 2023-12-12T10:22:39Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => a8wl05Gj4x
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 20122
+                            [City] => MI
+                            [Country] => IT
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:22:47 - DEBUG --> 2023-12-12T10:22:47Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:22:47 - DEBUG --> 2023-12-12T10:22:47Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>a8wl05Gj4x</InternalReferenceID><Status>OK</Status><ShippingOptions><ShippingOption><Service>SSE</Service><ServiceDesc>MBE Standard</ServiceDesc><Courier>UPS</Courier><CourierDesc>UPS</CourierDesc><CourierService>UST</CourierService><CourierServiceDesc>Standard</CourierServiceDesc><NetShipmentPrice>22.05</NetShipmentPrice><NetShipmentTotalPrice>26.71</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>26.90</GrossShipmentPrice><GrossShipmentTotalPrice>32.59</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SEE</Service><ServiceDesc>MBE Express</ServiceDesc><Courier>UPS</Courier><CourierDesc>UPS</CourierDesc><CourierService>USA</CourierService><CourierServiceDesc>Express Saver</CourierServiceDesc><NetShipmentPrice>35.16</NetShipmentPrice><NetShipmentTotalPrice>56.12</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>42.90</GrossShipmentPrice><GrossShipmentTotalPrice>68.47</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SSE</Service><ServiceDesc>MBE Standard</ServiceDesc><CourierAccount>04014217</CourierAccount><Courier>TNT</Courier><CourierDesc>TNT</CourierDesc><CourierService>TNC</CourierService><CourierServiceDesc>Economy Express</CourierServiceDesc><NetShipmentPrice>22.05</NetShipmentPrice><NetShipmentTotalPrice>26.71</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>26.90</GrossShipmentPrice><GrossShipmentTotalPrice>32.59</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SEE</Service><ServiceDesc>MBE Express</ServiceDesc><CourierAccount>000000473204 - 10538</CourierAccount><Courier>SDA</Courier><CourierDesc>SDA</CourierDesc><CourierService>SE2</CourierService><CourierServiceDesc>ExtraLarge 12</CourierServiceDesc><NetShipmentPrice>35.16</NetShipmentPrice><NetShipmentTotalPrice>56.12</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>42.90</GrossShipmentPrice><GrossShipmentTotalPrice>68.47</GrossShipmentTotalPrice></ShippingOption></ShippingOptions><CanSeePrices>true</CanSeePrices></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:22:47 - DEBUG --> 2023-12-12T10:22:47Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:22:47 - DEBUG --> 2023-12-12T10:22:47Z - Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+
+2023-12-12 10:22:47 - DEBUG --> Storing rates cache for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:47 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:47 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:47 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:47 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:47 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:47 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:47 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:47 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:48 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:48 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:48 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:48 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:48 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:48 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:48 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:48 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:48 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:48 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:52 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:52 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:52 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:52 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:52 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:52 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:52 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:52 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:52 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:52 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:55 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:55 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:55 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:55 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:55 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:55 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:56 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:56 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:56 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:56 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:56 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:22:56 - DEBUG --> Num Boxes: 1
+2023-12-12 10:22:56 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:22:56 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:22:56 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:23:03 - DEBUG --> Num Boxes: 1
+2023-12-12 10:23:03 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:23:03 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:23:03 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:23:03 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:23:03 - DEBUG --> Num Boxes: 1
+2023-12-12 10:23:03 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:23:03 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:23:03 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:23:03 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:23:04 - DEBUG --> Num Boxes: 1
+2023-12-12 10:23:04 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:23:04 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:23:04 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:23:04 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:23:04 - DEBUG --> Num Boxes: 1
+2023-12-12 10:23:04 - DEBUG --> Rates cache found for d0063e54074434c6b2295bb28374ce7f and cart 37
+2023-12-12 10:23:04 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:23:04 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:23:04 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:23:05 - DEBUG --> VALIDATE ORDER
+2023-12-12 10:23:05 - DEBUG --> 37 ('ID CART')
+2023-12-12 10:23:06 - DEBUG --> Num Boxes: 0
+2023-12-12 10:23:06 - DEBUG --> No rates cache found for d5bf6257d7ff4a21a9d87a00f9fe7de6 and cart 
+2023-12-12 10:23:06 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:23:06 - DEBUG -->  ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:23:06 - DEBUG --> 2023-12-12T10:23:06Z - ESTIMATE SHIPPING
+
+2023-12-12 10:23:06 - DEBUG --> 2023-12-12T10:23:06Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:23:06 - DEBUG --> 2023-12-12T10:23:06Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => 9Ooh0tqje4
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 20122
+                            [City] => MI
+                            [Country] => IT
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>9Ooh0tqje4</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Missing item/items</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Missing item/items
+        )
+
+)
+
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:23:07 - DEBUG --> 2023-12-12T10:23:07Z - 
+
+2023-12-12 10:23:07 - DEBUG --> Storing rates cache for d5bf6257d7ff4a21a9d87a00f9fe7de6 and cart 
+2023-12-12 10:23:07 - DEBUG --> Rates cache: 
+2023-12-12 10:43:53 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:43:53 - DEBUG --> 2023-12-12T10:43:53Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:44:53 - DEBUG --> MbeSoapClient __construct #2 ERROR: SOAP-ERROR: Parsing WSDL: Couldn't load from 'https://api.dev.mbehub.cloud.mbeglobal.io/ws/e-link.wsdl' : failed to load external entity "https://api.dev.mbehub.cloud.mbeglobal.io/ws/e-link.wsdl"
+
+2023-12-12 10:44:53 - DEBUG --> MbeSoapClient __soapCall #1 ERROR: Error finding "uri" property
+2023-12-12 10:44:53 - DEBUG --> 2023-12-12T10:44:53Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+
+
+2023-12-12 10:44:53 - DEBUG --> 2023-12-12T10:44:53Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - STATUS NOT OK
+
+2023-12-12 10:46:18 - DEBUG --> GET PICKUP DEFAULT DATA
+2023-12-12 10:46:18 - DEBUG --> 2023-12-12T10:46:18Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - GET PICKUP DEFAULT DATA
+
+2023-12-12 10:46:20 - DEBUG --> 2023-12-12T10:46:20Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - SOAP RESULT: 
+stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [InternalReferenceID] => 9cjePobeC5
+            [Status] => OK
+            [Cutoff] => MORNING
+            [Notes] => 
+            [PreferredFrom] => 00:00
+            [PreferredTo] => 00:00
+            [AlternativeFrom] => 00:00
+            [AlternativeTo] => 00:00
+        )
+
+)
+
+
+2023-12-12 10:46:20 - DEBUG --> 2023-12-12T10:46:20Z - PrestaShop\Module\Mbeshipping\Lib\MbeWs::getPickupDefaultData - RESULT: 
+Array
+(
+    [InternalReferenceID] => 9cjePobeC5
+    [Status] => OK
+    [Cutoff] => MORNING
+    [Notes] => 
+    [PreferredFrom] => 00:00
+    [PreferredTo] => 00:00
+    [AlternativeFrom] => 00:00
+    [AlternativeTo] => 00:00
+)
+
+
+2023-12-12 10:54:08 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:08 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:08 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:08 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:08 - DEBUG --> 2023-12-12T10:54:08Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:08 - DEBUG --> 2023-12-12T10:54:08Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:08 - DEBUG --> 2023-12-12T10:54:08Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => B5Fbw6OoD5
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>B5Fbw6OoD5</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - 
+
+2023-12-12 10:54:09 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:09 - DEBUG --> Rates cache: 
+2023-12-12 10:54:09 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:09 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:09 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:09 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:09 - DEBUG --> 2023-12-12T10:54:09Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:10 - DEBUG --> 2023-12-12T10:54:10Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:10 - DEBUG --> 2023-12-12T10:54:10Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => KBQqHVYpJN
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>KBQqHVYpJN</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:11 - DEBUG --> 2023-12-12T10:54:11Z - 
+
+2023-12-12 10:54:11 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:11 - DEBUG --> Rates cache: 
+2023-12-12 10:54:16 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:16 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:16 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:16 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => hFd4QOqHgc
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>hFd4QOqHgc</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:16 - DEBUG --> 2023-12-12T10:54:16Z - 
+
+2023-12-12 10:54:16 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:16 - DEBUG --> Rates cache: 
+2023-12-12 10:54:21 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:21 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:21 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:21 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:21 - DEBUG --> 2023-12-12T10:54:21Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:21 - DEBUG --> 2023-12-12T10:54:21Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:21 - DEBUG --> 2023-12-12T10:54:21Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => RsEkLw1fSV
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:29 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:29 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:29 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:29 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:29 - DEBUG --> 2023-12-12T10:54:29Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:34 - DEBUG --> 2023-12-12T10:54:34Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:34 - DEBUG --> 2023-12-12T10:54:34Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => iizxeoeJGn
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:41 - DEBUG --> Num Boxes: 1
+2023-12-12 10:54:41 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:41 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:54:41 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:54:41 - DEBUG --> 2023-12-12T10:54:41Z - ESTIMATE SHIPPING
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => GQKV9Ui2wI
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>GQKV9Ui2wI</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:42 - DEBUG --> 2023-12-12T10:54:42Z - 
+
+2023-12-12 10:54:42 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:42 - DEBUG --> Rates cache: 
+2023-12-12 10:54:45 - DEBUG --> MbeSoapClient __soapCall #1 ERROR: Error Fetching http headers
+2023-12-12 10:54:45 - DEBUG --> 2023-12-12T10:54:45Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:45 - DEBUG --> 2023-12-12T10:54:45Z - 
+
+2023-12-12 10:54:45 - DEBUG --> 2023-12-12T10:54:45Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:45 - DEBUG --> 2023-12-12T10:54:45Z - 
+
+2023-12-12 10:54:45 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:45 - DEBUG --> Rates cache: 
+2023-12-12 10:54:53 - DEBUG --> MbeSoapClient __soapCall #1 ERROR: Error Fetching http headers
+2023-12-12 10:54:53 - DEBUG --> 2023-12-12T10:54:53Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:54:53 - DEBUG --> 2023-12-12T10:54:53Z - 
+
+2023-12-12 10:54:53 - DEBUG --> 2023-12-12T10:54:53Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:54:53 - DEBUG --> 2023-12-12T10:54:53Z - 
+
+2023-12-12 10:54:53 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:54:53 - DEBUG --> Rates cache: 
+2023-12-12 10:55:05 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:05 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:55:05 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:55:05 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:55:05 - DEBUG --> 2023-12-12T10:55:05Z - ESTIMATE SHIPPING
+
+2023-12-12 10:55:05 - DEBUG --> 2023-12-12T10:55:05Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:55:05 - DEBUG --> 2023-12-12T10:55:05Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => JH4NDjedQS
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>JH4NDjedQS</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - 
+
+2023-12-12 10:55:06 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:55:06 - DEBUG --> Rates cache: 
+2023-12-12 10:55:06 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:06 - DEBUG --> No rates cache found for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:55:06 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:55:06 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - ESTIMATE SHIPPING
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:55:06 - DEBUG --> 2023-12-12T10:55:06Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => tFdy7e8zRa
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 
+                            [City] => 
+                            [Country] => 
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>tFdy7e8zRa</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Input country must be a valid ISOcode</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Input country must be a valid ISOcode
+        )
+
+)
+
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:55:07 - DEBUG --> 2023-12-12T10:55:07Z - 
+
+2023-12-12 10:55:07 - DEBUG --> Storing rates cache for e2d97a7e684c7fa879fa0cc05005a9c2 and cart 38
+2023-12-12 10:55:07 - DEBUG --> Rates cache: 
+2023-12-12 10:55:31 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:31 - DEBUG --> No rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:31 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:55:31 - DEBUG --> stdClass Object
+(
+    [Weight] => 0.3
+    [Dimensions] => stdClass Object
+        (
+            [Lenght] => 20
+            [Height] => 20
+            [Width] => 20
+        )
+
+)
+ ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:55:31 - DEBUG --> 2023-12-12T10:55:31Z - ESTIMATE SHIPPING
+
+2023-12-12 10:55:31 - DEBUG --> 2023-12-12T10:55:31Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:55:31 - DEBUG --> 2023-12-12T10:55:31Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => XAzXn4MauT
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 20122
+                            [City] => MI
+                            [Country] => IT
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                            [0] => stdClass Object
+                                (
+                                    [Weight] => 0.3
+                                    [Dimensions] => stdClass Object
+                                        (
+                                            [Lenght] => 20
+                                            [Height] => 20
+                                            [Width] => 20
+                                        )
+
+                                )
+
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:55:37 - DEBUG --> 2023-12-12T10:55:37Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:55:37 - DEBUG --> 2023-12-12T10:55:37Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>XAzXn4MauT</InternalReferenceID><Status>OK</Status><ShippingOptions><ShippingOption><Service>SSE</Service><ServiceDesc>MBE Standard</ServiceDesc><Courier>UPS</Courier><CourierDesc>UPS</CourierDesc><CourierService>UST</CourierService><CourierServiceDesc>Standard</CourierServiceDesc><NetShipmentPrice>22.05</NetShipmentPrice><NetShipmentTotalPrice>26.71</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>26.90</GrossShipmentPrice><GrossShipmentTotalPrice>32.59</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SEE</Service><ServiceDesc>MBE Express</ServiceDesc><Courier>UPS</Courier><CourierDesc>UPS</CourierDesc><CourierService>USA</CourierService><CourierServiceDesc>Express Saver</CourierServiceDesc><NetShipmentPrice>35.16</NetShipmentPrice><NetShipmentTotalPrice>56.12</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>42.90</GrossShipmentPrice><GrossShipmentTotalPrice>68.47</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SSE</Service><ServiceDesc>MBE Standard</ServiceDesc><CourierAccount>04014217</CourierAccount><Courier>TNT</Courier><CourierDesc>TNT</CourierDesc><CourierService>TNC</CourierService><CourierServiceDesc>Economy Express</CourierServiceDesc><NetShipmentPrice>22.05</NetShipmentPrice><NetShipmentTotalPrice>26.71</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>26.90</GrossShipmentPrice><GrossShipmentTotalPrice>32.59</GrossShipmentTotalPrice></ShippingOption><ShippingOption><Service>SEE</Service><ServiceDesc>MBE Express</ServiceDesc><CourierAccount>000000473204 - 10538</CourierAccount><Courier>SDA</Courier><CourierDesc>SDA</CourierDesc><CourierService>SE2</CourierService><CourierServiceDesc>ExtraLarge 12</CourierServiceDesc><NetShipmentPrice>35.16</NetShipmentPrice><NetShipmentTotalPrice>56.12</NetShipmentTotalPrice><CODAvailable>false</CODAvailable><InsuranceAvailable>true</InsuranceAvailable><IdSubzone>24</IdSubzone><CustomDuties>true</CustomDuties><SubzoneDesc>Milano</SubzoneDesc><MBESafeValueAvailable>false</MBESafeValueAvailable><GrossShipmentPrice>42.90</GrossShipmentPrice><GrossShipmentTotalPrice>68.47</GrossShipmentTotalPrice></ShippingOption></ShippingOptions><CanSeePrices>true</CanSeePrices></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:55:37 - DEBUG --> 2023-12-12T10:55:37Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:55:37 - DEBUG --> 2023-12-12T10:55:37Z - Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+
+2023-12-12 10:55:37 - DEBUG --> Storing rates cache for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:37 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:37 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:37 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:37 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:37 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:37 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:37 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:37 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:38 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:38 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:38 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:38 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:38 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:39 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:39 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:39 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:39 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:39 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:41 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:41 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:41 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:41 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:41 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:41 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:41 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:41 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:41 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:41 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:42 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:42 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:42 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:42 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:42 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:42 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:42 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:42 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:42 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:42 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:42 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:42 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:42 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:43 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:43 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:43 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:43 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:43 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:43 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:43 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:43 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:43 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:43 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:43 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:44 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:44 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:44 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:44 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:44 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:44 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:44 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:44 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:44 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:44 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:50 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:50 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:50 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:50 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:51 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:51 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:51 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:51 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:51 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:51 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:51 - DEBUG --> Num Boxes: 1
+2023-12-12 10:55:51 - DEBUG --> Rates cache found for 08b5f9e5e9ba33c1679c0eb4fbe40a6f and cart 38
+2023-12-12 10:55:51 - DEBUG --> Rates cache: Array
+(
+    [0] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => UST
+            [CourierServiceDesc] => Standard
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [1] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [Courier] => UPS
+            [CourierDesc] => UPS
+            [CourierService] => USA
+            [CourierServiceDesc] => Express Saver
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+    [2] => stdClass Object
+        (
+            [Service] => SSE
+            [ServiceDesc] => MBE Standard
+            [CourierAccount] => 04014217
+            [Courier] => TNT
+            [CourierDesc] => TNT
+            [CourierService] => TNC
+            [CourierServiceDesc] => Economy Express
+            [NetShipmentPrice] => 22.05
+            [NetShipmentTotalPrice] => 26.71
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 26.90
+            [GrossShipmentTotalPrice] => 32.59
+        )
+
+    [3] => stdClass Object
+        (
+            [Service] => SEE
+            [ServiceDesc] => MBE Express
+            [CourierAccount] => 000000473204 - 10538
+            [Courier] => SDA
+            [CourierDesc] => SDA
+            [CourierService] => SE2
+            [CourierServiceDesc] => ExtraLarge 12
+            [NetShipmentPrice] => 35.16
+            [NetShipmentTotalPrice] => 56.12
+            [CODAvailable] => 
+            [InsuranceAvailable] => 1
+            [IdSubzone] => 24
+            [CustomDuties] => 1
+            [SubzoneDesc] => Milano
+            [MBESafeValueAvailable] => 
+            [GrossShipmentPrice] => 42.90
+            [GrossShipmentTotalPrice] => 68.47
+        )
+
+)
+
+2023-12-12 10:55:51 - DEBUG --> createOrFindCarrier 13: 13
+2023-12-12 10:55:52 - DEBUG --> createOrFindCarrier 14: 14
+2023-12-12 10:55:52 - DEBUG --> VALIDATE ORDER
+2023-12-12 10:55:52 - DEBUG --> 38 ('ID CART')
+2023-12-12 10:55:53 - DEBUG --> Num Boxes: 0
+2023-12-12 10:55:53 - DEBUG --> No rates cache found for d5bf6257d7ff4a21a9d87a00f9fe7de6 and cart 
+2023-12-12 10:55:53 - DEBUG --> ESTIMATESHIPPING
+2023-12-12 10:55:53 - DEBUG -->  ('ESTIMATESHIPPING ITEMS')
+2023-12-12 10:55:53 - DEBUG --> 2023-12-12T10:55:53Z - ESTIMATE SHIPPING
+
+2023-12-12 10:55:53 - DEBUG --> 2023-12-12T10:55:53Z - ESTIMATE SHIPPING ARGS
+
+2023-12-12 10:55:53 - DEBUG --> 2023-12-12T10:55:53Z - stdClass Object
+(
+    [RequestContainer] => stdClass Object
+        (
+            [System] => IT
+            [Credentials] => stdClass Object
+                (
+                    [Username] => zWex5VSB36vldd4CKVTE
+                    [Passphrase] => PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv
+                )
+
+            [InternalReferenceID] => 8SpKEp4Ft9
+            [ShippingParameters] => stdClass Object
+                (
+                    [DestinationInfo] => stdClass Object
+                        (
+                            [ZipCode] => 20122
+                            [City] => MI
+                            [Country] => IT
+                        )
+
+                    [ShipType] => EXPORT
+                    [PackageType] => GENERIC
+                    [Items] => Array
+                        (
+                        )
+
+                    [Insurance] => 
+                )
+
+        )
+
+)
+
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - ESTIMATE SHIPPING RESPONSE
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><ns3:ShippingOptionsRequestResponse xmlns:ns3="http://www.onlinembe.eu/ws/"><RequestContainer><InternalReferenceID>8SpKEp4Ft9</InternalReferenceID><Status>ERROR</Status><Errors><Error><Id>5</Id><ErrorCode>SOR_005</ErrorCode><Description>Missing item/items</Description></Error></Errors></RequestContainer></ns3:ShippingOptionsRequestResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - ESTIMATE SHIPPING ERRORS
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - stdClass Object
+(
+    [Error] => stdClass Object
+        (
+            [Id] => 5
+            [ErrorCode] => SOR_005
+            [Description] => Missing item/items
+        )
+
+)
+
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - ESTIMATE SHIPPING RESULT
+
+2023-12-12 10:55:54 - DEBUG --> 2023-12-12T10:55:54Z - 
+
+2023-12-12 10:55:54 - DEBUG --> Storing rates cache for d5bf6257d7ff4a21a9d87a00f9fe7de6 and cart 
+2023-12-12 10:55:54 - DEBUG --> Rates cache: 

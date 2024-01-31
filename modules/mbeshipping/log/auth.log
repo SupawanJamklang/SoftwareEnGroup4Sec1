@@ -1,0 +1,96 @@
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:50: AuthAPI::retrieveAPIKeys - Processing STEP 1...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:51: Array
+(
+    [url] => https://api.dev.mbehub.cloud.mbeglobal.io/oauth/token
+    [content_type] => application/json;charset=UTF-8
+    [http_code] => 200
+    [header_size] => 687
+    [request_size] => 563
+    [filetime] => -1
+    [ssl_verify_result] => 0
+    [redirect_count] => 0
+    [total_time] => 0.515156
+    [namelookup_time] => 0.125252
+    [connect_time] => 0.136533
+    [pretransfer_time] => 0.174284
+    [size_upload] => 79
+    [size_download] => 3068
+    [speed_download] => 5955
+    [speed_upload] => 153
+    [download_content_length] => 3068
+    [upload_content_length] => 79
+    [starttransfer_time] => 0.515085
+    [redirect_time] => 0
+    [redirect_url] => 
+    [primary_ip] => 92.123.181.98
+    [certinfo] => Array
+        (
+        )
+
+    [primary_port] => 443
+    [local_ip] => 10.4.72.150
+    [local_port] => 42408
+    [http_version] => 2
+    [protocol] => 2
+    [ssl_verifyresult] => 0
+    [scheme] => HTTPS
+)
+
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:51: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyLWxhbmd1YWdlIjoiZW4iLCJyb2xlIjpudWxsLCJwZXJtaXNzaW9ucy1zaXRlIjpbXSwidXNlcl9uYW1lIjoiY29uZm9ydGlfdGVzdC5pdDAwMDEubW9sIiwicGFyZW50LWxlZ2FsLWVudGl0eS1pZCI6bnVsbCwidHlwZSI6IlVTRVIiLCJhdXRob3JpdGllcyI6WyIvb2F1dGgvdmc3LXRva2VuOlIiLCIvb2F1dGgvcWFwbGEtdG9rZW46UiIsIi9vYXV0aC9hdWN0aW9uLWhvdXNlLXRva2VuOlIiLCIvb2F1dGgvcHJpbnRzcGVhay10b2tlbjpSIiwiL29hdXRoL3ZnNy1taW5lOlIiLCIvb2F1dGgvcHJpbnRzcGVhay1taW5lOlIiLCIvb2F1dGgvcWFwbGEtbWluZTpSIiwiL29hdXRoL21pbmU6UiIsIi9vYXV0aC9zZWxlY3Qtc3RvcmU6VyIsIi9vYXV0aC9lbnJpY2hlZE1pbmU6UiIsIi9vYXV0aC9hdWN0aW9uLWhvdXNlLW1pbmU6UiIsIi9vYXV0aC9tYmVsYWItdG9rZW46UiIsIi9vYXV0aC9tYmVsYWItbWluZTpSIiwiL29hdXRoL3Jldm9rZTpXIl0sImNsaWVudF9pZCI6InRlbGVwb3J0LWZlIiwieC1wcm94eS11c2VyIjpudWxsLCJsZWdhbC1lbnRpdHktYWRkcmVzcy1pZCI6bnVsbCwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImltcGVyc29uYXRvciI6bnVsbCwidXNlci1pZGVudGlmaWVyIjoiIiwidXNlci1lbmFibGVkLXN0b3JlcyI6W10sImV4cCI6MTcwMTczNDk5MSwibGVnYWwtZW50aXR5LWFkZHJlc3MtdHlwZSI6bnVsbCwianRpIjoiMmEzMWEwNTktMDRjNi00N2ZiLTkzYTYtNGYxZWI3YmFlNjlmIiwiZW1haWwiOiJuc2NhY2NpYW5vY2UrY29uZm9ydGllbm5lc2ltb0BtYmVnbG9iYWwuY29tIiwidGVuYW50IjoxLCJ4LXByb3h5LXJvbGVzIjpudWxsLCJ1c2VybmFtZSI6ImNvbmZvcnRpX3Rlc3QuaXQwMDAxLm1vbCJ9.9V98xy3LQm4lnUWHIhyfsx6ti_mtCOEQyHshjojGG08","token_type":"bearer","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyLWxhbmd1YWdlIjoiZW4iLCJyb2xlIjpudWxsLCJwZXJtaXNzaW9ucy1zaXRlIjpbXSwidXNlcl9uYW1lIjoiY29uZm9ydGlfdGVzdC5pdDAwMDEubW9sIiwicGFyZW50LWxlZ2FsLWVudGl0eS1pZCI6bnVsbCwidHlwZSI6IlVTRVIiLCJhdXRob3JpdGllcyI6WyIvb2F1dGgvdmc3LXRva2VuOlIiLCIvb2F1dGgvcWFwbGEtdG9rZW46UiIsIi9vYXV0aC9hdWN0aW9uLWhvdXNlLXRva2VuOlIiLCIvb2F1dGgvcHJpbnRzcGVhay10b2tlbjpSIiwiL29hdXRoL3ZnNy1taW5lOlIiLCIvb2F1dGgvcHJpbnRzcGVhay1taW5lOlIiLCIvb2F1dGgvcWFwbGEtbWluZTpSIiwiL29hdXRoL21pbmU6UiIsIi9vYXV0aC9zZWxlY3Qtc3RvcmU6VyIsIi9vYXV0aC9lbnJpY2hlZE1pbmU6UiIsIi9vYXV0aC9hdWN0aW9uLWhvdXNlLW1pbmU6UiIsIi9vYXV0aC9tYmVsYWItdG9rZW46UiIsIi9vYXV0aC9tYmVsYWItbWluZTpSIiwiL29hdXRoL3Jldm9rZTpXIl0sImNsaWVudF9pZCI6InRlbGVwb3J0LWZlIiwieC1wcm94eS11c2VyIjpudWxsLCJsZWdhbC1lbnRpdHktYWRkcmVzcy1pZCI6bnVsbCwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6IjJhMzFhMDU5LTA0YzYtNDdmYi05M2E2LTRmMWViN2JhZTY5ZiIsImltcGVyc29uYXRvciI6bnVsbCwidXNlci1pZGVudGlmaWVyIjoiIiwidXNlci1lbmFibGVkLXN0b3JlcyI6W10sImV4cCI6MTcwMTc1NjU5MSwibGVnYWwtZW50aXR5LWFkZHJlc3MtdHlwZSI6bnVsbCwianRpIjoiNWI5OWIzM2YtYzRiYy00MDAyLWIwNTgtMDkyNjA4MzgxMWIxIiwiZW1haWwiOiJuc2NhY2NpYW5vY2UrY29uZm9ydGllbm5lc2ltb0BtYmVnbG9iYWwuY29tIiwidGVuYW50IjoxLCJ4LXByb3h5LXJvbGVzIjpudWxsLCJ1c2VybmFtZSI6ImNvbmZvcnRpX3Rlc3QuaXQwMDAxLm1vbCJ9._aDCpBFtCXbgvFrJc1Ycf4eEaRfdrQzjO2sSw7O9HC0","expires_in":21599,"scope":"read write","user-language":"en","role":null,"permissions-site":[],"parent-legal-entity-id":null,"type":"USER","x-proxy-user":null,"legal-entity-address-id":null,"impersonator":null,"user-identifier":"","user-enabled-stores":[],"legal-entity-address-type":null,"email":"nscaccianoce+confortiennesimo@mbeglobal.com","tenant":1,"x-proxy-roles":null,"username":"conforti_test.it0001.mol","jti":"2a31a059-04c6-47fb-93a6-4f1eb7bae69f"}
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:51: AuthAPI::retrieveAPIKeys - Step 1 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:51: AuthAPI::retrieveAPIKeys - Processing STEP 2...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:52: AuthAPI::retrieveAPIKeys - Step 2 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:52: AuthAPI::retrieveAPIKeys - Processing STEP 3...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:52: User role: ONLINEMBE_USER
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:52: AuthAPI::retrieveAPIKeys - Step 3 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:52: AuthAPI::retrieveAPIKeys - Processing STEP 4...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: {"code":"APIKEY_ROLE_LEGAL_ENTITY_ALREADY_EXISTS","type":"ERROR","message":"Another active API key/pair associated to this role/legalEntity already exists"}
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Step 4 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Processing STEP 1...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: Array
+(
+    [url] => https://api.dev.mbehub.cloud.mbeglobal.io/oauth/token
+    [content_type] => application/json;charset=UTF-8
+    [http_code] => 200
+    [header_size] => 686
+    [request_size] => 563
+    [filetime] => -1
+    [ssl_verify_result] => 0
+    [redirect_count] => 0
+    [total_time] => 0.28022
+    [namelookup_time] => 2.5E-5
+    [connect_time] => 0.011084
+    [pretransfer_time] => 0.042214
+    [size_upload] => 79
+    [size_download] => 4815
+    [speed_download] => 17182
+    [speed_upload] => 281
+    [download_content_length] => 4815
+    [upload_content_length] => 79
+    [starttransfer_time] => 0.28019
+    [redirect_time] => 0
+    [redirect_url] => 
+    [primary_ip] => 92.123.181.98
+    [certinfo] => Array
+        (
+        )
+
+    [primary_port] => 443
+    [local_ip] => 10.4.72.150
+    [local_port] => 42424
+    [http_version] => 2
+    [protocol] => 2
+    [ssl_verifyresult] => 0
+    [scheme] => HTTPS
+)
+
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: {"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyLWxhbmd1YWdlIjoiZW4iLCJyb2xlIjoiT05MSU5FTUJFX1VTRVIiLCJwZXJtaXNzaW9ucy1zaXRlIjpbXSwidXNlcl9uYW1lIjoiY29uZm9ydGlfdGVzdC5pdDAwMDEubW9sIiwibGVnYWwtZW50aXR5LWlkIjo2MDgyMSwicGFyZW50LWxlZ2FsLWVudGl0eS1pZCI6MSwidHlwZSI6IlVTRVIiLCJhdXRob3JpdGllcyI6WyI2MDgyMTpDVVNUT01FUjovY3VzdG9tZXJzLyoqOlIiLCIvb2F1dGgvdmc3LXRva2VuOlIiLCI2MDgyMTpDVVNUT01FUjovZXNoaXAtYXBpLyoqOlciLCI2MDgyMTpDVVNUT01FUjovY3VzdG9tZXJzLyoqOlciLCI2MDgyMTpDVVNUT01FUjovc2hpcG1lbnRzLyoqOlIiLCIvb2F1dGgvYXVjdGlvbi1ob3VzZS10b2tlbjpSIiwiL29hdXRoL3ByaW50c3BlYWstdG9rZW46UiIsIjYwODIxOkNVU1RPTUVSOi9hZ2VudHMvKio6UiIsIi9vYXV0aC9wcmludHNwZWFrLW1pbmU6UiIsIi9vYXV0aC9taW5lOlIiLCIvb2F1dGgvZW5yaWNoZWRNaW5lOlIiLCIvb2F1dGgvbWJlbGFiLXRva2VuOlIiLCIvb2F1dGgvbWJlbGFiLW1pbmU6UiIsIjYwODIxOkNVU1RPTUVSOi93cy8qKjpXIiwiL29hdXRoL3Jldm9rZTpXIiwiL29hdXRoL3FhcGxhLXRva2VuOlIiLCI2MDgyMTpDVVNUT01FUjovdGVuYW50cy8qKjpSIiwiNjA4MjE6Q1VTVE9NRVI6L2ludm9pY2UvKio6VyIsIjYwODIxOkNVU1RPTUVSOi9wcmljZWxpc3QvKio6UiIsIjYwODIxOkNVU1RPTUVSOi9wcmljZWxpc3QvKio6VyIsIjYwODIxOkNVU1RPTUVSOi9lc2hpcC8qKjpXIiwiL29hdXRoL3ZnNy1taW5lOlIiLCIvb2F1dGgvcWFwbGEtbWluZTpSIiwiNjA4MjE6Q1VTVE9NRVI6L3NoaXBtZW50cy8qKjpXIiwiL29hdXRoL3NlbGVjdC1zdG9yZTpXIiwiL29hdXRoL2F1Y3Rpb24taG91c2UtbWluZTpSIiwiNjA4MjE6Q1VTVE9NRVI6L2F1dGgtcmVnaXN0cnkvKio6UiIsIjYwODIxOkNVU1RPTUVSOi9hdXRoLXJlZ2lzdHJ5L2FwaWtleTpXIiwiNjA4MjE6Q1VTVE9NRVI6L3N0b3Jlcy8qKjpSIl0sImNsaWVudF9pZCI6InRlbGVwb3J0LWZlIiwieC1wcm94eS11c2VyIjoiY3UwMDAwMDYwODIxIiwibGVnYWwtZW50aXR5LWFkZHJlc3MtaWQiOm51bGwsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJpbXBlcnNvbmF0b3IiOm51bGwsInVzZXItaWRlbnRpZmllciI6IiIsInVzZXItZW5hYmxlZC1zdG9yZXMiOltdLCJleHAiOjE3MDE3MzQ5OTIsImxlZ2FsLWVudGl0eS10eXBlIjoiQ1VTVE9NRVIiLCJsZWdhbC1lbnRpdHktYWRkcmVzcy10eXBlIjpudWxsLCJqdGkiOiJmZjNkMDAwYS01MGEyLTRhYzctYmJjNC01NjY1ZjIwYTI4ZDgiLCJlbWFpbCI6Im5zY2FjY2lhbm9jZStjb25mb3J0aWVubmVzaW1vQG1iZWdsb2JhbC5jb20iLCJ0ZW5hbnQiOjEsIngtcHJveHktcm9sZXMiOiJtYmVfY3VzdG9tZXIiLCJ1c2VybmFtZSI6ImNvbmZvcnRpX3Rlc3QuaXQwMDAxLm1vbCIsImN1c3RvbWVyLW1iZS1pZGVudGlmaWVyIjoiMDAwMDA2MDgyMSJ9.jLSQZ4heaH_Lcw2OkJoRATLn2Wuc4F6NlnxIUXD58R8","token_type":"bearer","refresh_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiT05MSU5FTUJFX1VTRVIiLCJ1c2VyX25hbWUiOiJjb25mb3J0aV90ZXN0Lml0MDAwMS5tb2wiLCJ0eXBlIjoiVVNFUiIsImNsaWVudF9pZCI6InRlbGVwb3J0LWZlIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sImF0aSI6ImZmM2QwMDBhLTUwYTItNGFjNy1iYmM0LTU2NjVmMjBhMjhkOCIsInVzZXItaWRlbnRpZmllciI6IiIsInVzZXItZW5hYmxlZC1zdG9yZXMiOltdLCJleHAiOjE3MDE3NTY1OTIsImxlZ2FsLWVudGl0eS1hZGRyZXNzLXR5cGUiOm51bGwsImp0aSI6IjI2NDQzYTAyLTIwNzktNGRkNS05YmZjLTc3Y2E4Y2U1M2VkZCIsImVtYWlsIjoibnNjYWNjaWFub2NlK2NvbmZvcnRpZW5uZXNpbW9AbWJlZ2xvYmFsLmNvbSIsInRlbmFudCI6MSwidXNlci1sYW5ndWFnZSI6ImVuIiwicGVybWlzc2lvbnMtc2l0ZSI6W10sImxlZ2FsLWVudGl0eS1pZCI6NjA4MjEsInBhcmVudC1sZWdhbC1lbnRpdHktaWQiOjEsImF1dGhvcml0aWVzIjpbIjYwODIxOkNVU1RPTUVSOi9jdXN0b21lcnMvKio6UiIsIi9vYXV0aC92ZzctdG9rZW46UiIsIjYwODIxOkNVU1RPTUVSOi9lc2hpcC1hcGkvKio6VyIsIjYwODIxOkNVU1RPTUVSOi9jdXN0b21lcnMvKio6VyIsIjYwODIxOkNVU1RPTUVSOi9zaGlwbWVudHMvKio6UiIsIi9vYXV0aC9hdWN0aW9uLWhvdXNlLXRva2VuOlIiLCIvb2F1dGgvcHJpbnRzcGVhay10b2tlbjpSIiwiNjA4MjE6Q1VTVE9NRVI6L2FnZW50cy8qKjpSIiwiL29hdXRoL3ByaW50c3BlYWstbWluZTpSIiwiL29hdXRoL21pbmU6UiIsIi9vYXV0aC9lbnJpY2hlZE1pbmU6UiIsIi9vYXV0aC9tYmVsYWItdG9rZW46UiIsIi9vYXV0aC9tYmVsYWItbWluZTpSIiwiNjA4MjE6Q1VTVE9NRVI6L3dzLyoqOlciLCIvb2F1dGgvcmV2b2tlOlciLCIvb2F1dGgvcWFwbGEtdG9rZW46UiIsIjYwODIxOkNVU1RPTUVSOi90ZW5hbnRzLyoqOlIiLCI2MDgyMTpDVVNUT01FUjovaW52b2ljZS8qKjpXIiwiNjA4MjE6Q1VTVE9NRVI6L3ByaWNlbGlzdC8qKjpSIiwiNjA4MjE6Q1VTVE9NRVI6L3ByaWNlbGlzdC8qKjpXIiwiNjA4MjE6Q1VTVE9NRVI6L2VzaGlwLyoqOlciLCIvb2F1dGgvdmc3LW1pbmU6UiIsIi9vYXV0aC9xYXBsYS1taW5lOlIiLCI2MDgyMTpDVVNUT01FUjovc2hpcG1lbnRzLyoqOlciLCIvb2F1dGgvc2VsZWN0LXN0b3JlOlciLCIvb2F1dGgvYXVjdGlvbi1ob3VzZS1taW5lOlIiLCI2MDgyMTpDVVNUT01FUjovYXV0aC1yZWdpc3RyeS8qKjpSIiwiNjA4MjE6Q1VTVE9NRVI6L2F1dGgtcmVnaXN0cnkvYXBpa2V5OlciLCI2MDgyMTpDVVNUT01FUjovc3RvcmVzLyoqOlIiXSwieC1wcm94eS11c2VyIjoiY3UwMDAwMDYwODIxIiwibGVnYWwtZW50aXR5LWFkZHJlc3MtaWQiOm51bGwsImltcGVyc29uYXRvciI6bnVsbCwibGVnYWwtZW50aXR5LXR5cGUiOiJDVVNUT01FUiIsIngtcHJveHktcm9sZXMiOiJtYmVfY3VzdG9tZXIiLCJ1c2VybmFtZSI6ImNvbmZvcnRpX3Rlc3QuaXQwMDAxLm1vbCIsImN1c3RvbWVyLW1iZS1pZGVudGlmaWVyIjoiMDAwMDA2MDgyMSJ9.XxwQa2A9KOZDKjXmVxJB5HhHOsD5BDNCD4A5gCzGGCc","expires_in":21599,"scope":"read write","user-language":"en","role":"ONLINEMBE_USER","permissions-site":[],"legal-entity-id":60821,"parent-legal-entity-id":1,"type":"USER","x-proxy-user":"cu0000060821","legal-entity-address-id":null,"impersonator":null,"user-identifier":"","user-enabled-stores":[],"legal-entity-type":"CUSTOMER","legal-entity-address-type":null,"email":"nscaccianoce+confortiennesimo@mbeglobal.com","tenant":1,"x-proxy-roles":"mbe_customer","username":"conforti_test.it0001.mol","customer-mbe-identifier":"0000060821","jti":"ff3d000a-50a2-4ac7-bbc4-5665f20a28d8"}
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Step 1 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Processing STEP 2...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Step 2 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Processing STEP 3...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: User role: ONLINEMBE_USER
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Step 3 OK
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:53: AuthAPI::retrieveAPIKeys - Processing STEP 4...
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:54: {"apiKey":"zWex5VSB36vldd4CKVTE","apiSecret":"PkVda7TIirwU5N47Q6VNo2mM00O7iQyhPwSmifRv","idRole":7,"idLegalEntity":51241,"tenantId":1,"username":"conforti_test.it0001.mol"}
+*DEBUG* 	v8.0.4	2023/12/04 - 19:09:54: AuthAPI::retrieveAPIKeys - Step 4 OK

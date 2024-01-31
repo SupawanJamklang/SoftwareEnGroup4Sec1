@@ -1,0 +1,143 @@
+/**
+ * 2017-2022 PrestaShop
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ *
+ * @author    MBE Worldwide
+ * @copyright 2017-2024 MBE Worldwide
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ * International Registered Trademark & Property of MBE Worldwide
+ */
+
+.panel-heading-manual {
+    float:right;
+}
+
+#mbeshipping_welcome_page div.first_banner_landing {
+    text-align: center;
+}
+
+#mbeshipping_welcome_page div.first_banner_landing h1.title_txt_banner{
+    font-size: 50px;
+    font-weight: 600;
+    color: black;
+}
+
+#mbeshipping_welcome_page div.first_banner_landing h2.subtitle_txt_banner{
+    font-size: 40px;
+    font-weight: 600;
+    color: white !important;
+}
+
+#mbeshipping_welcome_page div.first_banner_landing span.txt-red{
+    color: red;
+}
+
+#mbeshipping_welcome_page div.first_banner_landing {
+    height: 400px;
+    background: no-repeat;
+}
+
+#mbeshipping_welcome_page div.second_section_welcome{
+    border-top: 1px solid black;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#mbeshipping_welcome_page .first_banner_landing {
+    display: flex;
+    align-items: center;
+}
+#mbeshipping_welcome_page .txt_banner_lading {
+    margin: 0 auto;
+}
+#mbeshipping_welcome_page .title_txt_banner, .subtitle_txt_banner {
+    margin: 0;
+    text-align: center;
+}
+#mbeshipping_welcome_page div.content-wrapper div.column-txt-right{
+    padding: 2rem;
+}
+
+#mbeshipping_welcome_page div.text-align-left {
+    justify-content: left !important;
+}
+
+/*#mbeshipping_welcome_page.welcome-page .second_section_welcome .column-img-left ,*/
+#mbeshipping_welcome_page.welcome-page .banner-welcome{
+    width: 100px;
+}
+
+/* mobile structure */
+@media (max-width: 500px) {
+    #mbeshipping_welcome_page div.first_banner_landing{
+        background-size: contain;
+    }
+    #mbeshipping_welcome_page div.first_banner_landing {
+        height: 140px;
+    }
+    #mbeshipping_welcome_page h1{
+        font-size: 25px !important;
+    }
+    #mbeshipping_welcome_page h2{
+        font-size: 20px !important;
+    }
+    #mbeshipping_welcome_page h3{
+        font-size: 18px !important;
+    }
+    #mbeshipping_welcome_page h3{
+        font-size: 16px !important;
+    }
+    #mbeshipping_welcome_page.welcome-page .content-wrapper {
+        padding: 0 !important;
+    }
+
+    #mbeshipping_welcome_page.welcome-page .row-of-button-mb{
+        text-align: center;
+    }
+
+    #mbeshipping_welcome_page.welcome-page .row-of-button-mb div.col button{
+        min-width: 110px;
+        margin: 5px;
+    }
+    #mbeshipping_welcome_page.welcome-page .banner-welcome{
+        width: 50px;
+    }
+    #mbeshipping_welcome_page.welcome-page .container_img_banner_advantage_welcome{
+        text-align: center;
+    }
+}
+
+#mbeshipping_welcome_page ul.ul-second-section{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#mbeshipping_welcome_page.welcome-page div.first_banner_landing{
+    background-position: center;
+}
+
+#mbeshipping_welcome_page div.second_section_welcome ul.ul-second-section img{
+    margin-right: 5px;
+}
+#mbeshipping_welcome_page.welcome-page .column-img-left {
+    text-align: center;
+    padding: 4rem;
+}
+#mbeshipping_welcome_page.welcome-page .txt_banner_lading {
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7);
+}

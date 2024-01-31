@@ -1,0 +1,15 @@
+imports:
+  - { resource: ./parameters.yml }
+  - { resource: ./presenters.yml }
+
+services:
+  ps_edition_basic.module:
+    class: ps_edition_basic
+    public: true
+    factory: ["Module", "getInstanceByName"]
+    arguments:
+      - "ps_edition_basic"
+
+  PrestaShop\Module\PsEditionBasic\Service\ConfigurationService:
+    class: PrestaShop\Module\PsEditionBasic\Service\ConfigurationService
+    public: true
