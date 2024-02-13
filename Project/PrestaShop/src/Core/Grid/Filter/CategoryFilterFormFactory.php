@@ -83,7 +83,7 @@ final class CategoryFilterFormFactory implements GridFilterFormFactoryInterface
         foreach ($categoryFilterForm as $categoryFormItem) {
             $newCategoryFormBuilder->add(
                 $categoryFormItem->getName(),
-                $categoryFormItem->getConfig()->getType()->getInnerType()::class,
+                get_class($categoryFormItem->getConfig()->getType()->getInnerType()),
                 $categoryFormItem->getConfig()->getOptions()
             );
         }

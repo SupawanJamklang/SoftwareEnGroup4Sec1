@@ -24,7 +24,6 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 use PrestaShop\PrestaShop\Adapter\Manufacturer\ManufacturerProductSearchProvider;
-use PrestaShop\PrestaShop\Adapter\Presenter\Manufacturer\ManufacturerPresenter;
 use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchQuery;
 use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
 
@@ -37,10 +36,7 @@ class ManufacturerControllerCore extends ProductListingFrontController
     protected $manufacturer;
     protected $label;
 
-    /** @var ManufacturerPresenter */
-    protected $manufacturerPresenter;
-
-    public function canonicalRedirection(string $canonicalURL = '')
+    public function canonicalRedirection($canonicalURL = '')
     {
         if (Validate::isLoadedObject($this->manufacturer)) {
             parent::canonicalRedirection($this->context->link->getManufacturerLink($this->manufacturer));
@@ -49,11 +45,6 @@ class ManufacturerControllerCore extends ProductListingFrontController
         }
     }
 
-    /**
-     * Returns canonical URL for current manufacturer or a manufacturer list
-     *
-     * @return string
-     */
     public function getCanonicalURL(): string
     {
         if (Validate::isLoadedObject($this->manufacturer)) {
@@ -80,9 +71,6 @@ class ManufacturerControllerCore extends ProductListingFrontController
                 $this->canonicalRedirection();
             }
         }
-
-        // Initialize presenter, we will use it for all cases
-        $this->manufacturerPresenter = new ManufacturerPresenter($this->context->link);
 
         parent::init();
     }
@@ -126,9 +114,6 @@ class ManufacturerControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Gets the product search query for the controller. This is a set of information that
-     * a filtering module or the default provider will use to fetch our products.
-     *
      * @return ProductSearchQuery
      *
      * @throws \PrestaShop\PrestaShop\Core\Product\Search\Exception\InvalidSortOrderDirectionException
@@ -145,8 +130,6 @@ class ManufacturerControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Default product search provider used if no filtering module stood up for the job
-     *
      * @return ManufacturerProductSearchProvider
      */
     protected function getDefaultProductSearchProvider()
@@ -162,24 +145,21 @@ class ManufacturerControllerCore extends ProductListingFrontController
      */
     protected function assignManufacturer()
     {
-        $manufacturerVar = $this->manufacturerPresenter->present(
-            $this->manufacturer,
-            $this->context->language
-        );
+        $manufacturerVar = $this->objectPresenter->present($this->manufacturer);
 
         // Chained hook call - if multiple modules are hooked here, they will receive the result of the previous one as a parameter
         $filteredManufacturer = Hook::exec(
             'filterManufacturerContent',
-            ['object' => $manufacturerVar],
-            $id_module = null,
-            $array_return = false,
-            $check_exceptions = true,
-            $use_push = false,
-            $id_shop = null,
-            $chain = true
+            ['filtered_content' => $manufacturerVar['description']],
+            null,
+            false,
+            true,
+            false,
+            null,
+            true
         );
-        if (!empty($filteredManufacturer['object'])) {
-            $manufacturerVar = $filteredManufacturer['object'];
+        if (!empty($filteredManufacturer)) {
+            $manufacturerVar['description'] = $filteredManufacturer;
         }
 
         $this->context->smarty->assign([
@@ -199,16 +179,16 @@ class ManufacturerControllerCore extends ProductListingFrontController
                 // Chained hook call - if multiple modules are hooked here, they will receive the result of the previous one as a parameter
                 $filteredManufacturer = Hook::exec(
                     'filterManufacturerContent',
-                    ['object' => $manufacturer],
-                    $id_module = null,
-                    $array_return = false,
-                    $check_exceptions = true,
-                    $use_push = false,
-                    $id_shop = null,
-                    $chain = true
+                    ['filtered_content' => $manufacturer['text']],
+                    null,
+                    false,
+                    true,
+                    false,
+                    null,
+                    true
                 );
-                if (!empty($filteredManufacturer['object'])) {
-                    $manufacturersVar[$k] = $filteredManufacturer['object'];
+                if (!empty($filteredManufacturer)) {
+                    $manufacturersVar[$k]['text'] = $filteredManufacturer;
                 }
             }
         }
@@ -221,15 +201,17 @@ class ManufacturerControllerCore extends ProductListingFrontController
     public function getTemplateVarManufacturers()
     {
         $manufacturers = Manufacturer::getManufacturers(true, $this->context->language->id);
+        $manufacturers_for_display = [];
 
-        foreach ($manufacturers as &$manufacturer) {
-            $manufacturer = $this->manufacturerPresenter->present(
-                $manufacturer,
-                $this->context->language
-            );
+        foreach ($manufacturers as $manufacturer) {
+            $manufacturers_for_display[$manufacturer['id_manufacturer']] = $manufacturer;
+            $manufacturers_for_display[$manufacturer['id_manufacturer']]['text'] = $manufacturer['short_description'];
+            $manufacturers_for_display[$manufacturer['id_manufacturer']]['image'] = $this->context->link->getManufacturerImageLink($manufacturer['id_manufacturer'], 'small_default');
+            $manufacturers_for_display[$manufacturer['id_manufacturer']]['url'] = $this->context->link->getManufacturerLink($manufacturer['id_manufacturer']);
+            $manufacturers_for_display[$manufacturer['id_manufacturer']]['nb_products'] = $manufacturer['nb_products'] > 1 ? ($this->trans('%number% products', ['%number%' => $manufacturer['nb_products']], 'Shop.Theme.Catalog')) : $this->trans('%number% product', ['%number%' => $manufacturer['nb_products']], 'Shop.Theme.Catalog');
         }
 
-        return $manufacturers;
+        return $manufacturers_for_display;
     }
 
     public function getListingLabel()
@@ -255,12 +237,6 @@ class ManufacturerControllerCore extends ProductListingFrontController
         return $breadcrumb;
     }
 
-    /**
-     * Initializes a set of commonly used variables related to the current page, available for use
-     * in the template. @see FrontController::assignGeneralPurposeVariables for more information.
-     *
-     * @return array
-     */
     public function getTemplateVarPage()
     {
         $page = parent::getTemplateVarPage();

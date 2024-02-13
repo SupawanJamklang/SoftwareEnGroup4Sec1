@@ -30,11 +30,6 @@ class UploadControllerCore extends GetFileController
 {
     private $filename;
 
-    /**
-     * Initialize the controller.
-     *
-     * @see FrontController::init()
-     */
     public function init()
     {
         FrontController::init();

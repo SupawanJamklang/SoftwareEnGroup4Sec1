@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Cart\QueryHandler;
 
 use Customer;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Exception\CartConstraintException;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Exception\CartException;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Exception\CartNotFoundException;
@@ -40,7 +39,6 @@ use PrestaShopException;
 /**
  * Gets last empty cart for customer using legacy object model
  */
-#[AsQueryHandler]
 final class GetLastEmptyCustomerCartHandler implements GetLastEmptyCustomerCartHandlerInterface
 {
     /**

@@ -27,13 +27,12 @@
 namespace PrestaShopBundle\Security\Admin;
 
 use Symfony\Component\Security\Core\User\EquatableInterface;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * Class Employee is used for Symfony security components to authenticate the user.
  */
-class Employee implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface
+class Employee implements UserInterface, EquatableInterface
 {
     /**
      * @var int
@@ -96,7 +95,7 @@ class Employee implements UserInterface, EquatableInterface, PasswordAuthenticat
      *
      * @return string
      */
-    public function getPassword(): ?string
+    public function getPassword()
     {
         return $this->password;
     }
@@ -119,11 +118,6 @@ class Employee implements UserInterface, EquatableInterface, PasswordAuthenticat
     public function getUsername()
     {
         return $this->username;
-    }
-
-    public function getUserIdentifier(): string
-    {
-        return $this->getUsername();
     }
 
     /**

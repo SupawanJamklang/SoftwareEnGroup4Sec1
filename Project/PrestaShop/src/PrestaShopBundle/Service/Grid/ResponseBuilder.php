@@ -131,7 +131,9 @@ class ResponseBuilder
             }
         }
 
-        return new RedirectResponse($this->router->generate($redirectRoute, $redirectParams));
+        $redirectUrl = $this->router->generate($redirectRoute, $redirectParams);
+
+        return new RedirectResponse($redirectUrl, 302);
     }
 
     /**

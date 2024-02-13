@@ -26,22 +26,16 @@
 
 /* Debug only */
 if (!defined('_PS_MODE_DEV_')) {
-    define('_PS_MODE_DEV_', true);
+define('_PS_MODE_DEV_', false);
 }
 /* Compatibility warning */
 if (!defined('_PS_DISPLAY_COMPATIBILITY_WARNING_')) {
-    define('_PS_DISPLAY_COMPATIBILITY_WARNING_', true);
-}
-if (!defined('_PS_DISPLAY_ONLY_ERRORS_')) {
-    define('_PS_DISPLAY_ONLY_ERRORS_', false);
+define('_PS_DISPLAY_COMPATIBILITY_WARNING_', false);
 }
 if (_PS_MODE_DEV_ === true) {
     $errorReportingLevel = E_ALL | E_STRICT;
     if (_PS_DISPLAY_COMPATIBILITY_WARNING_ === false) {
         $errorReportingLevel = $errorReportingLevel & ~E_DEPRECATED & ~E_USER_DEPRECATED;
-    }
-    if (_PS_DISPLAY_ONLY_ERRORS_ !== false) {
-        $errorReportingLevel = $errorReportingLevel & ~E_WARNING & ~E_NOTICE;
     }
     @ini_set('display_errors', 'on');
     @error_reporting($errorReportingLevel);
@@ -62,9 +56,6 @@ if (!defined('_PS_SMARTY_CACHING_TYPE_')) {
 }
 if (!defined('_PS_ALLOW_MULTI_STATEMENTS_QUERIES_')) {
     define('_PS_ALLOW_MULTI_STATEMENTS_QUERIES_', false);
-}
-if (!defined('_PS_API_FORCE_TLS_VERSION_')) {
-    define('_PS_API_FORCE_TLS_VERSION_', true);
 }
 
 if (!defined('_PS_DO_NOT_LOAD_CONFIGURATION_')) {
@@ -234,5 +225,9 @@ define('_PS_SMARTY_FORCE_COMPILE_', 2);
 define('_PS_SMARTY_CONSOLE_CLOSE_', 0);
 define('_PS_SMARTY_CONSOLE_OPEN_BY_URL_', 1);
 define('_PS_SMARTY_CONSOLE_OPEN_', 2);
+
+if (!defined('_PS_JQUERY_VERSION_')) {
+    define('_PS_JQUERY_VERSION_', '3.4.1');
+}
 
 define('_PS_CACHE_CA_CERT_FILE_', _PS_CACHE_DIR_.'cacert.pem');

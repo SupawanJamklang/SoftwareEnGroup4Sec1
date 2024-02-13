@@ -52,11 +52,6 @@ class FiltersProcessor
     private $hookDispatcher;
 
     /**
-     * @var string|null
-     */
-    public $className;
-
-    /**
      * @param LegacyContext $legacyContext
      * @param HookDispatcherInterface $hookDispatcher
      */

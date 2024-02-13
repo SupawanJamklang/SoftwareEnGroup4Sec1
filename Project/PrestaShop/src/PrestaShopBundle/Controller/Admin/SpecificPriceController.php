@@ -33,6 +33,7 @@ use PrestaShop\PrestaShop\Core\Foundation\Database\EntityDataInconsistencyExcept
 use PrestaShop\PrestaShop\Core\Foundation\Database\EntityNotFoundException;
 use PrestaShopBundle\Form\Admin\Product\ProductSpecificPrice as SpecificPriceFormType;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -117,15 +118,17 @@ class SpecificPriceController extends FrameworkBundleAdminController
     /**
      * Get one specific price list for a product.
      *
+     * @Template("@PrestaShop/Admin/Product/ProductPage/Forms/form_specific_price.html.twig")
+     *
      * @AdminSecurity(
      *     "is_granted('create', 'ADMINPRODUCTS_') && is_granted('update', 'ADMINPRODUCTS_')"
      * )
      *
      * @param int $idSpecificPrice
      *
-     * @return Response
+     * @return Response|array
      */
-    public function getUpdateFormAction($idSpecificPrice): Response
+    public function getUpdateFormAction($idSpecificPrice)
     {
         /** @var AdminProductWrapper $adminProductWrapper */
         $adminProductWrapper = $this->get(AdminProductWrapper::class);
@@ -157,11 +160,11 @@ class SpecificPriceController extends FrameworkBundleAdminController
         $productAdapter = $this->get('prestashop.adapter.data_provider.product');
         $product = $productAdapter->getProduct((int) $price->id_product);
 
-        return $this->render('@PrestaShop/Admin/Product/ProductPage/Forms/form_specific_price.html.twig', [
+        return [
             'form' => $form->createView()->offsetGet('modal'),
             'has_combinations' => ($product->hasCombinations()),
             'is_modal' => true,
-        ]);
+        ];
     }
 
     /**

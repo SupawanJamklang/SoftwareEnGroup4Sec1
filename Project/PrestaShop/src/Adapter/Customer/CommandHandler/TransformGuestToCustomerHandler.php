@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Customer\CommandHandler;
 
 use Customer;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Command\TransformGuestToCustomerCommand;
 use PrestaShop\PrestaShop\Core\Domain\Customer\CommandHandler\TransformGuestToCustomerHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Exception\CustomerNotFoundException;
@@ -39,7 +38,6 @@ use PrestaShop\PrestaShop\Core\Domain\Customer\ValueObject\CustomerId;
  *
  * @internal
  */
-#[AsCommandHandler]
 final class TransformGuestToCustomerHandler implements TransformGuestToCustomerHandlerInterface
 {
     /**
@@ -85,8 +83,6 @@ final class TransformGuestToCustomerHandler implements TransformGuestToCustomerH
     }
 
     /**
-     * Checks if a customer with the same email already exists in database.
-     *
      * @param Customer $customer
      *
      * @throws CustomerTransformationException

@@ -38,11 +38,12 @@ class AddressCore extends ObjectModel
     /** @var int Supplier ID which address belongs to */
     public $id_supplier = null;
 
-    /** @var int Id warehouse the address belongs to
+    /**
+     * @since 1.5.0
      *
-     * @deprecated since 9.0, advanced stock management has been completely removed
+     * @var int Warehouse ID which address belongs to
      */
-    public $id_warehouse = 0;
+    public $id_warehouse = null;
 
     /** @var int Country ID */
     public $id_country;
@@ -101,9 +102,6 @@ class AddressCore extends ObjectModel
     /** @var bool True if address has been deleted (staying in database as deleted) */
     public $deleted = false;
 
-    /** @var int|null */
-    public $id_address;
-
     /** @var array Zone IDs cache */
     protected static $_idZones = [];
 
@@ -155,6 +153,7 @@ class AddressCore extends ObjectModel
             'id_customer' => ['xlink_resource' => 'customers'],
             'id_manufacturer' => ['xlink_resource' => 'manufacturers'],
             'id_supplier' => ['xlink_resource' => 'suppliers'],
+            'id_warehouse' => ['xlink_resource' => 'warehouse'],
             'id_country' => ['xlink_resource' => 'countries'],
             'id_state' => ['xlink_resource' => 'states'],
         ],
@@ -219,7 +218,6 @@ class AddressCore extends ObjectModel
         }
 
         // Update the cache
-        // This is probably not correct, because it should be true only if the address is NOT flagged as deleted
         static::$addressExists[$this->id] = true;
 
         if (Validate::isUnsignedId($this->id_customer)) {
@@ -243,29 +241,26 @@ class AddressCore extends ObjectModel
             Customer::resetAddressCache($this->id_customer, $this->id);
         }
 
-        // If the address is used in at least one order, we will not delete it, but only mark it and hide it from backoffice
-        // However, even if this address is used, we should probably unlink it from all NON ORDERED carts
-        if ($this->isUsed()) {
+        if (!$this->isUsed()) {
+            $this->deleteCartAddress();
+
+            // Update the cache
+            if (isset(static::$addressExists[$this->id])) {
+                static::$addressExists[$this->id] = false;
+            }
+
+            return parent::delete();
+        } else {
             return $this->softDelete();
         }
-
-        // Remove this address from all carts
-        $this->deleteCartAddress();
-
-        // Update the static cache
-        if (isset(static::$addressExists[$this->id])) {
-            static::$addressExists[$this->id] = false;
-        }
-
-        return parent::delete();
     }
 
     /**
-     * Removes the address from carts using it, to avoid errors on not existing address.
+     * removes the address from carts using it, to avoid errors on not existing address
      */
     protected function deleteCartAddress()
     {
-        // Remove references to this address from all carts
+        // keep pending carts, but unlink it from current address
         $sql = 'UPDATE ' . _DB_PREFIX_ . 'cart
                     SET id_address_delivery = 0
                     WHERE id_address_delivery = ' . $this->id;
@@ -384,7 +379,7 @@ class AddressCore extends ObjectModel
 
             return $this->trans(
                 'Property %s is empty.',
-                [get_class($this) . '->' . htmlspecialchars($field)],
+                [get_class($this) . '->' . $field],
                 'Admin.Notifications.Error'
             );
         }
@@ -611,6 +606,7 @@ class AddressCore extends ObjectModel
         $query->where('deleted = 0');
         $query->where('id_customer = 0');
         $query->where('id_manufacturer = 0');
+        $query->where('id_warehouse = 0');
 
         return (int) Db::getInstance(_PS_USE_SQL_SLAVE_)->getValue($query);
     }

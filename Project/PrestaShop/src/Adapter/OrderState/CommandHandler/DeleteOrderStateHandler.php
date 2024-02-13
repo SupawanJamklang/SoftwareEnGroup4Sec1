@@ -28,7 +28,6 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\OrderState\CommandHandler;
 
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\OrderState\Command\DeleteOrderStateCommand;
 use PrestaShop\PrestaShop\Core\Domain\OrderState\CommandHandler\DeleteOrderStateHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\OrderState\Exception\DeleteOrderStateException;
@@ -36,7 +35,6 @@ use PrestaShop\PrestaShop\Core\Domain\OrderState\Exception\DeleteOrderStateExcep
 /**
  * Handles command which deletes order states
  */
-#[AsCommandHandler]
 class DeleteOrderStateHandler extends AbstractOrderStateHandler implements DeleteOrderStateHandlerInterface
 {
     /**

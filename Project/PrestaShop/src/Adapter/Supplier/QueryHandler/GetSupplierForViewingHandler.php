@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Supplier\QueryHandler;
 
 use Currency;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Language\ValueObject\LanguageId;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\SupplierException;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\SupplierNotFoundException;
@@ -43,7 +42,6 @@ use Supplier;
 /**
  * Handles query which gets supplier for viewing
  */
-#[AsQueryHandler]
 final class GetSupplierForViewingHandler implements GetSupplierForViewingHandlerInterface
 {
     /**

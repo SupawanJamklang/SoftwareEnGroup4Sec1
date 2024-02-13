@@ -32,11 +32,6 @@ class BestSalesControllerCore extends ProductListingFrontController
     /** @var string */
     public $php_self = 'best-sales';
 
-    /**
-     * Returns canonical URL for best-sales page
-     *
-     * @return string
-     */
     public function getCanonicalURL(): string
     {
         return $this->buildPaginatedUrl($this->context->link->getPageLink('best-sales'));
@@ -59,9 +54,7 @@ class BestSalesControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Assign template vars related to page content.
-     *
-     * @see FrontController::initContent()
+     * {@inheritdoc}
      */
     public function initContent()
     {
@@ -71,9 +64,6 @@ class BestSalesControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Gets the product search query for the controller. This is a set of information that
-     * a filtering module or the default provider will use to fetch our products.
-     *
      * @return ProductSearchQuery
      */
     protected function getProductSearchQuery()
@@ -87,8 +77,6 @@ class BestSalesControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Default product search provider used if no filtering module stood up for the job
-     *
      * @return BestSalesProductSearchProvider
      */
     protected function getDefaultProductSearchProvider()

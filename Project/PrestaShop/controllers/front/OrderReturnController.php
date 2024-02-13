@@ -92,7 +92,7 @@ class OrderReturnControllerCore extends FrontController
         $this->setTemplate('customer/order-return');
     }
 
-    public function getTemplateVarOrderReturn(OrderReturn $orderReturn)
+    public function getTemplateVarOrderReturn($orderReturn)
     {
         $orderReturns = OrderReturn::getOrdersReturn($orderReturn->id_customer, $orderReturn->id_order, false, null, $orderReturn->id);
 
@@ -108,7 +108,7 @@ class OrderReturnControllerCore extends FrontController
         return $orderReturnPresenter->present(array_shift($orderReturns));
     }
 
-    public function getTemplateVarProducts(int $order_return_id, Order $order)
+    public function getTemplateVarProducts($order_return_id, $order)
     {
         $products = [];
         $return_products = OrderReturn::getOrdersReturnProducts((int) $order_return_id, $order);

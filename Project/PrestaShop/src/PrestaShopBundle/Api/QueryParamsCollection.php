@@ -316,7 +316,7 @@ abstract class QueryParamsCollection
         $implodableOrder = [];
 
         foreach ($this->queryParams['order'] as $order) {
-            $descendingOrder = str_contains($order, 'desc');
+            $descendingOrder = false !== strpos($order, 'desc');
             $filterColumn = $this->removeDirection($order);
 
             $orderFiltered = '{' . $filterColumn . '}';
@@ -648,7 +648,7 @@ abstract class QueryParamsCollection
         }
 
         array_map(function ($index, $value) use (&$sqlParams) {
-            [$idAttributeGroup, $idAttribute] = explode(':', $value);
+            list($idAttributeGroup, $idAttribute) = explode(':', $value);
             $sqlParams['attribute_id_' . $index] = (string) $idAttribute;
             $sqlParams['attribute_group_id_' . $index] = (string) $idAttributeGroup;
         }, range(0, count($value) - 1), $value);
@@ -704,7 +704,7 @@ abstract class QueryParamsCollection
         }
 
         array_map(function ($index, $value) use (&$sqlParams) {
-            [$idFeature, $idFeatureValue] = explode(':', $value);
+            list($idFeature, $idFeatureValue) = explode(':', $value);
             $sqlParams['feature_id_' . $index] = (string) $idFeature;
             $sqlParams['feature_value_id_' . $index] = (string) $idFeatureValue;
         }, range(0, count($value) - 1), $value);

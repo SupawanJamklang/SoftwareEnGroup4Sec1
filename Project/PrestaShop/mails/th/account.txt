@@ -1,0 +1,29 @@
+ 
+
+{shop_url}
+
+Hi {firstname} {lastname},
+
+ขอคุณที่สร้างบัชชีลูกค้าที่ {shop_name}.
+
+Your login details on {shop_name}
+
+นี่คือรายละเอียดการเข้าสู่ระบบของคุณ:
+
+Email address: {email}
+
+เคล็ดลับความปลอดภัยที่สำคัญ:
+
+1. รักษารายละเอียดบัญชีของคุณให้ปลอดภัยเสมอ
+
+2. อย่าเปิดเผยรายละเอียดการเข้าสู่ระบบของคุณกับใคร
+
+3. เปลี่ยนรหัสผ่านเป็นประจำ
+
+4. หากคุณสงสัยว่ามีใครบางคนกำลังใช้บัญชีของคุณอย่างผิดกฎหมาย โปรดแจ้งให้เราทราบทันที
+
+You can now place orders on our store: [{shop_name}]({shop_url})
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

@@ -29,6 +29,7 @@ namespace PrestaShopBundle\Controller\Admin;
 use ImageManager;
 use PrestaShop\PrestaShop\Adapter\Product\AdminProductWrapper;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -135,13 +136,14 @@ class ProductImageController extends FrameworkBundleAdminController
      * Manage form image.
      *
      * @AdminSecurity("is_granted('create', request.get('_legacy_controller')) || is_granted('update', request.get('_legacy_controller'))")
+     * @Template("@PrestaShop/Admin/ProductImage/form.html.twig")
      *
      * @param string|int $idImage
      * @param Request $request
      *
-     * @return Response
+     * @return array|JsonResponse|Response
      */
-    public function formAction($idImage, Request $request): Response
+    public function formAction($idImage, Request $request)
     {
         $locales = $this->get('prestashop.adapter.legacy.context')->getLanguages();
         $adminProductWrapper = $this->get(AdminProductWrapper::class);
@@ -188,10 +190,10 @@ class ProductImageController extends FrameworkBundleAdminController
             return $jsonResponse;
         }
 
-        return $this->render('@PrestaShop/Admin/ProductImage/form.html.twig', [
+        return [
             'image' => $image,
             'form' => $form->createView(),
-        ]);
+        ];
     }
 
     /**

@@ -36,7 +36,7 @@ use ReflectionClass;
 use ReflectionObject;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -93,14 +93,14 @@ class ModuleActivatedListener
     }
 
     /**
-     * @param ControllerEvent $event
+     * @param FilterControllerEvent $event
      *
      * @throws AnnotationException
      * @throws \ReflectionException
      */
-    public function onKernelController(ControllerEvent $event)
+    public function onKernelController(FilterControllerEvent $event)
     {
-        if (!$event->isMainRequest()) {
+        if (!$event->isMasterRequest()) {
             return;
         }
 
@@ -110,7 +110,7 @@ class ModuleActivatedListener
             return;
         }
 
-        [$controllerObject, $methodName] = $controller;
+        list($controllerObject, $methodName) = $controller;
         $moduleActivated = $this->getAnnotation($controllerObject, $methodName);
 
         if (null === $moduleActivated) {

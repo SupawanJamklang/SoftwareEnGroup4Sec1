@@ -27,8 +27,8 @@
 namespace PrestaShopBundle\Entity\Repository;
 
 use Context;
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\Statement;
+use Doctrine\DBAL\Driver\Connection;
+use Doctrine\DBAL\Driver\Statement;
 use Doctrine\ORM\EntityManager;
 use Employee;
 use PDO;
@@ -226,9 +226,9 @@ abstract class StockManagementRepository
         $statement = $this->connection->prepare($query);
         $this->bindStockManagementValues($statement, $queryParams);
 
-        $result = $statement->executeQuery();
-        $rows = $result->fetchAllAssociative();
-        $result->free();
+        $statement->execute();
+        $rows = $statement->fetchAll();
+        $statement->closeCursor();
         $this->foundRows = $this->getFoundRows();
 
         $rows = $this->addAdditionalData($rows);
@@ -267,10 +267,10 @@ abstract class StockManagementRepository
         $statement = $this->connection->prepare($query);
         $this->bindMaxResultsValue($statement, $queryParams);
 
-        $result = $statement->executeQuery();
+        $statement->execute();
 
-        $count = (int) $result->fetchOne();
-        $result->free();
+        $count = (int) $statement->fetchColumn();
+        $statement->closeCursor();
 
         return $count;
     }
@@ -325,7 +325,7 @@ abstract class StockManagementRepository
     {
         $orderByClause = $queryParams->getSqlOrder();
 
-        $descendingOrder = str_contains($orderByClause, ' DESC');
+        $descendingOrder = false !== strpos($orderByClause, ' DESC');
 
         $productColumns = 'product_id, combination_id';
         if ($descendingOrder) {
@@ -438,9 +438,9 @@ abstract class StockManagementRepository
     protected function getFoundRows()
     {
         $statement = $this->connection->prepare('SELECT FOUND_ROWS()');
-        $result = $statement->executeQuery();
-        $rowCount = (int) $result->fetchOne();
-        $result->free();
+        $statement->execute();
+        $rowCount = (int) $statement->fetchColumn();
+        $statement->closeCursor();
 
         return $rowCount;
     }
@@ -535,9 +535,9 @@ abstract class StockManagementRepository
             $statement = $this->connection->prepare($query);
             $statement->bindValue('id_product', (int) $row['product_id'], \PDO::PARAM_INT);
             $statement->bindValue('shop_id', $this->getContextualShopId(), \PDO::PARAM_INT);
-            $result = $statement->executeQuery();
-            $this->productFeatures[$row['product_id']] = $result->fetchOne();
-            $result->free();
+            $statement->execute();
+            $this->productFeatures[$row['product_id']] = $statement->fetchColumn(0);
+            $statement->closeCursor();
         }
 
         return (string) $this->productFeatures[$row['product_id']];
@@ -556,9 +556,9 @@ abstract class StockManagementRepository
                   LIMIT 1';
         $statement = $this->connection->prepare($query);
         $statement->bindValue('id_product_attribute', (int) $row['combination_id'], \PDO::PARAM_INT);
-        $result = $statement->executeQuery();
-        $combinationCoverId = (int) $result->fetchOne();
-        $result->free();
+        $statement->execute();
+        $combinationCoverId = (int) $statement->fetchColumn(0);
+        $statement->closeCursor();
 
         return $combinationCoverId;
     }
@@ -584,9 +584,9 @@ abstract class StockManagementRepository
                     WHERE pac.id_product_attribute=:id_product_attribute';
         $statement = $this->connection->prepare($query);
         $statement->bindValue('id_product_attribute', (int) $row['combination_id'], \PDO::PARAM_INT);
-        $result = $statement->executeQuery();
-        $productAttributes = $result->fetchOne();
-        $result->free();
+        $statement->execute();
+        $productAttributes = $statement->fetchColumn(0);
+        $statement->closeCursor();
 
         return (string) $productAttributes;
     }

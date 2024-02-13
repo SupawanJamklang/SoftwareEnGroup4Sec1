@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\CMS\Page\CommandHandler;
 
 use CMS;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\CmsPage\Command\EditCmsPageCommand;
 use PrestaShop\PrestaShop\Core\Domain\CmsPage\CommandHandler\EditCmsPageHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\CmsPage\Exception\CannotEditCmsPageException;
@@ -39,7 +38,6 @@ use PrestaShopException;
 /**
  * Edits cms page
  */
-#[AsCommandHandler]
 final class EditCmsPageHandler extends AbstractCmsPageHandler implements EditCmsPageHandlerInterface
 {
     /**

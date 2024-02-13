@@ -34,9 +34,9 @@ use PrestaShop\PrestaShop\Core\Version;
 use PrestaShopBundle\DataCollector\HookRegistry;
 use PrestaShopBundle\Service\Hook\HookEvent;
 use PrestaShopBundle\Service\Hook\RenderingHookEvent;
+use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * This dispatcher is used to trigger hook listeners.
@@ -92,20 +92,24 @@ class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
     /**
      * This override will check if $event is an instance of HookEvent.
      *
-     * @param object $event
-     * @param string|null $eventName
+     * @param string|Hook $eventName
+     * @param Event|null $event
      *
      * @return Event|HookEvent
      *
      * @throws \Exception if the Event is not HookEvent or a subclass
      */
-    public function dispatch(object $event, string $eventName = null): object
+    public function dispatch($eventName, Event $event = null)
     {
-        if (!$event instanceof HookEvent) {
-            throw new \Exception('HookDispatcher must dispatch a HookEvent subclass only. ' . $event::class . ' given.');
+        if ($event === null) {
+            $event = new HookEvent($this->getHookEventContextParameters());
         }
 
-        if ($listeners = $this->getListeners(strtolower($eventName ?? ''))) {
+        if (!$event instanceof HookEvent) {
+            throw new \Exception('HookDispatcher must dispatch a HookEvent subclass only. ' . get_class($event) . ' given.');
+        }
+
+        if ($listeners = $this->getListeners(strtolower($eventName))) {
             $this->doDispatch($listeners, $eventName, $event);
         } elseif ($this->isDebug && null !== $this->hookRegistry) {
             // When a hook has no listeners it means it's not even in the database or no modules were attached, in the current case
@@ -156,8 +160,8 @@ class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
     {
         foreach ($eventNames as $name) {
             $this->dispatch(
-                (new HookEvent($this->getHookEventContextParameters()))->setHookParameters($eventParameters),
-                $name
+                $name,
+                (new HookEvent($this->getHookEventContextParameters()))->setHookParameters($eventParameters)
             );
         }
     }
@@ -202,7 +206,7 @@ class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
         $event = new HookEvent($this->getHookEventContextParameters());
         $event->setHookParameters($parameters);
 
-        return $this->dispatch($event, $eventName);
+        return $this->dispatch($eventName, $event);
     }
 
     /**
@@ -221,7 +225,7 @@ class HookDispatcher extends EventDispatcher implements HookDispatcherInterface
         $event->setHookParameters($parameters);
 
         /** @var RenderingHookEvent $eventDispatched */
-        $eventDispatched = $this->dispatch($event, $eventName);
+        $eventDispatched = $this->dispatch($eventName, $event);
 
         return $eventDispatched;
     }

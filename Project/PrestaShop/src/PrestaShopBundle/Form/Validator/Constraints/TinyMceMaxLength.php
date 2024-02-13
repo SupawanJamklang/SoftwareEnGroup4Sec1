@@ -58,6 +58,6 @@ class TinyMceMaxLength extends Constraint
 
     public function validatedBy(): string
     {
-        return static::class . 'Validator';
+        return get_class($this) . 'Validator';
     }
 }

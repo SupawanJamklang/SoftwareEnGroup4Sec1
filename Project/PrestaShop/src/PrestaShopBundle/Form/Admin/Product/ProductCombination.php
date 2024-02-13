@@ -30,7 +30,6 @@ use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
 use PrestaShopBundle\Form\Admin\Type\DatePickerType;
-use PrestaShopBundle\Form\FormHelper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -164,7 +163,7 @@ class ProductCombination extends CommonAbstractType
             ->add('attribute_weight', NumberType::class, [
                 'prepend_unit' => true,
                 'unit' => $this->configuration->get('PS_WEIGHT_UNIT'),
-                'scale' => FormHelper::DEFAULT_WEIGHT_PRECISION,
+                'scale' => static::PRESTASHOP_WEIGHT_DECIMALS,
                 'required' => false,
                 'label' => $this->translator->trans('Impact on weight', [], 'Admin.Catalog.Feature'),
                 'attr' => ['class' => 'attribute_weight'],

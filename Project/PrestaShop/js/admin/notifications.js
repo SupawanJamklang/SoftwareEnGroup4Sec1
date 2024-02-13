@@ -22,7 +22,7 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
-$(function () {
+$(document).ready(function () {
   if (youEditFieldFor) {
     $('.translatable span.hint').append(`<br /><span class="red">${youEditFieldFor}</span>`);
   }

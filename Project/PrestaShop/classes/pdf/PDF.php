@@ -63,8 +63,6 @@ class PDFCore
     public const TEMPLATE_ORDER_RETURN = 'OrderReturn';
     public const TEMPLATE_ORDER_SLIP = 'OrderSlip';
     public const TEMPLATE_DELIVERY_SLIP = 'DeliverySlip';
-
-    /** @deprecated since 9.0 and will be removed in 10.0 **/
     public const TEMPLATE_SUPPLY_ORDER_FORM = 'SupplyOrderForm';
 
     /**

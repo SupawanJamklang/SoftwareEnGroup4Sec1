@@ -33,11 +33,6 @@ abstract class AdminStatsTabControllerCore extends AdminController
         $this->display = 'view';
     }
 
-    /**
-     * AdminController::initContent() override.
-     *
-     * @see AdminController::initContent()
-     */
     public function initContent()
     {
         if ($this->ajax) {
@@ -179,13 +174,12 @@ abstract class AdminStatsTabControllerCore extends AdminController
 
     protected function getModules()
     {
-        $moduleList = Hook::getHookModuleExecList('displayAdminStatsModules');
-        if (true === is_array($moduleList)) {
+        if (true === is_array(Hook::getHookModuleExecList('displayAdminStatsModules'))) {
             return array_map(
                 function ($moduleArray) {
                     return ['name' => $moduleArray['module']];
                 },
-                $moduleList
+                Hook::getHookModuleExecList('displayAdminStatsModules')
             );
         }
 

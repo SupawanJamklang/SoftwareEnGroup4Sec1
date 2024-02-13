@@ -471,7 +471,13 @@ class SearchCore
 				WHERE p.`id_product` ' . $product_pool;
         $total = $db->getValue($sql, false);
 
-        return ['total' => $total, 'result' => $result];
+        if (!$result) {
+            $result_properties = false;
+        } else {
+            $result_properties = Product::getProductsProperties((int) $id_lang, $result);
+        }
+
+        return ['total' => $total, 'result' => $result_properties];
     }
 
     /**
@@ -925,7 +931,7 @@ class SearchCore
     public static function searchTag(
         $id_lang,
         $tag,
-        bool $count = false,
+        $count = false,
         $pageNumber = 0,
         $pageSize = 10,
         $orderBy = false,
@@ -944,7 +950,7 @@ class SearchCore
             $id_customer = 0;
         }
 
-        if (!is_numeric($pageNumber) || !is_numeric($pageSize) || !Validate::isValidSearch($tag)
+        if (!is_numeric($pageNumber) || !is_numeric($pageSize) || !Validate::isBool($count) || !Validate::isValidSearch($tag)
             || $orderBy && !$orderWay || ($orderBy && !Validate::isOrderBy($orderBy)) || ($orderWay && !Validate::isOrderBy($orderWay))
         ) {
             return false;
@@ -1025,7 +1031,7 @@ class SearchCore
             return false;
         }
 
-        return $result;
+        return Product::getProductsProperties((int) $id_lang, $result);
     }
 
     /**

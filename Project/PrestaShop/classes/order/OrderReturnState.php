@@ -1,7 +1,4 @@
 <?php
-
-use PrestaShop\PrestaShop\Core\Domain\OrderReturnState\OrderReturnStateSettings;
-
 /**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
@@ -45,7 +42,7 @@ class OrderReturnStateCore extends ObjectModel
             'color' => ['type' => self::TYPE_STRING, 'validate' => 'isColor'],
 
             /* Lang fields */
-            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => OrderReturnStateSettings::NAME_MAX_LENGTH],
+            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 64],
         ],
     ];
 

@@ -1,0 +1,44 @@
+ 
+
+{shop_url}
+
+Hi {firstname} {lastname},
+
+Thank you for shopping on {shop_name}!
+
+Order details
+
+รายการสั่งซื้อ: {order_name} Placed on {date}
+
+การชำระเงิน: {payment}
+
+อ้างอิง	สินค้า	ราคา	จำนวน	ราคารวม  {products_txt} {discounts_txt}
+รายการ	{total_products}
+ส่วนลด	{total_discounts}
+จัดส่ง	{total_shipping}
+Including total tax	{total_tax_paid}
+total paid	{total_paid}
+
+จัดส่ง
+
+ผู้จัดส่งสินค้า {carrier}
+
+การชำระเงิน: {payment}
+
+ใช้ห่อบรรจุที่สามารถนำกลับมาใช้ใหม่ได้: {recycled_packaging_label}
+
+ที่อยู่สำหรับจัดส่งสินค้า
+
+{delivery_block_txt}
+
+ที่อยู่สำหรับออกใบเสร็จ
+
+{invoice_block_txt}
+
+Follow your order and download your invoice on our store, go to the [ประวัติและรายละเอียดการสั่งซื้อ]({history_url}) section of your customer account.
+
+If you have a guest account, you can follow your order via the [แกะรอยลูกค้า]({guest_tracking_url}) section on our shop.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\SearchEngine\AbstractSearchEngineHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\AddSearchEngineCommand;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\CommandHandler\AddSearchEngineHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\Exception\SearchEngineException;
@@ -40,7 +39,6 @@ use SearchEngine;
 /**
  * Handles command what is responsible for creating new search engine.
  */
-#[AsCommandHandler]
 final class AddSearchEngineHandler extends AbstractSearchEngineHandler implements AddSearchEngineHandlerInterface
 {
     /**

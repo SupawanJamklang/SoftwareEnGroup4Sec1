@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Attribute\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\Attribute\AbstractAttributeHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Command\BulkDeleteAttributeCommand;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\CommandHandler\BulkDeleteAttributeHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Exception\AttributeException;
@@ -36,7 +35,6 @@ use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Exception\DeleteA
 /**
  * Handles command which deletes attributes in bulk action using legacy object model
  */
-#[AsCommandHandler]
 final class BulkDeleteAttributeHandler extends AbstractAttributeHandler implements BulkDeleteAttributeHandlerInterface
 {
     /**

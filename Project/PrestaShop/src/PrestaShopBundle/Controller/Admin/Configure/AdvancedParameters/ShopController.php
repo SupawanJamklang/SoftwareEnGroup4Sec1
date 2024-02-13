@@ -70,7 +70,7 @@ class ShopController extends FrameworkBundleAdminController
     private function getErrorMessage(Exception $e): string
     {
         return $this->getFallbackErrorMessage(
-            $e::class,
+            get_class($e),
             $e->getCode(),
             $e->getMessage()
         );

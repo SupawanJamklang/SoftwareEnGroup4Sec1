@@ -29,10 +29,10 @@ namespace PrestaShopBundle\Controller\Admin\Sell\Order;
 use PrestaShop\PrestaShop\Core\Form\FormHandlerInterface;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Admin controller for the Order Delivery.
@@ -42,6 +42,7 @@ class DeliveryController extends FrameworkBundleAdminController
     /**
      * Main page for Delivery slips.
      *
+     * @Template("@PrestaShop/Admin/Sell/Order/Delivery/slip.html.twig")
      * @AdminSecurity(
      *     "is_granted('read', request.get('_legacy_controller')) || is_granted('update', request.get('_legacy_controller')) || is_granted('create', request.get('_legacy_controller')) || is_granted('delete', request.get('_legacy_controller'))",
      *     message="Access denied."
@@ -49,9 +50,9 @@ class DeliveryController extends FrameworkBundleAdminController
      *
      * @param Request $request
      *
-     * @return Response|RedirectResponse
+     * @return array|RedirectResponse
      */
-    public function slipAction(Request $request): Response
+    public function slipAction(Request $request)
     {
         /** @var FormHandlerInterface $formHandler */
         $formHandler = $this->get('prestashop.adapter.order.delivery.slip.options.form_handler');
@@ -75,15 +76,15 @@ class DeliveryController extends FrameworkBundleAdminController
             return $this->redirectToRoute('admin_order_delivery_slip');
         }
 
-        return $this->render('@PrestaShop/Admin/Sell/Order/Delivery/slip.html.twig', [
+        return [
             'optionsForm' => $form->createView(),
             'pdfForm' => $this->get('prestashop.adapter.order.delivery.slip.pdf.form_handler')->getForm()->createView(),
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
-            'layoutTitle' => $this->trans('Delivery slips', 'Admin.Navigation.Menu'),
+            'layoutTitle' => $this->trans('Delivery Slips', 'Admin.Navigation.Menu'),
             'requireBulkActions' => false,
             'showContentHeader' => true,
             'enableSidebar' => true,
-        ]);
+        ];
     }
 
     /**

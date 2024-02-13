@@ -36,7 +36,7 @@ use PrestaShop\PrestaShop\Core\Exception\CoreException;
 use PrestaShop\PrestaShop\Core\Language\LanguageInterface;
 use PrestaShop\PrestaShop\Core\Localization\CLDR\LocaleRepository;
 use PrestaShop\PrestaShop\Core\Localization\RTL\Processor as RtlStylesheetProcessor;
-use Symfony\Component\Intl\Countries;
+use Symfony\Component\Intl\Intl;
 
 class LanguageCore extends ObjectModel implements LanguageInterface
 {
@@ -130,6 +130,14 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     protected $webserviceParameters = [
         'objectNodeName' => 'language',
         'objectsNodeName' => 'languages',
+    ];
+
+    protected $translationsFilesAndVars = [
+        'fields' => '_FIELDS',
+        'errors' => '_ERRORS',
+        'admin' => '_LANGADM',
+        'pdf' => '_LANGPDF',
+        'tabs' => 'tabs',
     ];
 
     public static function resetStaticCache()
@@ -689,8 +697,12 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function deleteSelection(array $selection)
+    public function deleteSelection($selection)
     {
+        if (!is_array($selection)) {
+            die(Tools::displayError('Parameter "selection" must be an array.'));
+        }
+
         $result = true;
         foreach ($selection as $id) {
             $language = new Language($id);
@@ -1501,6 +1513,22 @@ class LanguageCore extends ObjectModel implements LanguageInterface
         return Language::countActiveLanguages($id_shop) > 1;
     }
 
+    public static function getLanguagePackListContent($iso, $tar)
+    {
+        $key = 'Language::getLanguagePackListContent_' . $iso;
+        if (!Cache::isStored($key)) {
+            if (!$tar instanceof \Archive_Tar) {
+                return false;
+            }
+            $result = $tar->listContent();
+            Cache::store($key, $result);
+
+            return $result;
+        }
+
+        return Cache::retrieve($key);
+    }
+
     /**
      * Updates multilanguage tables in all languages using DataLang
      *
@@ -1713,7 +1741,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * @return string return the language locale, or its code by default
      */
-    public function getLocale(): string
+    public function getLocale()
     {
         return !empty($this->locale) ?
             $this->locale :
@@ -1723,7 +1751,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -1731,7 +1759,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -1739,7 +1767,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function getIsoCode(): string
+    public function getIsoCode()
     {
         return $this->iso_code;
     }
@@ -1747,7 +1775,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function getLanguageCode(): string
+    public function getLanguageCode()
     {
         return $this->language_code;
     }
@@ -1755,25 +1783,9 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     /**
      * {@inheritdoc}
      */
-    public function isRTL(): bool
+    public function isRTL()
     {
         return $this->is_rtl;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDateFormat(): string
-    {
-        return $this->date_format_lite;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDateTimeFormat(): string
-    {
-        return $this->date_format_full;
     }
 
     /**
@@ -1784,7 +1796,7 @@ class LanguageCore extends ObjectModel implements LanguageInterface
     private function getCountries(string $locale): array
     {
         Locale::setDefault($locale);
-        $countries = Countries::getNames();
+        $countries = Intl::getRegionBundle()->getCountryNames();
         $countries = array_change_key_case($countries, CASE_LOWER);
 
         return $countries;

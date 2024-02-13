@@ -26,7 +26,6 @@
 
 use PrestaShop\PrestaShop\Core\Addon\Theme\Theme;
 use PrestaShop\PrestaShop\Core\Addon\Theme\ThemeManagerBuilder;
-use PrestaShop\PrestaShop\Core\Domain\Shop\ValueObject\ShopConstraint;
 
 /**
  * @since 1.5.0
@@ -51,16 +50,16 @@ class ShopCore extends ObjectModel
     public $active = true;
     public $deleted;
 
-    /** @var ?string Physical uri of main url (read only) */
+    /** @var string Physical uri of main url (read only) */
     public $physical_uri;
 
-    /** @var ?string Virtual uri of main url (read only) */
+    /** @var string Virtual uri of main url (read only) */
     public $virtual_uri;
 
-    /** @var ?string Domain of main url (read only) */
+    /** @var string Domain of main url (read only) */
     public $domain;
 
-    /** @var ?string Domain SSL of main url (read only) */
+    /** @var string Domain SSL of main url (read only) */
     public $domain_ssl;
 
     /** @var ShopGroup|null Shop group object */
@@ -123,9 +122,9 @@ class ShopCore extends ObjectModel
     /**
      * There are 3 kinds of shop context : shop, group shop and general.
      */
-    public const CONTEXT_SHOP = ShopConstraint::SHOP;
-    public const CONTEXT_GROUP = ShopConstraint::SHOP_GROUP;
-    public const CONTEXT_ALL = ShopConstraint::ALL_SHOPS;
+    public const CONTEXT_SHOP = 1;
+    public const CONTEXT_GROUP = 2;
+    public const CONTEXT_ALL = 4;
 
     /**
      * Some data can be shared between shops, like customers or orders.

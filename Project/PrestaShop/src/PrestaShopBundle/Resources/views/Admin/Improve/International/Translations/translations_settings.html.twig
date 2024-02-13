@@ -22,13 +22,14 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  *#}
+
 {% extends '@PrestaShop/Admin/layout.html.twig' %}
 {% trans_default_domain 'Admin.International.Feature' %}
 
 {% block content %}
   {% block translations_kpis_row %}
     {{ render(controller(
-      'PrestaShopBundle\\Controller\\Admin\\CommonController:renderKpiRowAction',
+      'PrestaShopBundle:Admin\\Common:renderKpiRow',
       { 'kpiRow': kpiRow }
     )) }}
   {% endblock %}

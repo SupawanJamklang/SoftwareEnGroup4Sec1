@@ -54,7 +54,7 @@ class LegacyUrlListener
      */
     public function onKernelRequest(RequestEvent $event)
     {
-        if (!$event->isMainRequest()) {
+        if (!$event->isMasterRequest()) {
             return;
         }
 

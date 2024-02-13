@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShopBundle\Bridge\AdminController;
 
 use PrestaShopBundle\Bridge\Exception\BridgeException;
-/* @phpstan-ignore-next-line */
 use Tab;
 
 /**
@@ -84,7 +83,6 @@ trait FrameworkBridgeControllerTrait
             return $this->controllerConfiguration;
         }
 
-        /* @phpstan-ignore-next-line */
         $tabId = Tab::getIdFromClassName($legacyControllerName);
 
         if (!$tabId) {

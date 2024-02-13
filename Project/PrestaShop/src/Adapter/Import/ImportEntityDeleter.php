@@ -221,11 +221,13 @@ final class ImportEntityDeleter implements ImportEntityDeleterInterface
             'product_group_reduction_cache',
             'product_sale',
             'product_supplier',
+            'warehouse_product_location',
             'stock',
             'stock_available',
             'stock_mvt',
             'customization',
             'customization_field',
+            'supply_order_detail',
             'product_attribute',
             'product_attribute_shop',
             'product_attribute_combination',
@@ -276,7 +278,7 @@ final class ImportEntityDeleter implements ImportEntityDeleterInterface
      *
      * @param array $tables
      *
-     * @throws \Doctrine\DBAL\Exception
+     * @throws \Doctrine\DBAL\DBALException
      */
     private function truncateTables(array $tables)
     {
@@ -290,7 +292,7 @@ final class ImportEntityDeleter implements ImportEntityDeleterInterface
      *
      * @param array $tables
      *
-     * @throws \Doctrine\DBAL\Exception
+     * @throws \Doctrine\DBAL\DBALException
      */
     private function truncateTablesIfExist(array $tables)
     {

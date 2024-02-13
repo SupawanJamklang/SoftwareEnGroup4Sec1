@@ -38,9 +38,9 @@ class SearchControllerCore extends ProductListingFrontController
     protected $search_tag;
 
     /**
-     * Initialize the controller.
+     * Assign template vars related to page content.
      *
-     * @see FrontController::init()
+     * @see FrontController::initContent()
      */
     public function init()
     {
@@ -62,36 +62,25 @@ class SearchControllerCore extends ProductListingFrontController
         );
     }
 
-    /**
-     * Returns canonical URL for a search page with this term
-     *
-     * @return string
-     */
     public function getCanonicalURL(): string
     {
         return $this->buildPaginatedUrl($this->context->link->getPageLink('search', null, null, ['s' => $this->search_string]));
     }
 
     /**
-     * Initializes a set of commonly used variables related to the current page, available for use
-     * in the template. @see FrontController::assignGeneralPurposeVariables for more information.
-     *
-     * @return array
+     * Ensure that no search results page is indexed by search engines.
      */
     public function getTemplateVarPage()
     {
         $page = parent::getTemplateVarPage();
 
-        // Ensure that no search results page is indexed by search engines.
         $page['meta']['robots'] = 'noindex';
 
         return $page;
     }
 
     /**
-     * Assign template vars related to page content.
-     *
-     * @see FrontController::initContent()
+     * Performs the search.
      */
     public function initContent()
     {
@@ -101,9 +90,6 @@ class SearchControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Gets the product search query for the controller. This is a set of information that
-     * a filtering module or the default provider will use to fetch our products.
-     *
      * @return ProductSearchQuery
      */
     protected function getProductSearchQuery()
@@ -119,8 +105,6 @@ class SearchControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Default product search provider used if no filtering module stood up for the job
-     *
      * @return SearchProductSearchProvider
      */
     protected function getDefaultProductSearchProvider()

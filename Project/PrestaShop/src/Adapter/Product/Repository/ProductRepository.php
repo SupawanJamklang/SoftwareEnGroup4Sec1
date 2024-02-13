@@ -31,6 +31,7 @@ namespace PrestaShop\PrestaShop\Adapter\Product\Repository;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Driver\Exception;
 use Doctrine\DBAL\Exception as ExceptionAlias;
+use Doctrine\DBAL\FetchMode;
 use Doctrine\DBAL\Query\QueryBuilder;
 use ObjectModel;
 use PrestaShop\PrestaShop\Adapter\Category\Repository\CategoryRepository;
@@ -155,7 +156,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('productId', $productId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
         if (empty($result['id_shop_default'])) {
             throw new ProductNotFoundException(sprintf(
                 'Could not find Product with id %d',
@@ -200,7 +201,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('productId', $productId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAllAssociative();
+        $result = $qb->execute()->fetchAllAssociative();
         if (empty($result)) {
             throw new ShopGroupAssociationNotFound(sprintf(
                 'Could not find association between Product %d and Shop group %d',
@@ -320,7 +321,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->andWhere($deleteQb->expr()->in('id_shop', ':shopIds'))
             ->setParameter('productId', $productIdValue)
             ->setParameter('shopIds', $shopIds, Connection::PARAM_INT_ARRAY)
-            ->executeStatement()
+            ->execute()
         ;
 
         $insertValues = [];
@@ -384,7 +385,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
 
         return array_map(static function (array $shop) {
             return new ShopId((int) $shop['id_shop']);
-        }, $qb->executeQuery()->fetchAllAssociative());
+        }, $qb->execute()->fetchAllAssociative());
     }
 
     /**
@@ -413,7 +414,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
 
         return array_map(static function (array $shop) {
             return new ShopId((int) $shop['id_shop']);
-        }, $qb->executeQuery()->fetchAllAssociative());
+        }, $qb->execute()->fetchAllAssociative());
     }
 
     /**
@@ -463,7 +464,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->from($this->dbPrefix . 'product_attribute', 'pa')
             ->where('pa.id_product = :productId')
             ->setParameter('productId', $productId->getValue())
-            ->executeQuery()
+            ->execute()
             ->fetchOne()
         ;
 
@@ -503,7 +504,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->groupBy('a.id_attribute_group')
         ;
 
-        $results = $qb->executeQuery()->fetchFirstColumn();
+        $results = $qb->execute()->fetchAll(FetchMode::COLUMN);
 
         return array_map(static function (string $id): AttributeGroupId {
             return new AttributeGroupId((int) $id);
@@ -537,7 +538,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->groupBy('pac.id_attribute')
         ;
 
-        $results = $qb->executeQuery()->fetchFirstColumn();
+        $results = $qb->execute()->fetchAll(FetchMode::COLUMN);
 
         return array_map(static function (string $id): AttributeId {
             return new AttributeId((int) $id);
@@ -627,7 +628,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->from($this->dbPrefix . 'product', 'p')
             ->where('p.id_product = :productId')
             ->setParameter('productId', $productId->getValue())
-            ->executeQuery()
+            ->execute()
             ->fetchAssociative()
         ;
 
@@ -694,7 +695,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('categoryId', $categoryId->getValue())
         ;
 
-        $position = $qb->executeQuery()->fetchOne();
+        $position = $qb->execute()->fetchOne();
 
         if (!$position) {
             return null;
@@ -762,7 +763,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('productIds', $ids, Connection::PARAM_INT_ARRAY)
         ;
 
-        $results = $qb->executeQuery()->fetchAssociative();
+        $results = $qb->execute()->fetch();
 
         if (!$results || (int) $results['product_count'] !== count($ids)) {
             throw new ProductNotFoundException(
@@ -797,7 +798,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->addOrderBy('p.id_product', 'ASC')
         ;
 
-        return $qb->executeQuery()->fetchAllAssociative();
+        return $qb->execute()->fetchAllAssociative();
     }
 
     /**
@@ -838,7 +839,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->addOrderBy('pa.id_product_attribute', 'ASC')
         ;
 
-        return $qb->executeQuery()->fetchAllAssociative();
+        return $qb->execute()->fetchAllAssociative();
     }
 
     public function getProductTaxRulesGroupId(ProductId $productId, ShopId $shopId): TaxRulesGroupId
@@ -850,7 +851,7 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->andWhere('p_shop.id_shop = :shopId')
             ->setParameter('shopId', $shopId->getValue())
             ->setParameter('productId', $productId->getValue())
-            ->executeQuery()
+            ->execute()
             ->fetchOne()
         ;
 
@@ -888,27 +889,26 @@ class ProductRepository extends AbstractMultiShopObjectModelRepository
             ->addGroupBy('p.id_product')
         ;
 
+        $dbSearchPhrase = sprintf('"%%%s%%"', pSQL($searchPhrase));
         $qb->where($qb->expr()->or(
-            $qb->expr()->like('pl.name', ':dbSearchPhrase'),
+            $qb->expr()->like('pl.name', $dbSearchPhrase),
 
             // Product references
-            $qb->expr()->like('p.isbn', ':dbSearchPhrase'),
-            $qb->expr()->like('p.upc', ':dbSearchPhrase'),
-            $qb->expr()->like('p.mpn', ':dbSearchPhrase'),
-            $qb->expr()->like('p.reference', ':dbSearchPhrase'),
-            $qb->expr()->like('p.ean13', ':dbSearchPhrase'),
-            $qb->expr()->like('p.supplier_reference', ':dbSearchPhrase'),
+            $qb->expr()->like('p.isbn', $dbSearchPhrase),
+            $qb->expr()->like('p.upc', $dbSearchPhrase),
+            $qb->expr()->like('p.mpn', $dbSearchPhrase),
+            $qb->expr()->like('p.reference', $dbSearchPhrase),
+            $qb->expr()->like('p.ean13', $dbSearchPhrase),
+            $qb->expr()->like('p.supplier_reference', $dbSearchPhrase),
 
             // Combination attributes
-            $qb->expr()->like('pa.isbn', ':dbSearchPhrase'),
-            $qb->expr()->like('pa.upc', ':dbSearchPhrase'),
-            $qb->expr()->like('pa.mpn', ':dbSearchPhrase'),
-            $qb->expr()->like('pa.reference', ':dbSearchPhrase'),
-            $qb->expr()->like('pa.ean13', ':dbSearchPhrase'),
-            $qb->expr()->like('pa.supplier_reference', ':dbSearchPhrase')
+            $qb->expr()->like('pa.isbn', $dbSearchPhrase),
+            $qb->expr()->like('pa.upc', $dbSearchPhrase),
+            $qb->expr()->like('pa.mpn', $dbSearchPhrase),
+            $qb->expr()->like('pa.reference', $dbSearchPhrase),
+            $qb->expr()->like('pa.ean13', $dbSearchPhrase),
+            $qb->expr()->like('pa.supplier_reference', $dbSearchPhrase)
         ));
-        $dbSearchPhrase = sprintf('%%%s%%', $searchPhrase);
-        $qb->setParameter('dbSearchPhrase', $dbSearchPhrase);
 
         if (!empty($filters)) {
             foreach ($filters as $type => $filter) {

@@ -26,58 +26,58 @@
 
 namespace PrestaShopBundle\Form\Admin\Type;
 
-use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\Reduction;
-use PrestaShop\PrestaShop\Core\Currency\CurrencyDataProviderInterface;
-use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction as ReductionVO;
-use PrestaShop\PrestaShop\Core\Form\ChoiceProvider\ReductionTypeChoiceProvider;
+use Currency;
+use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction;
+use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Responsible for creating form for price reduction
  */
-class PriceReductionType extends TranslatorAwareType
+class PriceReductionType extends CommonAbstractType
 {
+    /**
+     * @var Currency
+     */
+    private $defaultCurrency;
+
     /**
      * @var EventSubscriberInterface
      */
     private $eventSubscriber;
 
     /**
-     * @var ReductionTypeChoiceProvider
+     * @var FormChoiceProviderInterface
      */
-    private $reductionTypeChoiceProvider;
-
-    /**
-     * @var CurrencyDataProviderInterface
-     */
-    private $currencyDataProvider;
+    private $taxInclusionChoiceProvider;
 
     public function __construct(
-        TranslatorInterface $translator,
-        array $locales,
+        Currency $defaultCurrency,
         EventSubscriberInterface $eventSubscriber,
-        ReductionTypeChoiceProvider $reductionTypeChoiceProvider,
-        CurrencyDataProviderInterface $currencyDataProvider
+        FormChoiceProviderInterface $taxInclusionChoiceProvider
     ) {
-        parent::__construct($translator, $locales);
+        $this->defaultCurrency = $defaultCurrency;
         $this->eventSubscriber = $eventSubscriber;
-        $this->reductionTypeChoiceProvider = $reductionTypeChoiceProvider;
-        $this->currencyDataProvider = $currencyDataProvider;
+        $this->taxInclusionChoiceProvider = $taxInclusionChoiceProvider;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $reductionTypeChoices = [
+            $this->defaultCurrency->symbol => Reduction::TYPE_AMOUNT,
+            '%' => Reduction::TYPE_PERCENTAGE,
+        ];
+
         $builder
             ->add('value', MoneyType::class, [
                 'scale' => $options['scale'],
-                'currency' => $this->currencyDataProvider->getDefaultCurrencyIsoCode(),
+                'currency' => $this->defaultCurrency->iso_code,
                 'attr' => [
-                    'data-currency' => $this->currencyDataProvider->getDefaultCurrencySymbol(),
+                    'data-currency' => $this->defaultCurrency->symbol,
                 ],
                 'row_attr' => [
                     'class' => 'price-reduction-value',
@@ -87,15 +87,17 @@ class PriceReductionType extends TranslatorAwareType
             ->add('type', ChoiceType::class, [
                 'placeholder' => false,
                 'required' => false,
-                'choices' => $this->reductionTypeChoiceProvider->getChoices(),
+                'choices' => $reductionTypeChoices,
+            ])
+            ->add('include_tax', ChoiceType::class, [
+                'choices' => $this->taxInclusionChoiceProvider->getChoices(),
+                'placeholder' => false,
+                'required' => false,
+                'row_attr' => [
+                    'class' => 'js-include-tax-row',
+                ],
             ])
         ;
-
-        if ($options['currency_select']) {
-            $builder->add('currency', CurrencyChoiceType::class);
-        }
-
-        $builder->add('include_tax', TaxInclusionChoiceType::class);
 
         $builder->addEventSubscriber($this->eventSubscriber);
     }
@@ -105,25 +107,8 @@ class PriceReductionType extends TranslatorAwareType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver
-            ->setDefaults([
-                'scale' => 6,
-                'currency_select' => false,
-                'constraints' => [
-                    new Reduction([
-                        'invalidPercentageValueMessage' => $this->trans(
-                            'Reduction value "%value%" is invalid. It must be greater than 0 and maximum %max%.',
-                            'Admin.Notifications.Error',
-                            ['%max%' => ReductionVO::MAX_ALLOWED_PERCENTAGE . '%']
-                        ),
-                        'invalidAmountValueMessage' => $this->trans(
-                            'Reduction value "%value%" is invalid. It must be greater than 0.',
-                            'Admin.Notifications.Error'
-                        ),
-                    ]),
-                ],
-            ])
-            ->setAllowedTypes('currency_select', 'bool')
-        ;
+        $resolver->setDefaults([
+            'scale' => 6,
+        ]);
     }
 }

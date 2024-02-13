@@ -29,8 +29,8 @@ namespace PrestaShopBundle\EventListener;
 use PrestaShop\PrestaShop\Core\Hook\HookDispatcherInterface;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ControllerEvent;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
 /**
@@ -71,9 +71,9 @@ class ActionDispatcherLegacyHooksSubscriber implements EventSubscriberInterface
         ];
     }
 
-    public function callActionDispatcherBeforeHook(ControllerEvent $event)
+    public function callActionDispatcherBeforeHook(FilterControllerEvent $event)
     {
-        if (!$event->isMainRequest()) {
+        if (!$event->isMasterRequest()) {
             return;
         }
 
@@ -93,12 +93,12 @@ class ActionDispatcherLegacyHooksSubscriber implements EventSubscriberInterface
         ]);
 
         $requestAttributes->set('controller_type', $controllerType);
-        $requestAttributes->set('controller_name', $controller::class);
+        $requestAttributes->set('controller_name', get_class($controller));
     }
 
-    public function callActionDispatcherAfterHook(ResponseEvent $event)
+    public function callActionDispatcherAfterHook(FilterResponseEvent $event)
     {
-        if (!$event->isMainRequest()) {
+        if (!$event->isMasterRequest()) {
             return;
         }
 

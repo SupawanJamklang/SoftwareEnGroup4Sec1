@@ -67,7 +67,8 @@ class ProductSaleCore
      * @param int $pageNumber Start from (optional)
      * @param int $nbProducts Number of products to return (optional)
      *
-     * @return array|bool
+     * @return array|bool from Product::getProductProperties
+     *                    `false` if failure
      */
     public static function getBestSales($idLang, $pageNumber = 0, $nbProducts = 10, $orderBy = null, $orderWay = null)
     {
@@ -157,7 +158,7 @@ class ProductSaleCore
             return false;
         }
 
-        return $result;
+        return Product::getProductsProperties($idLang, $result);
     }
 
     /**
@@ -226,7 +227,7 @@ class ProductSaleCore
             return false;
         }
 
-        return $result;
+        return Product::getProductsProperties($idLang, $result);
     }
 
     /**

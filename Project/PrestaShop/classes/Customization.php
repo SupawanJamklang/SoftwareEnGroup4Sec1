@@ -41,11 +41,7 @@ class CustomizationCore extends ObjectModel
     /** @var int */
     public $id_product;
 
-    /**
-     * @deprecated Since 9.0.0. Use the quantity from the table cart_product instead.
-     *
-     * @var int
-     */
+    /** @var int */
     public $quantity;
 
     /** @var int */
@@ -173,7 +169,6 @@ class CustomizationCore extends ObjectModel
             return 0;
         }
 
-        // For anyone migrating this - not sure why there is a SUM, when there can be only one line
         return (float) Db::getInstance()->getValue(
             '
             SELECT SUM(`price`) FROM `' . _DB_PREFIX_ . 'customized_data`
@@ -194,7 +189,6 @@ class CustomizationCore extends ObjectModel
             return 0;
         }
 
-        // For anyone migrating this - not sure why there is a SUM, when there can be only one line
         return (float) Db::getInstance()->getValue(
             '
             SELECT SUM(`weight`) FROM `' . _DB_PREFIX_ . 'customized_data`

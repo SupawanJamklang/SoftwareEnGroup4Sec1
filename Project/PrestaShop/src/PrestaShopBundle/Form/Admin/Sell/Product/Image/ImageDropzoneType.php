@@ -50,15 +50,15 @@ class ImageDropzoneType extends TranslatorAwareType
     /**
      * @var FeatureInterface
      */
-    private $multiStoreFeature;
+    private $multistoreFeature;
 
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        FeatureInterface $multiStoreFeature
+        FeatureInterface $multistoreFeature
     ) {
         parent::__construct($translator, $locales);
-        $this->multiStoreFeature = $multiStoreFeature;
+        $this->multistoreFeature = $multistoreFeature;
     }
 
     /**
@@ -68,7 +68,7 @@ class ImageDropzoneType extends TranslatorAwareType
     {
         parent::buildForm($builder, $options);
 
-        if ($this->multiStoreFeature->isUsed()) {
+        if ($this->multistoreFeature->isUsed()) {
             $builder->add('shop_images', ButtonType::class, [
                 'label' => $this->trans('Manage images', 'Admin.Catalog.Feature'),
                 'row_attr' => [
@@ -99,7 +99,7 @@ class ImageDropzoneType extends TranslatorAwareType
     {
         parent::configureOptions($resolver);
         $resolver->setDefaults([
-            'is_multi_store_active' => $this->multiStoreFeature->isActive(),
+            'is_multi_store_active' => $this->multistoreFeature->isActive(),
             'translations' => [
                 'window.selectAll' => $this->trans('Select all', 'Admin.Actions'),
                 'window.settingsUpdated' => $this->trans('Settings updated', 'Admin.Global'),

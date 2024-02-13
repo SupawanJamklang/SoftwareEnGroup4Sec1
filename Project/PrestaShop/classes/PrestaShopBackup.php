@@ -203,7 +203,7 @@ class PrestaShopBackupCore
      *
      * @return bool True on success
      */
-    public function deleteSelection(array $list)
+    public function deleteSelection($list)
     {
         foreach ($list as $file) {
             $backup = new PrestaShopBackup($file);

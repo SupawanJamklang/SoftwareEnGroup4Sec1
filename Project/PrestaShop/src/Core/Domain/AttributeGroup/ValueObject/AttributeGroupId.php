@@ -24,16 +24,14 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 
-declare(strict_types=1);
-
 namespace PrestaShop\PrestaShop\Core\Domain\AttributeGroup\ValueObject;
 
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Exception\AttributeGroupConstraintException;
 
 /**
- * Defines Attribute group ID with its constraints.
+ * Provides attribute group identification data
  */
-class AttributeGroupId
+final class AttributeGroupId
 {
     /**
      * @var int
@@ -42,34 +40,45 @@ class AttributeGroupId
 
     /**
      * @param int $attributeGroupId
+     *
+     * @throws AttributeGroupConstraintException
      */
-    public function __construct(int $attributeGroupId)
+    public function __construct($attributeGroupId)
     {
-        $this->assertIntegerIsGreaterThanZero($attributeGroupId);
-
+        $this->assertIsIntegerGreaterThanZero($attributeGroupId);
         $this->attributeGroupId = $attributeGroupId;
     }
 
     /**
+     * @deprecated
+     * @see getValue()
+     *
      * @return int
      */
-    public function getValue(): int
+    public function getAttributeGroupId()
     {
         return $this->attributeGroupId;
     }
 
     /**
-     * @param int $attributeGroupId
+     * @return int
+     */
+    public function getValue()
+    {
+        return $this->attributeGroupId;
+    }
+
+    /**
+     * Validates that the value is integer and is greater than zero
+     *
+     * @param int $value
      *
      * @throws AttributeGroupConstraintException
      */
-    private function assertIntegerIsGreaterThanZero(int $attributeGroupId): void
+    private function assertIsIntegerGreaterThanZero($value)
     {
-        if (0 >= $attributeGroupId) {
-            throw new AttributeGroupConstraintException(
-                sprintf('Invalid attributeGroup id %s supplied. Attribute group ID must be a positive integer.', $attributeGroupId),
-                AttributeGroupConstraintException::INVALID_ID
-            );
+        if (!is_int($value) || 0 >= $value) {
+            throw new AttributeGroupConstraintException(sprintf('Invalid attribute group id "%s".', var_export($value, true)), AttributeGroupConstraintException::INVALID_ID);
         }
     }
 }

@@ -32,20 +32,13 @@ class NewProductsControllerCore extends ProductListingFrontController
     /** @var string */
     public $php_self = 'new-products';
 
-    /**
-     * Returns canonical URL for new-products page
-     *
-     * @return string
-     */
     public function getCanonicalURL(): string
     {
         return $this->buildPaginatedUrl($this->context->link->getPageLink('new-products'));
     }
 
     /**
-     * Assign template vars related to page content.
-     *
-     * @see FrontController::initContent()
+     * {@inheritdoc}
      */
     public function initContent()
     {
@@ -55,9 +48,6 @@ class NewProductsControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Gets the product search query for the controller. This is a set of information that
-     * a filtering module or the default provider will use to fetch our products.
-     *
      * @return ProductSearchQuery
      */
     protected function getProductSearchQuery()
@@ -71,8 +61,6 @@ class NewProductsControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Default product search provider used if no filtering module stood up for the job
-     *
      * @return NewProductsProductSearchProvider
      */
     protected function getDefaultProductSearchProvider()

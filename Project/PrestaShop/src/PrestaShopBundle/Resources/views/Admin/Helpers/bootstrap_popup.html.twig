@@ -78,7 +78,7 @@
     </div>
 </div>
 <script>
-    $(function() {
+    $(document).ready(function() {
         var closable = {% if closable is defined and closable == true %}true{% else %}false{% endif %};
         $('#{{ id }}').modal({
             backdrop: (closable ? true : 'static'),

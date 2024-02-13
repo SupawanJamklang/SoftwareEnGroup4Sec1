@@ -32,7 +32,6 @@ use PrestaShop\PrestaShop\Adapter\Shop\Context;
 use PrestaShop\PrestaShop\Core\Domain\Configuration\ShopConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Feature\FeatureInterface;
 use PrestaShopBundle\Controller\Admin\MultistoreController;
-use PrestaShopBundle\Form\Extension\MultistoreConfigurationTypeExtension;
 use PrestaShopBundle\Form\FormCloner;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormInterface;
@@ -60,7 +59,7 @@ class MultistoreCheckboxEnabler
     /**
      * @var FeatureInterface
      */
-    private $multiStoreFeature;
+    private $multistoreFeature;
 
     /**
      * @var ShopConfigurationInterface
@@ -85,20 +84,20 @@ class MultistoreCheckboxEnabler
     /**
      * MultistoreCheckboxEnabler constructor.
      *
-     * @param FeatureInterface $multiStoreFeature
+     * @param FeatureInterface $multistoreFeature
      * @param ShopConfigurationInterface $configuration
      * @param Context $multiStoreContext
      * @param MultistoreController $multistoreController
      * @param FormCloner $formCloner
      */
     public function __construct(
-        FeatureInterface $multiStoreFeature,
+        FeatureInterface $multistoreFeature,
         ShopConfigurationInterface $configuration,
         Context $multiStoreContext,
         MultistoreController $multistoreController,
         FormCloner $formCloner
     ) {
-        $this->multiStoreFeature = $multiStoreFeature;
+        $this->multistoreFeature = $multistoreFeature;
         $this->configuration = $configuration;
         $this->multiStoreContext = $multiStoreContext;
         $this->multistoreController = $multistoreController;
@@ -110,7 +109,7 @@ class MultistoreCheckboxEnabler
      */
     public function shouldAddMultistoreElements(): bool
     {
-        if (!$this->multiStoreFeature->isUsed()) {
+        if (!$this->multistoreFeature->isUsed()) {
             return false;
         }
 

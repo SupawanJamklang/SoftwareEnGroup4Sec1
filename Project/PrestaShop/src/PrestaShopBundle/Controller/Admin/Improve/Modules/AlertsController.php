@@ -46,10 +46,7 @@ class AlertsController extends ModuleAbstractController
 
         return $this->render(
             '@PrestaShop/Admin/Module/alerts.html.twig',
-            array_merge(
-                $this->getNotificationPageData($moduleRepository->getMustBeConfiguredModules()),
-                ['layoutTitle' => $this->trans('Module alerts', 'Admin.Navigation.Menu')]
-            )
+            $this->getNotificationPageData($moduleRepository->getMustBeConfiguredModules())
         );
     }
 

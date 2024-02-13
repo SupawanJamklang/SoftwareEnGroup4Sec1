@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
@@ -23,7 +24,6 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
-
 declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\EntityTranslation;
@@ -230,7 +230,7 @@ class EntityTranslator implements EntityTranslatorInterface
     private function buildTableNameFromDataLang(DataLangCore $dataLang): string
     {
         $tableName = $this->dataLang->getTableName();
-        if (!str_starts_with($tableName, $this->dbPrefix)) {
+        if (substr($tableName, 0, strlen($this->dbPrefix)) !== $this->dbPrefix) {
             $tableName = $this->dbPrefix . $tableName;
         }
 

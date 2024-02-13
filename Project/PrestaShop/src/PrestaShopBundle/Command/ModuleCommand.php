@@ -45,6 +45,8 @@ class ModuleCommand extends Command
         'uninstall',
         'enable',
         'disable',
+        'enableMobile',
+        'disableMobile',
         'reset',
         'upgrade',
         'configure',

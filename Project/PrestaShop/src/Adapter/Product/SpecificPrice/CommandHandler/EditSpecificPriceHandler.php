@@ -29,7 +29,6 @@ namespace PrestaShop\PrestaShop\Adapter\Product\SpecificPrice\CommandHandler;
 
 use PrestaShop\Decimal\DecimalNumber;
 use PrestaShop\PrestaShop\Adapter\Product\SpecificPrice\Repository\SpecificPriceRepository;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Product\SpecificPrice\Command\EditSpecificPriceCommand;
 use PrestaShop\PrestaShop\Core\Domain\Product\SpecificPrice\CommandHandler\EditSpecificPriceHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction;
@@ -39,7 +38,6 @@ use SpecificPrice;
 /**
  * Handles @see EditSpecificPriceCommand using legacy object model
  */
-#[AsCommandHandler]
 class EditSpecificPriceHandler implements EditSpecificPriceHandlerInterface
 {
     /**

@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\Profile\Permission\CommandHandler;
 
 use Access;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Profile\Permission\Command\UpdateModulePermissionsCommand;
 use PrestaShop\PrestaShop\Core\Domain\Profile\Permission\CommandHandler\UpdateModulePermissionsHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Profile\Permission\Exception\PermissionUpdateException;
@@ -39,7 +38,6 @@ use PrestaShop\PrestaShop\Core\Domain\Profile\Permission\Exception\PermissionUpd
  *
  * @internal
  */
-#[AsCommandHandler]
 final class UpdateModulePermissionsHandler implements UpdateModulePermissionsHandlerInterface
 {
     /**

@@ -30,9 +30,7 @@ use Configuration;
 use Currency;
 use PrestaShop\PrestaShop\Adapter\Domain\AbstractObjectModelHandler;
 use PrestaShop\PrestaShop\Core\Domain\Currency\Command\AddCurrencyCommand;
-use PrestaShop\PrestaShop\Core\Domain\Currency\Command\AddUnofficialCurrencyCommand;
 use PrestaShop\PrestaShop\Core\Domain\Currency\Command\EditCurrencyCommand;
-use PrestaShop\PrestaShop\Core\Domain\Currency\Command\EditUnofficialCurrencyCommand;
 use PrestaShop\PrestaShop\Core\Domain\Currency\Exception\CannotCreateCurrencyException;
 use PrestaShop\PrestaShop\Core\Domain\Currency\Exception\CannotDeleteDefaultCurrencyException;
 use PrestaShop\PrestaShop\Core\Domain\Currency\Exception\CannotUpdateCurrencyException;
@@ -153,7 +151,7 @@ abstract class AbstractCurrencyHandler extends AbstractObjectModelHandler
 
     /**
      * @param Currency $entity
-     * @param AddCurrencyCommand|AddUnofficialCurrencyCommand $command
+     * @param AddCurrencyCommand $command
      *
      * @throws CannotCreateCurrencyException
      * @throws LanguageNotFoundException
@@ -161,7 +159,7 @@ abstract class AbstractCurrencyHandler extends AbstractObjectModelHandler
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
      */
-    protected function addEntity(Currency $entity, AddCurrencyCommand|AddUnofficialCurrencyCommand $command)
+    protected function addEntity(Currency $entity, AddCurrencyCommand $command)
     {
         $entity->iso_code = $command->getIsoCode()->getValue();
         $entity->active = $command->isEnabled();
@@ -187,7 +185,7 @@ abstract class AbstractCurrencyHandler extends AbstractObjectModelHandler
 
     /**
      * @param Currency $entity
-     * @param EditCurrencyCommand|EditUnofficialCurrencyCommand $command
+     * @param EditCurrencyCommand $command
      *
      * @throws CannotUpdateCurrencyException
      * @throws LanguageNotFoundException
@@ -195,7 +193,7 @@ abstract class AbstractCurrencyHandler extends AbstractObjectModelHandler
      * @throws PrestaShopDatabaseException
      * @throws PrestaShopException
      */
-    protected function updateEntity(Currency $entity, EditCurrencyCommand|EditUnofficialCurrencyCommand $command)
+    protected function updateEntity(Currency $entity, EditCurrencyCommand $command)
     {
         if (null !== $command->getExchangeRate()) {
             $entity->conversion_rate = $command->getExchangeRate()->getValue();

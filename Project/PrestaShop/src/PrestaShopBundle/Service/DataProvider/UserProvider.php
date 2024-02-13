@@ -26,11 +26,8 @@
 
 namespace PrestaShopBundle\Service\DataProvider;
 
-use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use Symfony\Component\Security\Core\User\User;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * Convenient way to access User, if exists.
@@ -39,37 +36,34 @@ class UserProvider
 {
     public const ANONYMOUS_USER = 'ANONYMOUS_USER';
 
-    public function __construct(
-        private readonly TokenStorageInterface $tokenStorage,
-        private readonly UserProviderInterface $userProvider,
-        private readonly LegacyContext $legacyContext
-    ) {
+    private $tokenStorage;
+
+    public function __construct(TokenStorageInterface $tokenStorage)
+    {
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
      * @see \Symfony\Bundle\FrameworkBundle\Controller::getUser()
      */
-    public function getUser(): ?UserInterface
+    public function getUser()
     {
-        if ($this->tokenStorage->getToken()) {
-            $user = $this->tokenStorage->getToken()->getUser();
-            if ($user instanceof UserInterface) {
-                return $user;
-            }
+        if (null === $token = $this->tokenStorage->getToken()) {
+            return;
         }
 
-        if ($this->legacyContext->getContext()->employee && !empty($this->legacyContext->getContext()->employee->email)) {
-            return $this->userProvider->loadUserByIdentifier($this->legacyContext->getContext()->employee->email);
+        if (!is_object($user = $token->getUser())) {
+            // e.g. anonymous authentication
+            return;
         }
 
-        return null;
+        return $user;
     }
 
-    public function getUsername(): string
+    public function getUsername()
     {
-        $user = $this->getUser();
-        if ($user instanceof UserInterface) {
-            return $user->getUserIdentifier();
+        if ($this->getUser() instanceof User) {
+            return $this->getUser()->getUsername();
         }
 
         return self::ANONYMOUS_USER;

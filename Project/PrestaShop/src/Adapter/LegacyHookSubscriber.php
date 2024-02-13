@@ -106,7 +106,7 @@ class LegacyHookSubscriber implements EventSubscriberInterface
      */
     public function __call($name, $args)
     {
-        if (!str_starts_with($name, 'call_')) {
+        if (strpos($name, 'call_') !== 0) {
             throw new \BadMethodCallException('The call to \'' . $name . '\' is not recognized.');
         }
 
@@ -118,7 +118,7 @@ class LegacyHookSubscriber implements EventSubscriberInterface
         }
 
         $moduleId = (int) $ids[1];
-        [$event, $hookName] = $args;
+        list($event, $hookName) = $args;
 
         $content = Hook::exec(
             $hookName,

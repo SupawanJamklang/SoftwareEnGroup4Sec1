@@ -73,14 +73,7 @@ class Profiler
 
     private function __construct()
     {
-        global $start_time;
-        if (isset($_SERVER['REQUEST_TIME_FLOAT'])) {
-            $this->startTime = (float) $_SERVER['REQUEST_TIME_FLOAT'];
-        } elseif (!empty($start_time)) {
-            $this->startTime = $start_time;
-        } else {
-            $this->startTime = microtime(true);
-        }
+        $this->startTime = microtime(true);
     }
 
     /**

@@ -28,8 +28,8 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Core\Form\ChoiceProvider;
 
+use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShop\PrestaShop\Core\Domain\Product\ValueObject\ProductType;
-use PrestaShop\PrestaShop\Core\Feature\FeatureInterface;
 use PrestaShop\PrestaShop\Core\Form\FormChoiceAttributeProviderInterface;
 use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -42,20 +42,20 @@ class ProductTypeChoiceProvider implements FormChoiceProviderInterface, FormChoi
     private $translator;
 
     /**
-     * @var FeatureInterface
+     * @var Configuration
      */
-    private $combinationFeature;
+    private $configuration;
 
     /**
      * @param TranslatorInterface $translator
-     * @param FeatureInterface $combinationFeature
+     * @param Configuration $configuration
      */
     public function __construct(
         TranslatorInterface $translator,
-        FeatureInterface $combinationFeature
+        Configuration $configuration
     ) {
         $this->translator = $translator;
-        $this->combinationFeature = $combinationFeature;
+        $this->configuration = $configuration;
     }
 
     /**
@@ -95,7 +95,7 @@ class ProductTypeChoiceProvider implements FormChoiceProviderInterface, FormChoi
             $this->trans('Virtual product', 'Admin.Catalog.Feature') => ProductType::TYPE_VIRTUAL,
         ];
 
-        if (!$this->combinationFeature->isActive()) {
+        if (!$this->configuration->combinationIsActive()) {
             unset($choices[$this->trans('Product with combinations', 'Admin.Catalog.Feature')]);
         }
 

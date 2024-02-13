@@ -29,7 +29,6 @@ namespace PrestaShopBundle\Form\Admin\Product;
 use PrestaShop\PrestaShop\Core\Domain\Product\ValueObject\Isbn;
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
 use PrestaShopBundle\Form\Admin\Type\TranslateType;
-use PrestaShopBundle\Form\FormHelper;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
@@ -72,7 +71,7 @@ class ProductOptions extends CommonAbstractType
         $this->locales = $legacyContext->getLanguages();
         $this->router = $router;
 
-        $this->suppliers = FormHelper::formatDataChoicesList(
+        $this->suppliers = $this->formatDataChoicesList(
             $supplierDataProvider->getSuppliers(),
             'id_supplier'
         );
@@ -80,7 +79,7 @@ class ProductOptions extends CommonAbstractType
         $this->fullAttachmentList = $attachmentDataprovider->getAllAttachments(
             $this->context->getLanguages()[0]['id_lang']
         );
-        $this->attachmentList = FormHelper::formatDataChoicesList(
+        $this->attachmentList = $this->formatDataChoicesList(
             $this->fullAttachmentList,
             'id_attachment',
             'file'
@@ -239,7 +238,6 @@ class ProductOptions extends CommonAbstractType
                     'entry_type' => ProductSupplierCombination::class,
                     'entry_options' => [
                         'id_supplier' => $id,
-                        'id_currency' => $this->context->getContext()->currency->id,
                     ],
                     'prototype' => true,
                     'allow_add' => true,

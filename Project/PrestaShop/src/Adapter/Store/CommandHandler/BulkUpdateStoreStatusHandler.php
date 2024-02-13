@@ -28,7 +28,6 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\Store\CommandHandler;
 
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Store\Command\BulkUpdateStoreStatusCommand;
 use PrestaShop\PrestaShop\Core\Domain\Store\CommandHandler\BulkUpdateStoreStatusHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Store\Exception\CannotToggleStoreStatusException;
@@ -37,7 +36,6 @@ use PrestaShop\PrestaShop\Core\Domain\Store\Repository\StoreRepository;
 /**
  * Handles command that toggle store status
  */
-#[AsCommandHandler]
 class BulkUpdateStoreStatusHandler implements BulkUpdateStoreStatusHandlerInterface
 {
     /**

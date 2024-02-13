@@ -34,5 +34,10 @@ use PrestaShop\PrestaShop\Core\Domain\Country\ValueObject\CountryId;
  */
 interface AddCountryHandlerInterface
 {
+    /**
+     * @param AddCountryCommand $command
+     *
+     * @return CountryId
+     */
     public function handle(AddCountryCommand $command): CountryId;
 }

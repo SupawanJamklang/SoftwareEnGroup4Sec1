@@ -28,7 +28,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\Attachment\QueryHandler;
 
 use PrestaShop\PrestaShop\Adapter\Attachment\AttachmentRepository;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\Query\GetAttachmentInformation;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\QueryHandler\GetAttachmentInformationHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\QueryResult\AttachmentInformation;
@@ -36,7 +35,6 @@ use PrestaShop\PrestaShop\Core\Domain\Attachment\QueryResult\AttachmentInformati
 /**
  * Handles @see GetAttachmentInformation query using legacy object model
  */
-#[AsQueryHandler]
 class GetAttachmentInformationHandler implements GetAttachmentInformationHandlerInterface
 {
     /**

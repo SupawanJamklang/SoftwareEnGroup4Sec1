@@ -92,7 +92,10 @@ class DummyAdminControllerCore extends AdminController
         return '';
     }
 
-    protected function buildContainer(): ContainerInterface
+    /**
+     * @return ContainerInterface|null
+     */
+    protected function buildContainer()
     {
         return SymfonyContainer::getInstance();
     }

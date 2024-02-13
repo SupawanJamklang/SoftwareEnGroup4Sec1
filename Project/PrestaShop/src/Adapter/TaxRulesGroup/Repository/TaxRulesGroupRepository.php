@@ -99,7 +99,7 @@ class TaxRulesGroupRepository extends AbstractMultiShopObjectModelRepository
             ])
         ;
 
-        $rawData = $qb->executeQuery()->fetchAllAssociative();
+        $rawData = $qb->execute()->fetchAll();
         if (empty($rawData)) {
             return 0;
         }

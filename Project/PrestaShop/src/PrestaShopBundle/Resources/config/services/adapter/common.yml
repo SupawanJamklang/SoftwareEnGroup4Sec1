@@ -9,7 +9,6 @@ services:
 
   PrestaShop\PrestaShop\Adapter\Tools: ~
 
-  # Deprecated in 8.1
   prestashop.adapter.tools:
     alias: PrestaShop\PrestaShop\Adapter\Tools
     deprecated: ~

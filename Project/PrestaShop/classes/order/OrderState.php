@@ -1,7 +1,4 @@
 <?php
-
-use PrestaShop\PrestaShop\Core\Domain\OrderState\OrderStateSettings;
-
 /**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
@@ -94,7 +91,7 @@ class OrderStateCore extends ObjectModel
             'deleted' => ['type' => self::TYPE_BOOL, 'validate' => 'isBool'],
 
             /* Lang fields */
-            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => OrderStateSettings::NAME_MAX_LENGTH],
+            'name' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isGenericName', 'required' => true, 'size' => 64],
             'template' => ['type' => self::TYPE_STRING, 'lang' => true, 'validate' => 'isTplName', 'size' => 64],
         ],
     ];

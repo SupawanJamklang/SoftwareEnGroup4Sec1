@@ -80,7 +80,7 @@ class UrlGenerator implements UrlGeneratorInterface
         $legacyParameters = $parameters;
 
         // resolve route & legacy mapping
-        [$legacyController, $legacyParameters] = $this->getLegacyOptions($name, $parameters);
+        list($legacyController, $legacyParameters) = $this->getLegacyOptions($name, $parameters);
 
         return $this->legacyContext->getAdminLink($legacyController, true, $legacyParameters);
     }

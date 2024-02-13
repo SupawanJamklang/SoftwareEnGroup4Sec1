@@ -36,7 +36,6 @@ use PrestaShop\PrestaShop\Core\Currency\CurrencyDataProviderInterface;
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
 use PrestaShopBundle\Form\Admin\Type\DatePickerType;
 use PrestaShopBundle\Form\Admin\Type\TypeaheadCustomerCollectionType;
-use PrestaShopBundle\Form\FormHelper;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Form\Extension\Core\Type as FormType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -120,16 +119,16 @@ class ProductSpecificPrice extends CommonAbstractType
         $this->translator = $translator;
         $this->context = $legacyContext;
         $this->locales = $legacyContext->getLanguages();
-        $this->shops = FormHelper::formatDataChoicesList($shopContextAdapter->getShops(), 'id_shop');
-        $this->countries = FormHelper::formatDataChoicesList(
+        $this->shops = $this->formatDataChoicesList($shopContextAdapter->getShops(), 'id_shop');
+        $this->countries = $this->formatDataChoicesList(
             $countryDataprovider->getCountries($this->locales[0]['id_lang']),
             'id_country'
         );
-        $this->currencies = FormHelper::formatDataChoicesList(
+        $this->currencies = $this->formatDataChoicesList(
             $currencyDataprovider->getCurrencies(),
             'id_currency'
         );
-        $this->groups = FormHelper::formatDataChoicesList(
+        $this->groups = $this->formatDataChoicesList(
             $groupDataprovider->getGroups($this->locales[0]['id_lang']),
             'id_group'
         );
@@ -174,7 +173,10 @@ class ProductSpecificPrice extends CommonAbstractType
                 'choices' => $this->currencies,
                 'required' => false,
                 'label' => false,
-                'autocomplete' => true,
+                'attr' => [
+                    'data-toggle' => 'select2',
+                    'data-minimumResultsForSearch' => '7',
+                ],
                 'placeholder' => $this->translator->trans('All currencies', [], 'Admin.Global'),
             ]
         )
@@ -185,7 +187,10 @@ class ProductSpecificPrice extends CommonAbstractType
                     'choices' => $this->countries,
                     'required' => false,
                     'label' => false,
-                    'autocomplete' => true,
+                    'attr' => [
+                        'data-toggle' => 'select2',
+                        'data-minimumResultsForSearch' => '7',
+                    ],
                     'placeholder' => $this->translator->trans('All countries', [], 'Admin.Global'),
                 ]
             )
@@ -196,7 +201,10 @@ class ProductSpecificPrice extends CommonAbstractType
                     'choices' => $this->groups,
                     'required' => false,
                     'label' => false,
-                    'autocomplete' => true,
+                    'attr' => [
+                        'data-toggle' => 'select2',
+                        'data-minimumResultsForSearch' => '7',
+                    ],
                     'placeholder' => $this->translator->trans('All groups', [], 'Admin.Global'),
                 ]
             )

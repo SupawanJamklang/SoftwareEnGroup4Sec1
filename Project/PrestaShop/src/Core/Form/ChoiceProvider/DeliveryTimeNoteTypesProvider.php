@@ -57,24 +57,24 @@ final class DeliveryTimeNoteTypesProvider implements FormChoiceProviderInterface
     /**
      * @var int
      */
-    private $langId;
+    private $contextLanguageId;
 
     /**
      * @param TranslatorInterface $translator
      * @param RouterInterface $router
      * @param ConfigurationInterface $configuration
-     * @param int $langId
+     * @param int $contextLanguageId
      */
     public function __construct(
         TranslatorInterface $translator,
         RouterInterface $router,
         ConfigurationInterface $configuration,
-        int $langId
+        int $contextLanguageId
     ) {
         $this->translator = $translator;
         $this->router = $router;
         $this->configuration = $configuration;
-        $this->langId = $langId;
+        $this->contextLanguageId = $contextLanguageId;
     }
 
     /**
@@ -108,8 +108,8 @@ final class DeliveryTimeNoteTypesProvider implements FormChoiceProviderInterface
     private function getConfigurationLabel(string $configurationName): string
     {
         $config = $this->configuration->get($configurationName);
-        if (!empty($config[$this->langId])) {
-            return $config[$this->langId];
+        if (!empty($config[$this->contextLanguageId])) {
+            return $config[$this->contextLanguageId];
         }
 
         return $this->translator->trans('N/A', [], 'Admin.Global');

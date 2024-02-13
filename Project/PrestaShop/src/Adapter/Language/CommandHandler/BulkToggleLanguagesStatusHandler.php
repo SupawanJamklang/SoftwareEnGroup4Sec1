@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Language\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\File\RobotsTextFileGenerator;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Language\Command\BulkToggleLanguagesStatusCommand;
 use PrestaShop\PrestaShop\Core\Domain\Language\CommandHandler\BulkToggleLanguagesStatusHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Language\Exception\LanguageException;
@@ -37,7 +36,6 @@ use PrestaShop\PrestaShop\Core\Domain\Language\Exception\LanguageException;
  *
  * @internal
  */
-#[AsCommandHandler]
 final class BulkToggleLanguagesStatusHandler extends AbstractLanguageHandler implements BulkToggleLanguagesStatusHandlerInterface
 {
     /**

@@ -13,7 +13,6 @@ admin_products_index:
   defaults:
     _controller: PrestaShopBundle\Controller\Admin\Sell\Catalog\Product\ProductController::indexAction
     _legacy_controller: AdminProducts
-    _legacy_link: AdminProducts
 
 admin_products_light_list:
   path: /light-list
@@ -331,7 +330,8 @@ admin_products_bulk_disable_shop_group:
   defaults:
     _controller: PrestaShopBundle\Controller\Admin\Sell\Catalog\Product\ProductController::bulkDisableShopGroupAction
     _legacy_controller: AdminProducts
-    _legacy_link: AdminProducts:submitBulkdisableSelectionproduct
+    _legacy_link:
+      - AdminProducts:submitBulkenableSelectionproduct
   requirements:
     productId: \d+
     shopGroupId: \d+

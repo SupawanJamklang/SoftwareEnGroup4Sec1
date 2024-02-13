@@ -30,8 +30,6 @@ use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\CleanHtml;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\DateRange;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\Reduction;
 use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction as ReductionVO;
-use PrestaShopBundle\Form\Admin\Type\CountryChoiceType;
-use PrestaShopBundle\Form\Admin\Type\CurrencyChoiceType;
 use PrestaShopBundle\Form\Admin\Type\DateRangeType;
 use PrestaShopBundle\Form\Admin\Type\PriceReductionType;
 use Symfony\Component\Form\AbstractType;
@@ -56,7 +54,22 @@ class CatalogPriceRuleType extends AbstractType
     /**
      * @var bool
      */
-    private $isMultiShopEnabled;
+    private $isMultishopEnabled;
+
+    /**
+     * @var array
+     */
+    private $currencyByIdChoices;
+
+    /**
+     * @var array
+     */
+    private $currencyByIdChoicesAttributes;
+
+    /**
+     * @var array
+     */
+    private $countryByIdChoices;
 
     /**
      * @var array
@@ -69,21 +82,37 @@ class CatalogPriceRuleType extends AbstractType
     private $shopByIdChoices;
 
     /**
+     * @var string
+     */
+    private $defaultCurrencySymbol;
+
+    /**
      * @param TranslatorInterface $translator
-     * @param bool $isMultiShopEnabled
+     * @param bool $isMultishopEnabled
+     * @param array $currencyByIdChoices
+     * @param array $countryByIdChoices
      * @param array $groupByIdChoices
      * @param array $shopByIdChoices
+     * @param array $currencyByIdChoicesAttributes
      */
     public function __construct(
         TranslatorInterface $translator,
-        bool $isMultiShopEnabled,
+        bool $isMultishopEnabled,
+        array $currencyByIdChoices,
+        array $countryByIdChoices,
         array $groupByIdChoices,
-        array $shopByIdChoices
+        array $shopByIdChoices,
+        array $currencyByIdChoicesAttributes,
+        string $defaultCurrencySymbol
     ) {
         $this->translator = $translator;
-        $this->isMultiShopEnabled = $isMultiShopEnabled;
+        $this->isMultishopEnabled = $isMultishopEnabled;
+        $this->currencyByIdChoices = $currencyByIdChoices;
+        $this->currencyByIdChoicesAttributes = $currencyByIdChoicesAttributes;
+        $this->countryByIdChoices = $countryByIdChoices;
         $this->groupByIdChoices = $groupByIdChoices;
         $this->shopByIdChoices = $shopByIdChoices;
+        $this->defaultCurrencySymbol = $defaultCurrencySymbol;
     }
 
     /**
@@ -97,13 +126,19 @@ class CatalogPriceRuleType extends AbstractType
                     new CleanHtml(),
                 ],
             ])
-            ->add('id_currency', CurrencyChoiceType::class, [
-                'add_all_currencies_option' => true,
-            ])
-            ->add('id_country', CountryChoiceType::class, [
+            ->add('id_currency', ChoiceType::class, [
                 'required' => false,
                 'placeholder' => false,
-                'add_all_countries_option' => true,
+                'choices' => $this->getModifiedCurrencyChoices(),
+                'choice_attr' => $this->currencyByIdChoicesAttributes,
+                'attr' => [
+                    'data-default-currency-symbol' => $this->defaultCurrencySymbol,
+                ],
+            ])
+            ->add('id_country', ChoiceType::class, [
+                'required' => false,
+                'placeholder' => false,
+                'choices' => $this->getModifiedCountryChoices(),
             ])
             ->add('id_group', ChoiceType::class, [
                 'required' => false,
@@ -171,13 +206,39 @@ class CatalogPriceRuleType extends AbstractType
             ])
         ;
 
-        if ($this->isMultiShopEnabled) {
+        if ($this->isMultishopEnabled) {
             $builder->add('id_shop', ChoiceType::class, [
                 'required' => false,
                 'placeholder' => false,
                 'choices' => $this->shopByIdChoices,
             ]);
         }
+    }
+
+    /**
+     * Prepends 'All currencies' option with id of 0 to currency choices
+     *
+     * @return array
+     */
+    private function getModifiedCurrencyChoices(): array
+    {
+        return array_merge(
+            [$this->translator->trans('All currencies', [], 'Admin.Global') => 0],
+            $this->currencyByIdChoices
+        );
+    }
+
+    /**
+     * Prepends 'All countries' option with id of 0 to country choices
+     *
+     * @return array
+     */
+    private function getModifiedCountryChoices(): array
+    {
+        return array_merge(
+            [$this->translator->trans('All countries', [], 'Admin.Global') => 0],
+            $this->countryByIdChoices
+        );
     }
 
     /**

@@ -4,14 +4,15 @@ services:
 
   prestashop.adapter.hook.command_handler.update_hook_status_handler:
     class: PrestaShop\PrestaShop\Adapter\Hook\CommandHandler\UpdateHookStatusCommandHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\Hook\Command\UpdateHookStatusCommand
 
   prestashop.adapter.hook.command_handler.get_hook_status_handler:
     class: PrestaShop\PrestaShop\Adapter\Hook\QueryHandler\GetHookStatusHandler
-    autoconfigure: true
-
-  PrestaShop\PrestaShop\Adapter\Hook\QueryHandler\GetHookHandler:
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\Hook\Query\GetHookStatus
 
   PrestaShop\PrestaShop\Adapter\HookManager: ~
 

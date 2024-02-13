@@ -30,7 +30,6 @@ use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
-use PrestaShopBundle\Form\Extension\MultistoreConfigurationTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -43,7 +42,7 @@ class TaxOptionsType extends TranslatorAwareType
     /**
      * @var bool
      */
-    private $isEcotaxEnabled;
+    private $ecoTaxEnabled;
 
     /**
      * @var FormChoiceProviderInterface
@@ -62,19 +61,19 @@ class TaxOptionsType extends TranslatorAwareType
      *
      * @param TranslatorInterface $translator
      * @param array $locales
-     * @param bool $isEcotaxEnabled
+     * @param bool $ecoTaxEnabled
      * @param FormChoiceProviderInterface $taxAddressTypeChoiceProvider
      * @param FormChoiceProviderInterface $taxRuleGroupChoiceProvider
      */
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        bool $isEcotaxEnabled,
+        $ecoTaxEnabled,
         FormChoiceProviderInterface $taxAddressTypeChoiceProvider,
         FormChoiceProviderInterface $taxRuleGroupChoiceProvider
     ) {
         parent::__construct($translator, $locales);
-        $this->isEcotaxEnabled = $isEcotaxEnabled;
+        $this->ecoTaxEnabled = $ecoTaxEnabled;
         $this->taxAddressTypeChoiceProvider = $taxAddressTypeChoiceProvider;
         $this->taxRuleGroupChoiceProvider = $taxRuleGroupChoiceProvider;
     }
@@ -146,7 +145,7 @@ class TaxOptionsType extends TranslatorAwareType
                 'choices' => $this->taxRuleGroupChoiceProvider->getChoices(),
                 'multistore_configuration_key' => 'PS_ECOTAX_TAX_RULES_GROUP_ID',
                 'row_attr' => [
-                    'class' => 'editEcoTaxRuleGroup' . ($this->isEcotaxEnabled ? '' : ' d-none'),
+                    'class' => 'editEcoTaxRuleGroup' . ($this->ecoTaxEnabled ? '' : ' d-none'),
                 ],
             ]);
     }

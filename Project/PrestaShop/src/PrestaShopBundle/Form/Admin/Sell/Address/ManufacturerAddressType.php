@@ -227,10 +227,11 @@ class ManufacturerAddressType extends TranslatorAwareType
             ])
             ->add('id_country', CountryChoiceType::class, [
                 'label' => $this->trans('Country', 'Admin.Global'),
-                'autocomplete' => true,
                 'attr' => [
                     'class' => 'js-manufacturer-country-select',
                     'data-states-url' => $this->router->generate('admin_country_states'),
+                    'data-toggle' => 'select2',
+                    'data-minimumResultsForSearch' => '7',
                 ],
                 'required' => true,
                 'with_dni_attr' => true,
@@ -251,7 +252,10 @@ class ManufacturerAddressType extends TranslatorAwareType
                         'id_country' => $countryId,
                     ]),
                 ],
-                'autocomplete' => true,
+                'attr' => [
+                    'data-toggle' => 'select2',
+                    'data-minimumResultsForSearch' => '7',
+                ],
             ])
             ->add('dni', TextType::class, [
                 'label' => $this->trans('DNI', 'Admin.Global'),

@@ -72,7 +72,7 @@ class GenerateMailTemplatesCommand extends Command
      * @param InputInterface $input
      * @param OutputInterface $output
      *
-     * @return int
+     * @return int|void|null
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
@@ -104,8 +104,6 @@ class GenerateMailTemplatesCommand extends Command
             $modulesOutputFolder ?: ''
         );
         $this->commandBus->handle($generateCommand);
-
-        return self::SUCCESS;
     }
 
     /**

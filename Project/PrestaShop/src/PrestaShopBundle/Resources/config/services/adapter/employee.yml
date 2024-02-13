@@ -4,25 +4,30 @@ services:
 
   prestashop.adapter.profile.employee.command_handler.toggle_employee_status_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\ToggleEmployeeStatusHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\ToggleEmployeeStatusCommand }
 
   prestashop.adapter.profile.employee.command_handler.bulk_update_employee_status_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\BulkUpdateEmployeeStatusHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\BulkUpdateEmployeeStatusCommand }
 
   prestashop.adapter.profile.employee.command_handler.delete_employee_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\DeleteEmployeeHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\DeleteEmployeeCommand }
 
   prestashop.adapter.profile.employee.command_handler.bulk_delete_employee_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\BulkDeleteEmployeeHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\BulkDeleteEmployeeCommand }
 
   prestashop.adapter.employee.query_handler.get_employee_for_editing:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\QueryHandler\GetEmployeeForEditingHandler'
-    autoconfigure: true
     arguments:
       - '@prestashop.core.image.parser.image_tag_source_parser'
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Query\GetEmployeeForEditing }
 
   prestashop.adapter.employee.form_access_checker:
     class: 'PrestaShop\PrestaShop\Adapter\Employee\EmployeeFormAccessChecker'
@@ -32,20 +37,22 @@ services:
 
   prestashop.adapter.employee.command_handler.add_employee_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\AddEmployeeHandler'
-    autoconfigure: true
     arguments:
       - '@prestashop.core.crypto.hashing'
       - '@prestashop.core.employee.profile_access_checker'
       - '@prestashop.adapter.data_provider.employee'
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\AddEmployeeCommand }
 
   prestashop.adapter.employee.command_handler.edit_employee_handler:
     class: 'PrestaShop\PrestaShop\Adapter\Profile\Employee\CommandHandler\EditEmployeeHandler'
-    autoconfigure: true
     arguments:
       - '@prestashop.core.crypto.hashing'
       - '@prestashop.core.employee.profile_access_checker'
       - '@prestashop.adapter.data_provider.employee'
       - '@prestashop.adapter.legacy.context'
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Command\EditEmployeeCommand }
 
   prestashop.adapter.employee.avatar_provider:
     class: 'PrestaShop\PrestaShop\Adapter\Employee\AvatarProvider'
@@ -67,6 +74,5 @@ services:
 
   prestashop.adapter.employee.query_handler.get_employee_email_by_id_handler:
     class: PrestaShop\PrestaShop\Adapter\Profile\Employee\QueryHandler\GetEmployeeEmailByIdHandler
-    autoconfigure: true
-
-  PrestaShop\PrestaShop\Adapter\Employee\EmployeeRepository: ~
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Employee\Query\GetEmployeeEmailById }

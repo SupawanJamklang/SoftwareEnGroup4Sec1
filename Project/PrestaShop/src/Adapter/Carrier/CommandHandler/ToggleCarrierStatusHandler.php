@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\Carrier\AbstractCarrierHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Carrier\Command\ToggleCarrierStatusCommand;
 use PrestaShop\PrestaShop\Core\Domain\Carrier\CommandHandler\ToggleCarrierStatusHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Carrier\Exception\CannotToggleCarrierStatusException;
@@ -39,7 +38,6 @@ use PrestaShopException;
 /**
  * Handles command that toggle carrier status
  */
-#[AsCommandHandler]
 class ToggleCarrierStatusHandler extends AbstractCarrierHandler implements ToggleCarrierStatusHandlerInterface
 {
     /**

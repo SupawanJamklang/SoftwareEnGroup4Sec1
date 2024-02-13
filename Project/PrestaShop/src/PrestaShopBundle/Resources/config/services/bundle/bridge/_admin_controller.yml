@@ -5,7 +5,7 @@ services:
   prestashop.bridge.admin_controller.controller_configuration_factory:
     class: PrestaShopBundle\Bridge\AdminController\ControllerConfigurationFactory
     arguments:
-      - '@PrestaShopBundle\Service\DataProvider\UserProvider'
+      - '@prestashop.user_provider'
       - '@=service("prestashop.adapter.legacy.context").getContext().link'
 
   prestashop.bridge.admin_controller.legacy_controller_bridge_factory:
@@ -22,6 +22,3 @@ services:
     arguments:
       - '@prestashop.adapter.legacy.context'
       - '@prestashop.core.localization.locale.repository'
-
-  PrestaShopBundle\Bridge\Helper\AddFlashMessage:
-    autowire: true

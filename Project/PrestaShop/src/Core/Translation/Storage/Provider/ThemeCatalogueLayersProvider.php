@@ -276,6 +276,6 @@ class ThemeCatalogueLayersProvider implements CatalogueLayersProviderInterface
             }
         }
 
-        return array_unique($modules);
+        return $modules;
     }
 }

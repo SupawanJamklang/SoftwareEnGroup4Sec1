@@ -49,7 +49,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ProfileController is responsible for displaying the
- * "Configure > Advanced parameters > Team > Roles" page.
+ * "Configure > Advanced parameters > Team > Profiles" page.
  */
 class ProfileController extends FrameworkBundleAdminController
 {
@@ -72,13 +72,13 @@ class ProfileController extends FrameworkBundleAdminController
                 'layoutHeaderToolbarBtn' => [
                     'add' => [
                         'href' => $this->generateUrl('admin_profiles_create'),
-                        'desc' => $this->trans('Add new role', 'Admin.Advparameters.Feature'),
+                        'desc' => $this->trans('Add new profile', 'Admin.Advparameters.Feature'),
                         'icon' => 'add_circle_outline',
                     ],
                 ],
                 'help_link' => $this->generateSidebarLink('AdminProfiles'),
                 'enableSidebar' => true,
-                'layoutTitle' => $this->trans('Roles', 'Admin.Navigation.Menu'),
+                'layoutTitle' => $this->trans('Profiles', 'Admin.Navigation.Menu'),
                 'grid' => $this->presentGrid($profilesGridFactory->getGrid($filters)),
                 'multistoreInfoTip' => $this->trans(
                     'Note that this page is available in all shops context only, this is why your context has just switched.',
@@ -120,12 +120,12 @@ class ProfileController extends FrameworkBundleAdminController
      * Show profile's create page
      *
      * @AdminSecurity("is_granted('create', request.get('_legacy_controller'))")
+     * @DemoRestricted(redirectRoute="admin_profiles_index")
      *
      * @param Request $request
      *
      * @return Response
      */
-    #[DemoRestricted(redirectRoute: 'admin_profiles_index')]
     public function createAction(Request $request)
     {
         $form = $this->get('prestashop.core.form.identifiable_object.builder.profile_form_builder')->getForm();
@@ -146,7 +146,7 @@ class ProfileController extends FrameworkBundleAdminController
 
         return $this->render('@PrestaShop/Admin/Configure/AdvancedParameters/Profiles/create.html.twig', [
             'profileForm' => $form->createView(),
-            'layoutTitle' => $this->trans('New role', 'Admin.Navigation.Menu'),
+            'layoutTitle' => $this->trans('Add new profile', 'Admin.Advparameters.Feature'),
             'help_link' => $this->generateSidebarLink('AdminProfiles'),
             'enableSidebar' => true,
             'multistoreInfoTip' => $this->trans(
@@ -164,13 +164,13 @@ class ProfileController extends FrameworkBundleAdminController
      *     "is_granted('update', request.get('_legacy_controller'))",
      *     message="You do not have permission to edit this."
      * )
+     * @DemoRestricted(redirectRoute="admin_profiles_index")
      *
      * @param int $profileId
      * @param Request $request
      *
      * @return Response
      */
-    #[DemoRestricted(redirectRoute: 'admin_profiles_index')]
     public function editAction($profileId, Request $request)
     {
         $formHandler = $this->get('prestashop.core.form.identifiable_object.handler.profile_form_handler');
@@ -210,10 +210,10 @@ class ProfileController extends FrameworkBundleAdminController
         return $this->render('@PrestaShop/Admin/Configure/AdvancedParameters/Profiles/edit.html.twig', [
             'profileForm' => $form->createView(),
             'layoutTitle' => $this->trans(
-                'Editing %role_name% role',
-                'Admin.Navigation.Menu',
+                'Edit: %value%',
+                'Admin.Catalog.Feature',
                 [
-                    '%role_name%' => $editableProfile->getLocalizedNames()[$this->getContextLangId()],
+                    '%value%' => $editableProfile->getLocalizedNames()[$this->getContextLangId()],
                 ]
             ),
             'help_link' => $this->generateSidebarLink('AdminProfiles'),
@@ -228,12 +228,12 @@ class ProfileController extends FrameworkBundleAdminController
      *     "is_granted('delete', request.get('_legacy_controller'))",
      *     message="You do not have permission to edit this."
      * )
+     * @DemoRestricted(redirectRoute="admin_profiles_index")
      *
      * @param int $profileId
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_profiles_index')]
     public function deleteAction($profileId)
     {
         try {
@@ -256,18 +256,20 @@ class ProfileController extends FrameworkBundleAdminController
      *     "is_granted('delete', request.get('_legacy_controller'))",
      *     message="You do not have permission to edit this."
      * )
+     * @DemoRestricted(redirectRoute="admin_profiles_index")
      *
      * @param Request $request
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_profiles_index')]
     public function bulkDeleteAction(Request $request)
     {
-        $profileIds = $request->request->all('profile_bulk');
+        $profileIds = $request->request->get('profile_bulk');
 
         try {
-            $this->getCommandBus()->handle(new BulkDeleteProfileCommand($profileIds));
+            $deleteProfilesCommand = new BulkDeleteProfileCommand($profileIds);
+
+            $this->getCommandBus()->handle($deleteProfilesCommand);
 
             $this->addFlash('success', $this->trans('Successful deletion', 'Admin.Notifications.Success'));
         } catch (ProfileException $e) {
@@ -302,7 +304,7 @@ class ProfileController extends FrameworkBundleAdminController
                 'Admin.Notifications.Error'
             ),
             CannotDeleteSuperAdminProfileException::class => $this->trans(
-                'For security reasons, you cannot delete the Administrator\'s role.',
+                'For security reasons, you cannot delete the Administrator\'s profile.',
                 'Admin.Advparameters.Notification'
             ),
             FailedToDeleteProfileException::class => [
@@ -311,11 +313,11 @@ class ProfileController extends FrameworkBundleAdminController
                     'Admin.Notifications.Error'
                 ),
                 FailedToDeleteProfileException::PROFILE_IS_ASSIGNED_TO_EMPLOYEE => $this->trans(
-                    'Role(s) assigned to employee cannot be deleted',
+                    'Profile(s) assigned to employee cannot be deleted',
                     'Admin.Notifications.Error'
                 ),
                 FailedToDeleteProfileException::PROFILE_IS_ASSIGNED_TO_CONTEXT_EMPLOYEE => $this->trans(
-                    'You cannot delete your own role',
+                    'You cannot delete your own profile',
                     'Admin.Notifications.Error'
                 ),
             ],

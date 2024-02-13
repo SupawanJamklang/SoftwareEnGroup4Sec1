@@ -1,0 +1,31 @@
+ 
+
+{shop_url}
+
+สวัสดี,
+
+You have received a new return request for {shop_name}.
+
+Return Details
+
+รายการสั่งซื้อ: {order_name} Placed on {date}
+
+ลูกค้า: {firstname} {lastname}, ({email})
+
+อ้างอิง	สินค้า	จำนวน   {items}
+
+ที่อยู่สำหรับจัดส่งสินค้า
+
+{delivery_block_html}
+
+ที่อยู่สำหรับออกใบเสร็จ
+
+{invoice_block_html}
+
+ข้อความลูกค้า:
+
+{message}
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

@@ -32,9 +32,6 @@ class StoreCore extends ObjectModel
     /** @var int Store id */
     public $id;
 
-    /** @var int|bool Store id */
-    public $id_image;
-
     /** @var int Country id */
     public $id_country;
 
@@ -201,15 +198,5 @@ class StoreCore extends ObjectModel
         );
 
         return isset($row['id_store']);
-    }
-
-    /**
-     * This method checks if at least one store is configured
-     *
-     * @return bool
-     */
-    public static function atLeastOneStoreExists()
-    {
-        return (bool) Db::getInstance()->getValue('SELECT `id_store` FROM ' . _DB_PREFIX_ . 'store', false);
     }
 }

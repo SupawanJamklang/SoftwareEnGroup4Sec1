@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\SearchEngine\AbstractSearchEngineHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\BulkDeleteSearchEngineCommand;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\CommandHandler\BulkDeleteSearchEngineHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\SearchEngine\Exception\DeleteSearchEngineException;
@@ -39,7 +38,6 @@ use PrestaShopException;
 /**
  * Handles command that deletes Search Engines in bulk action.
  */
-#[AsCommandHandler]
 final class BulkDeleteSearchEngineHandler extends AbstractSearchEngineHandler implements BulkDeleteSearchEngineHandlerInterface
 {
     /**

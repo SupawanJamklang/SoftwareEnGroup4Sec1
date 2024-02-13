@@ -9,23 +9,28 @@ services:
 
   prestashop.adapter.carrier.command_handler.toggle_carrier_status:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\ToggleCarrierStatusHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Carrier\Command\ToggleCarrierStatusCommand }
 
   prestashop.adapter.carrier.command_handler.toggle_carrier_is_free_status:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\ToggleCarrierIsFreeHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Carrier\Command\ToggleCarrierIsFreeCommand }
 
   prestashop.adapter.carrier.command_handler.delete_carrier:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\DeleteCarrierHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Carrier\Command\DeleteCarrierCommand }
 
   prestashop.adapter.carrier.command_handler.bulk_delete_carrier:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\BulkDeleteCarrierHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Carrier\Command\BulkDeleteCarrierCommand }
 
   prestashop.adapter.carrier.command_handler.bulk_toggle_carrier_status:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CommandHandler\BulkToggleCarrierStatusHandler'
-    autoconfigure: true
+    tags:
+      - { name: tactician.handler, command: PrestaShop\PrestaShop\Core\Domain\Carrier\Command\BulkToggleCarrierStatusCommand }
 
   prestashop.adapter.carrier.carrier_module_advice_alert_checker:
     class: 'PrestaShop\PrestaShop\Adapter\Carrier\CarrierModuleAdviceAlertChecker'

@@ -30,7 +30,6 @@ use Carrier;
 use Configuration;
 use OrderHistory;
 use OrderState;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Order\Command\ResendOrderEmailCommand;
 use PrestaShop\PrestaShop\Core\Domain\Order\CommandHandler\ResendOrderEmailHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Order\Exception\OrderEmailSendException;
@@ -40,7 +39,6 @@ use Validate;
 /**
  * @internal
  */
-#[AsCommandHandler]
 final class ResendOrderEmailHandler extends AbstractOrderCommandHandler implements ResendOrderEmailHandlerInterface
 {
     /**

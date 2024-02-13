@@ -28,16 +28,16 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\Title\CommandHandler;
 
-use PrestaShop\PrestaShop\Adapter\Title\AbstractTitleHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
+use Gender;
 use PrestaShop\PrestaShop\Core\Domain\Title\Command\BulkDeleteTitleCommand;
 use PrestaShop\PrestaShop\Core\Domain\Title\CommandHandler\BulkDeleteTitleHandlerInterface;
+use PrestaShop\PrestaShop\Core\Domain\Title\Exception\DeleteTitleException;
+use PrestaShop\PrestaShop\Core\Domain\Title\Exception\TitleNotFoundException;
 
 /**
  * Handles command that bulk delete titles
  */
-#[AsCommandHandler]
-class BulkDeleteTitleHandler extends AbstractTitleHandler implements BulkDeleteTitleHandlerInterface
+class BulkDeleteTitleHandler implements BulkDeleteTitleHandlerInterface
 {
     /**
      * {@inheritdoc}
@@ -45,9 +45,15 @@ class BulkDeleteTitleHandler extends AbstractTitleHandler implements BulkDeleteT
     public function handle(BulkDeleteTitleCommand $command): void
     {
         foreach ($command->getTitleIds() as $titleId) {
-            $this->titleRepository->delete(
-                $this->titleRepository->get($titleId)
-            );
+            $title = new Gender($titleId->getValue());
+
+            if (0 >= $title->id) {
+                throw new TitleNotFoundException(sprintf('Unable to find title with id "%d" for deletion', $titleId->getValue()));
+            }
+
+            if (!$title->delete()) {
+                throw DeleteTitleException::createBulkDeleteFailure($titleId);
+            }
         }
     }
 }

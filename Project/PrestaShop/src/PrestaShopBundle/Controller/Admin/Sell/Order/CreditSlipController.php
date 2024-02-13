@@ -92,7 +92,6 @@ class CreditSlipController extends FrameworkBundleAdminController
             'creditSlipGrid' => $this->presentGrid($creditSlipGrid),
             'pdfByDateForm' => $pdfByDateForm->createView(),
             'creditSlipOptionsForm' => $creditSlipOptionsForm->createView(),
-            'layoutTitle' => $this->trans('Credit slips', 'Admin.Navigation.Menu'),
         ]);
     }
 

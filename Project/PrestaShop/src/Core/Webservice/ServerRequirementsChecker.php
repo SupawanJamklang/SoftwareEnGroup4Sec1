@@ -123,7 +123,7 @@ final class ServerRequirementsChecker implements ServerRequirementsCheckerInterf
             $issues[] = self::ISSUE_HTTPS_NOT_AVAILABLE;
         }
 
-        if (!str_contains($this->hostingInformation->getServerInformation()['version'], 'Apache')) {
+        if (false === strpos($this->hostingInformation->getServerInformation()['version'], 'Apache')) {
             return $issues;
         }
 

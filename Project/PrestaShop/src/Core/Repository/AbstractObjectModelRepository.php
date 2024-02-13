@@ -30,7 +30,6 @@ namespace PrestaShop\PrestaShop\Core\Repository;
 
 use ObjectModel;
 use PrestaShop\PrestaShop\Core\Exception\CoreException;
-use PrestaShop\PrestaShop\Core\Exception\ExceptionBuilder;
 use PrestaShop\PrestaShop\Core\Exception\InvalidArgumentException;
 use PrestaShopException;
 
@@ -95,7 +94,7 @@ abstract class AbstractObjectModelRepository
         try {
             if (!$objectModel->add()) {
                 throw new $exceptionClass(
-                    sprintf('Failed to add %s', $objectModel::class),
+                    sprintf('Failed to add %s', get_class($objectModel)),
                     $errorCode
                 );
             }
@@ -105,7 +104,7 @@ abstract class AbstractObjectModelRepository
             throw new CoreException(
                 sprintf(
                     'Error occurred when trying to add %s [%s]',
-                    $objectModel::class,
+                    get_class($objectModel),
                     $e->getMessage()
                 ),
                 0,
@@ -130,7 +129,7 @@ abstract class AbstractObjectModelRepository
         try {
             if (!$objectModel->update()) {
                 throw new $exceptionClass(
-                    sprintf('Failed to update %s #%d', $objectModel::class, $objectModel->id),
+                    sprintf('Failed to update %s #%d', get_class($objectModel), $objectModel->id),
                     $errorCode
                 );
             }
@@ -138,7 +137,7 @@ abstract class AbstractObjectModelRepository
             throw new CoreException(
                 sprintf(
                     'Error occurred when trying to update %s #%d [%s]',
-                    $objectModel::class,
+                    get_class($objectModel),
                     $objectModel->id,
                     $e->getMessage()
                 ),
@@ -180,7 +179,7 @@ abstract class AbstractObjectModelRepository
         try {
             if (!$objectModel->delete()) {
                 throw new $exceptionClass(
-                    sprintf('Failed to delete %s #%d', $objectModel::class, $objectModel->id),
+                    sprintf('Failed to delete %s #%d', get_class($objectModel), $objectModel->id),
                     $errorCode
                 );
             }
@@ -188,7 +187,7 @@ abstract class AbstractObjectModelRepository
             throw new CoreException(
                 sprintf(
                     'Error occurred when trying to delete %s #%d [%s]',
-                    $objectModel::class,
+                    get_class($objectModel),
                     $objectModel->id,
                     $e->getMessage()
                 ),
@@ -210,7 +209,7 @@ abstract class AbstractObjectModelRepository
         try {
             if (!$objectModel->softDelete()) {
                 throw new $exceptionClass(
-                    sprintf('Failed to soft delete %s #%d', $objectModel::class, $objectModel->id),
+                    sprintf('Failed to soft delete %s #%d', get_class($objectModel), $objectModel->id),
                     $errorCode
                 );
             }
@@ -218,7 +217,7 @@ abstract class AbstractObjectModelRepository
             throw new CoreException(
                 sprintf(
                     'Error occurred when trying to soft delete %s #%d [%s]',
-                    $objectModel::class,
+                    get_class($objectModel),
                     $objectModel->id,
                     $e->getMessage()
                 ),
@@ -281,7 +280,7 @@ abstract class AbstractObjectModelRepository
         try {
             $objectModel = $this->constructObjectModel($id, $objectModelClass, $shopId);
             if ((int) $objectModel->id !== $id) {
-                throw ExceptionBuilder::buildException($exceptionClass, sprintf('%s #%d was not found', $objectModelClass, $id), 0, null, $id);
+                throw new $exceptionClass(sprintf('%s #%d was not found', $objectModelClass, $id));
             }
         } catch (PrestaShopException $e) {
             throw new CoreException(

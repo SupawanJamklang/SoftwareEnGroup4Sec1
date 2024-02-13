@@ -44,14 +44,14 @@
 
     {% set icon %}
         <span class="sf-toolbar-label"><img src="{{ asset('themes/new-theme/img/glyph.png') }}" /></span>
-        <span class="sf-toolbar-value">{{ constant('PrestaShop\\PrestaShop\\Core\\Version::VERSION') }}</span>
+        <span class="sf-toolbar-value">{{ collector.applicationversion }}</span>
     {% endset %}
 
     {% set text %}
         <div class="sf-toolbar-info-group">
             <div class="sf-toolbar-info-piece">
-                <b>PrestaShop</b>
-                <span>{{ constant('PrestaShop\\PrestaShop\\Core\\Version::VERSION') }}</span>
+                <b>{{ collector.applicationname }}</b>
+                <span>{{ collector.applicationversion }}</span>
             </div>
 
             <div class="sf-toolbar-info-piece">
@@ -100,8 +100,9 @@
             <div class="sf-toolbar-info-piece">
                 <b>Resources</b>
                 <span>
-                    <a href="https://devdocs.prestashop-project.org/{{ constant('PrestaShop\\PrestaShop\\Core\\Version::MAJOR_VERSION') }}/" rel="help">
-                        Read PrestaShop {{ constant('PrestaShop\\PrestaShop\\Core\\Version::MAJOR_VERSION') }} Docs
+                    {% set appVersion = collector.applicationversion|join()[:1] %}
+                    <a href="https://devdocs.prestashop.com/{{ appVersion }}/" rel="help">
+                        Read PrestaShop {{ collector.applicationversion }} Docs
                     </a>
                 </span>
             </div>
@@ -224,7 +225,7 @@
           <b>Resources</b>
           <span>
             {% set appVersion = collector.applicationversion|join()[:1] %}
-              <a href="https://devdocs.prestashop-project.org/{{ appVersion }}/" rel="help">
+              <a href="https://devdocs.prestashop.com/{{ appVersion }}/" rel="help">
                   Read PrestaShop {{ collector.applicationversion }} Docs
               </a>
           </span>

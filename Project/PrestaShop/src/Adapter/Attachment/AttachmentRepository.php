@@ -103,7 +103,7 @@ class AttachmentRepository extends AbstractObjectModelRepository
             ->setParameter('productId', $productId->getValue())
         ;
 
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAll();
 
         if (empty($results)) {
             return [];
@@ -151,7 +151,7 @@ class AttachmentRepository extends AbstractObjectModelRepository
             ->addGroupBy('a.id_attachment')
         ;
 
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAll();
 
         if (empty($results)) {
             return [];
@@ -200,7 +200,7 @@ class AttachmentRepository extends AbstractObjectModelRepository
             ->setParameter('attachmentIds', $attachmentIds, Connection::PARAM_INT_ARRAY)
         ;
 
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAll();
 
         $localizedAttachments = [];
         foreach ($results as $result) {

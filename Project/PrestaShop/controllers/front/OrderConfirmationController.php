@@ -218,7 +218,7 @@ class OrderConfirmationControllerCore extends FrontController
             'HOOK_PAYMENT_RETURN' => $this->displayPaymentReturn($this->order),
             'order' => (new OrderPresenter())->present($this->order),
             'order_customer' => $this->objectPresenter->present($this->customer),
-            'registered_customer_exists' => Customer::customerExists($this->customer->email),
+            'registered_customer_exists' => Customer::customerExists($this->customer->email, false, true),
         ]);
         $this->setTemplate('checkout/order-confirmation');
 
@@ -231,7 +231,7 @@ class OrderConfirmationControllerCore extends FrontController
     /**
      * Execute the hook displayPaymentReturn.
      */
-    public function displayPaymentReturn(Order $order)
+    public function displayPaymentReturn($order)
     {
         if (!Validate::isUnsignedId($this->id_module)) {
             return false;
@@ -244,7 +244,7 @@ class OrderConfirmationControllerCore extends FrontController
     /**
      * Execute the hook displayOrderConfirmation.
      */
-    public function displayOrderConfirmation(Order $order)
+    public function displayOrderConfirmation($order)
     {
         return Hook::exec('displayOrderConfirmation', ['order' => $order]);
     }

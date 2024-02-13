@@ -49,7 +49,7 @@ final class ListParametersUpdater
     {
         if ($orderBy == 'position_ordering' && $hasCategoryFilter) {
             foreach (array_keys($filterParameters) as $key) {
-                if (str_starts_with($key, 'filter_column_')) {
+                if (strpos($key, 'filter_column_') === 0) {
                     $filterParameters[$key] = '';
                 }
             }

@@ -10,8 +10,7 @@ services:
       - "%kernel.cache_dir%/doctrine"
 
   doctrine.cache.provider:
-    class: Doctrine\Common\Cache\Psr6\DoctrineProvider
-    factory: [ Doctrine\Common\Cache\Psr6\DoctrineProvider, wrap ]
+    class: Symfony\Component\Cache\DoctrineProvider
     arguments:
       - "@doctrine.cache.adapter"
 

@@ -30,11 +30,20 @@ namespace PrestaShop\PrestaShop\Adapter\Form\ChoiceProvider;
 
 use PrestaShop\PrestaShop\Adapter\Feature\Repository\FeatureRepository;
 use PrestaShop\PrestaShop\Adapter\LegacyContext;
-use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 
 class FeaturesChoiceProvider implements FormChoiceProviderInterface
 {
+    /**
+     * @var FeatureRepository
+     */
+    private $featureRepository;
+
+    /**
+     * @var int
+     */
+    private $contextLanguageId;
+
     /**
      * Cache value to avoid performing the same request multiple times as the value should remain the same inside a request.
      *
@@ -43,10 +52,11 @@ class FeaturesChoiceProvider implements FormChoiceProviderInterface
     private $cacheFeatureChoices;
 
     public function __construct(
-        protected readonly FeatureRepository $featureRepository,
-        protected readonly LegacyContext $legacyContext,
-        protected readonly ConfigurationInterface $configuration
+        FeatureRepository $featureRepository,
+        LegacyContext $legacyContext
     ) {
+        $this->featureRepository = $featureRepository;
+        $this->contextLanguageId = (int) $legacyContext->getLanguage()->getId();
     }
 
     /**
@@ -58,12 +68,10 @@ class FeaturesChoiceProvider implements FormChoiceProviderInterface
             return $this->cacheFeatureChoices;
         }
 
-        $contextLangId = (int) $this->legacyContext->getLanguage()->getId();
-
-        $features = $this->featureRepository->getFeaturesByLang($contextLangId);
+        $features = $this->featureRepository->getFeaturesByLang($this->contextLanguageId);
         $this->cacheFeatureChoices = [];
         foreach ($features as $feature) {
-            $this->cacheFeatureChoices[$feature['localized_names'][$contextLangId]] = $feature['id_feature'];
+            $this->cacheFeatureChoices[$feature['localized_names'][$this->contextLanguageId]] = $feature['id_feature'];
         }
 
         return $this->cacheFeatureChoices;

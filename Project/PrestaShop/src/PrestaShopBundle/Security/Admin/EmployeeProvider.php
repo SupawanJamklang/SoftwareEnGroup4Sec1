@@ -26,11 +26,11 @@
 
 namespace PrestaShopBundle\Security\Admin;
 
+use Access;
 use PrestaShop\PrestaShop\Adapter\LegacyContext;
-use PrestaShop\PrestaShop\Core\Security\EmployeePermissionProviderInterface;
 use Psr\Cache\CacheItemPoolInterface;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\Exception\UserNotFoundException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
@@ -47,19 +47,11 @@ class EmployeeProvider implements UserProviderInterface
      * @var CacheItemPoolInterface
      */
     private $cache;
-    /**
-     * @var EmployeePermissionProviderInterface
-     */
-    private $employeePermissionProvider;
 
-    public function __construct(
-        LegacyContext $context,
-        CacheItemPoolInterface $cache,
-        EmployeePermissionProviderInterface $employeePermissionProvider
-    ) {
+    public function __construct(LegacyContext $context, CacheItemPoolInterface $cache)
+    {
         $this->legacyContext = $context->getContext();
         $this->cache = $cache;
-        $this->employeePermissionProvider = $employeePermissionProvider;
     }
 
     /**
@@ -70,12 +62,12 @@ class EmployeeProvider implements UserProviderInterface
      *
      * @return Employee
      *
-     * @throws UserNotFoundException
+     * @throws UsernameNotFoundException
      */
-    public function loadUserByIdentifier(string $username): Employee
+    public function loadUserByUsername($username)
     {
         $cacheKey = sha1($username);
-        $cachedEmployee = $this->cache->getItem("app.employees_{$cacheKey}");
+        $cachedEmployee = $this->cache->getItem("app.employees_${cacheKey}");
 
         if ($cachedEmployee->isHit()) {
             return $cachedEmployee->get();
@@ -87,7 +79,7 @@ class EmployeeProvider implements UserProviderInterface
         ) {
             $employee = new Employee($this->legacyContext->employee);
             $employee->setRoles(
-                array_merge([self::ROLE_EMPLOYEE], $this->employeePermissionProvider->getRoles($this->legacyContext->employee->id_profile))
+                array_merge([self::ROLE_EMPLOYEE], Access::getRoles($this->legacyContext->employee->id_profile))
             );
 
             $cachedEmployee->set($employee);
@@ -96,7 +88,7 @@ class EmployeeProvider implements UserProviderInterface
             return $cachedEmployee->get();
         }
 
-        throw new UserNotFoundException(sprintf('Username "%s" does not exist.', $username));
+        throw new UsernameNotFoundException(sprintf('Username "%s" does not exist.', $username));
     }
 
     /**
@@ -109,10 +101,10 @@ class EmployeeProvider implements UserProviderInterface
     public function refreshUser(UserInterface $employee)
     {
         if (!$employee instanceof Employee) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $employee::class));
+            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($employee)));
         }
 
-        return $this->loadUserByIdentifier($employee->getUserIdentifier());
+        return $this->loadUserByUsername($employee->getUsername());
     }
 
     /**
@@ -125,15 +117,5 @@ class EmployeeProvider implements UserProviderInterface
     public function supportsClass($class)
     {
         return $class === 'PrestaShopBundle\Security\Admin\Employee';
-    }
-
-    /**
-     * Needed by the interface but not used.
-     *
-     * @deprecated since 9.0, to be removed when Symfony > 6.à
-     */
-    public function loadUserByUsername(string $username)
-    {
-        return $this->loadUserByIdentifier($username);
     }
 }

@@ -27,7 +27,6 @@
 namespace PrestaShopBundle\Controller\Admin\Sell\Catalog;
 
 use Exception;
-use PrestaShop\PrestaShop\Adapter\AttributeGroup\AttributeGroupViewDataProvider;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Command\BulkDeleteAttributeCommand;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Command\DeleteAttributeCommand;
 use PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Exception\AttributeNotFoundException;
@@ -73,17 +72,10 @@ class AttributeController extends FrameworkBundleAdminController
             return $this->redirectToRoute('admin_attribute_groups_index');
         }
 
-        $attributeGroupViewDataProvider = $this->get(AttributeGroupViewDataProvider::class);
-
         return $this->render('@PrestaShop/Admin/Sell/Catalog/Attribute/index.html.twig', [
             'attributeGrid' => $this->presentGrid($attributeGrid),
             'attributeGroupId' => $attributeGroupId,
             'enableSidebar' => true,
-            'layoutTitle' => $this->trans(
-                'Attribute %name%',
-                'Admin.Navigation.Menu',
-                ['%name%' => $attributeGroupViewDataProvider->getAttributeGroupNameById((int) $attributeGroupId)]
-            ),
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
         ]);
     }
@@ -104,7 +96,7 @@ class AttributeController extends FrameworkBundleAdminController
     public function updatePositionAction(Request $request, int $attributeGroupId)
     {
         $positionsData = [
-            'positions' => $request->request->all('positions'),
+            'positions' => $request->request->get('positions'),
             'parentId' => $attributeGroupId,
         ];
 
@@ -234,7 +226,11 @@ class AttributeController extends FrameworkBundleAdminController
      */
     private function getAttributeIdsFromRequest(Request $request)
     {
-        $attributeIds = $request->request->all('attribute_bulk');
+        $attributeIds = $request->request->get('attribute_bulk');
+
+        if (!is_array($attributeIds)) {
+            return [];
+        }
 
         foreach ($attributeIds as $i => $attributeId) {
             $attributeIds[$i] = (int) $attributeId;

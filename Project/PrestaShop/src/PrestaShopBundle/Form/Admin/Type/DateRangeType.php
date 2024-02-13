@@ -42,12 +42,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class DateRangeType extends AbstractType
 {
     /**
-     * These date format constants are used for front-end part and have different format compared to php DateTime class.
-     */
-    public const DEFAULT_DATE_FORMAT = 'YYYY-MM-DD';
-    public const DEFAULT_DATE_TIME_FORMAT = 'YYYY-MM-DD HH:mm:ss';
-
-    /**
      * @var TranslatorInterface
      */
     protected $translator;
@@ -76,7 +70,7 @@ class DateRangeType extends AbstractType
         $builder
             ->add('from', DatePickerType::class, [
                 'required' => false,
-                'label' => $options['label_from'],
+                'label' => $this->translator->trans('Start date', [], 'Admin.Global'),
                 'attr' => [
                     'placeholder' => $options['placeholder'],
                     'class' => 'from date-range-start-date',
@@ -90,7 +84,7 @@ class DateRangeType extends AbstractType
                     'class' => 'to date-range-end-date',
                     'data-default-value' => $options['default_end_value'],
                 ],
-                'label' => $options['label_to'],
+                'label' => $this->translator->trans('End date', [], 'Admin.Global'),
                 'date_format' => $options['date_format'],
             ])
         ;
@@ -135,19 +129,13 @@ class DateRangeType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'date_format' => self::DEFAULT_DATE_FORMAT,
-            'placeholder' => self::DEFAULT_DATE_FORMAT,
+            'placeholder' => 'YYYY-MM-DD',
+            'date_format' => 'YYYY-MM-DD',
             'has_unlimited_checkbox' => false,
             'default_end_value' => (new DateTime())->format('Y-m-d'),
-            'label_from' => $this->translator->trans('Start date', [], 'Admin.Global'),
-            'label_to' => $this->translator->trans('End date', [], 'Admin.Global'),
         ]);
-        $resolver
-            ->setAllowedTypes('date_format', 'string')
-            ->setAllowedTypes('placeholder', 'string')
-            ->setAllowedTypes('label_from', 'string')
-            ->setAllowedTypes('label_to', 'string')
-        ;
+        $resolver->setAllowedTypes('date_format', 'string');
+        $resolver->setAllowedTypes('placeholder', 'string');
     }
 
     /**

@@ -145,8 +145,12 @@ class ManufacturerCore extends ObjectModel
      *
      * return boolean Deletion result
      */
-    public function deleteSelection(array $selection)
+    public function deleteSelection($selection)
     {
+        if (!is_array($selection)) {
+            die(Tools::displayError('Parameter "selection" must be an array.'));
+        }
+
         $result = true;
         foreach ($selection as $id) {
             $this->id = (int) $id;
@@ -503,7 +507,7 @@ class ManufacturerCore extends ObjectModel
             $result = array_slice($result, (int) (($p - 1) * $n), (int) $n);
         }
 
-        return $result;
+        return Product::getProductsProperties($idLang, $result);
     }
 
     /**

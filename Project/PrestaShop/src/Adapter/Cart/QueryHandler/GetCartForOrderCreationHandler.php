@@ -38,7 +38,6 @@ use Message;
 use PrestaShop\Decimal\DecimalNumber;
 use PrestaShop\PrestaShop\Adapter\Cart\AbstractCartHandler;
 use PrestaShop\PrestaShop\Adapter\ContextStateManager;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Exception\CartNotFoundException;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Query\GetCartForOrderCreation;
 use PrestaShop\PrestaShop\Core\Domain\Cart\QueryHandler\GetCartForOrderCreationHandlerInterface;
@@ -60,7 +59,6 @@ use Tools;
 /**
  * Handles GetCartForOrderCreation query using legacy object models
  */
-#[AsQueryHandler]
 final class GetCartForOrderCreationHandler extends AbstractCartHandler implements GetCartForOrderCreationHandlerInterface
 {
     /**
@@ -361,7 +359,7 @@ final class GetCartForOrderCreationHandler extends AbstractCartHandler implement
         $deliveryAddress = (int) $cart->id_address_delivery;
 
         //Check if there is any delivery options available for cart delivery address
-        if (!array_key_exists($deliveryAddress, $deliveryOptionsByAddress) && !$cart->isVirtualCart()) {
+        if (!array_key_exists($deliveryAddress, $deliveryOptionsByAddress)) {
             return null;
         }
 
@@ -376,8 +374,7 @@ final class GetCartForOrderCreationHandler extends AbstractCartHandler implement
             (int) $carrier->id ?: $this->defaultCarrierId ?: null,
             (bool) $cart->gift,
             (bool) $cart->recyclable,
-            $cart->gift_message,
-            $cart->isVirtualCart()
+            $cart->gift_message
         );
     }
 
@@ -392,9 +389,6 @@ final class GetCartForOrderCreationHandler extends AbstractCartHandler implement
     private function fetchCartDeliveryOptions(array $deliveryOptionsByAddress, int $deliveryAddressId)
     {
         $deliveryOptions = [];
-        if (empty($deliveryOptionsByAddress)) {
-            return $deliveryOptions;
-        }
         // legacy multishipping feature allowed to split cart shipping to multiple addresses.
         // now when the multishipping feature is removed
         // the list of carriers should be shared across whole cart for single delivery address

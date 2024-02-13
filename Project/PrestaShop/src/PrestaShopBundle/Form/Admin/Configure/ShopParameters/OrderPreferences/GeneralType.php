@@ -27,12 +27,10 @@
 namespace PrestaShopBundle\Form\Admin\Configure\ShopParameters\OrderPreferences;
 
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
-use PrestaShop\PrestaShop\Core\Currency\CurrencyDataProviderInterface;
 use PrestaShopBundle\Form\Admin\Type\MoneyWithSuffixType;
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
-use PrestaShopBundle\Form\Extension\MultistoreConfigurationTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -45,6 +43,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 class GeneralType extends TranslatorAwareType
 {
     /**
+     * @var string
+     */
+    private $defaultCurrencyIsoCode;
+
+    /**
      * CMS pages choices for Terms Of Service.
      *
      * @var array
@@ -56,29 +59,25 @@ class GeneralType extends TranslatorAwareType
      */
     private $configuration;
 
-    /**
-     * @var CurrencyDataProviderInterface
-     */
-    private $currencyDataProvider;
-
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        CurrencyDataProviderInterface $currencyDataProvider,
         ConfigurationInterface $configuration,
+        $defaultCurrencyIsoCode,
         array $tosCmsChoices
     ) {
         parent::__construct($translator, $locales);
 
+        $this->defaultCurrencyIsoCode = $defaultCurrencyIsoCode;
         $this->tosCmsChoices = $tosCmsChoices;
         $this->configuration = $configuration;
-        $this->currencyDataProvider = $currencyDataProvider;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $configuration = $this->configuration;
-        $currencyIsoCode = $this->currencyDataProvider->getDefaultCurrencyIsoCode();
+        $isMultishippingEnabled = (bool) $configuration->get('PS_ALLOW_MULTISHIPPING');
+        $currencyIsoCode = $this->defaultCurrencyIsoCode;
 
         $builder
             ->add('enable_final_summary', SwitchType::class, [
@@ -114,6 +113,15 @@ class GeneralType extends TranslatorAwareType
                 'multistore_configuration_key' => 'PS_ORDER_RECALCULATE_SHIPPING',
             ]);
 
+        if ($isMultishippingEnabled) {
+            $builder->add('allow_multishipping', SwitchType::class, [
+                'required' => false,
+                'label' => $this->trans('Allow multishipping', 'Admin.Shopparameters.Feature'),
+                'help' => $this->trans('Allow the customer to ship orders to multiple addresses. This option will convert the customer\'s cart into one or more orders.', 'Admin.Shopparameters.Help'),
+                'multistore_configuration_key' => 'PS_ALLOW_MULTISHIPPING',
+            ]);
+        }
+
         $builder
             ->add('allow_delayed_shipping', SwitchType::class, [
                 'required' => false,
@@ -134,7 +142,10 @@ class GeneralType extends TranslatorAwareType
                 'placeholder' => $this->trans('None', 'Admin.Global'),
                 'choices' => $this->tosCmsChoices,
                 'multistore_configuration_key' => 'PS_CONDITIONS_CMS_ID',
-                'autocomplete' => true,
+                'attr' => [
+                    'data-toggle' => 'select2',
+                    'data-minimumResultsForSearch' => '7',
+                ],
             ])
             ->add('enable_backorder_status', SwitchType::class, [
                 'required' => false,

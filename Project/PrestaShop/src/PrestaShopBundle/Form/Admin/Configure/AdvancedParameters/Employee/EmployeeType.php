@@ -29,6 +29,7 @@ namespace PrestaShopBundle\Form\Admin\Configure\AdvancedParameters\Employee;
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Domain\Employee\ValueObject\FirstName;
 use PrestaShop\PrestaShop\Core\Domain\Employee\ValueObject\LastName;
+use PrestaShop\PrestaShop\Core\Domain\Employee\ValueObject\Password;
 use PrestaShop\PrestaShop\Core\Domain\ValueObject\Email as EmployeeEmail;
 use PrestaShop\PrestaShop\Core\Security\PasswordPolicyConfiguration;
 use PrestaShopBundle\Form\Admin\Type\ChangePasswordType;
@@ -47,7 +48,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * Class EmployeeType defines an employee form.
@@ -107,8 +107,7 @@ final class EmployeeType extends AbstractType
         bool $isMultistoreFeatureActive,
         ConfigurationInterface $configuration,
         int $superAdminProfileId,
-        Router $router,
-        TranslatorInterface $translator
+        Router $router
     ) {
         $this->languagesChoices = $languagesChoices;
         $this->tabChoices = $tabChoices;
@@ -117,7 +116,6 @@ final class EmployeeType extends AbstractType
         $this->configuration = $configuration;
         $this->superAdminProfileId = $superAdminProfileId;
         $this->router = $router;
-        $this->translator = $translator;
     }
 
     /**
@@ -209,7 +207,7 @@ final class EmployeeType extends AbstractType
                 'required' => false,
             ])
             ->add('profile', ChoiceType::class, [
-                'label' => $this->trans('Role', [], 'Admin.Advparameters.Feature'),
+                'label' => $this->trans('Permission profile', [], 'Admin.Advparameters.Feature'),
                 'attr' => [
                     'data-admin-profile' => $this->superAdminProfileId,
                     'data-get-tabs-url' => $this->router->generate('admin_employees_get_tabs'),
@@ -232,7 +230,10 @@ final class EmployeeType extends AbstractType
                     [],
                     'Admin.Advparameters.Help'
                 ),
-                'autocomplete' => true,
+                'attr' => [
+                    'data-minimumResultsForSearch' => '7',
+                    'data-toggle' => 'select2',
+                ],
                 'choices' => $this->tabChoices,
             ])
         ;

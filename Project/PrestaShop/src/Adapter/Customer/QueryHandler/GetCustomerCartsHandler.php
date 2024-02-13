@@ -30,7 +30,6 @@ use Cart;
 use Currency;
 use Customer;
 use PrestaShop\PrestaShop\Adapter\Customer\CommandHandler\AbstractCustomerHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Customer\Query\GetCustomerCarts;
 use PrestaShop\PrestaShop\Core\Domain\Customer\QueryHandler\GetCustomerCartsHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Customer\QueryResult\CartSummary;
@@ -40,7 +39,6 @@ use PrestaShop\PrestaShop\Core\Localization\LocaleInterface;
 /**
  * Handles GetCustomerCartsQuery using legacy object models
  */
-#[AsQueryHandler]
 final class GetCustomerCartsHandler extends AbstractCustomerHandler implements GetCustomerCartsHandlerInterface
 {
     /**

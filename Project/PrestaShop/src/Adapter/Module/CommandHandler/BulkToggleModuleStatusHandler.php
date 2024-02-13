@@ -30,7 +30,6 @@ namespace PrestaShop\PrestaShop\Adapter\Module\CommandHandler;
 
 use Module;
 use PrestaShop\PrestaShop\Core\Cache\Clearer\CacheClearerInterface;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Module\Command\BulkToggleModuleStatusCommand;
 use PrestaShop\PrestaShop\Core\Domain\Module\CommandHandler\BulkToggleModuleStatusHandlerInterface;
 use PrestaShop\PrestaShop\Core\Module\ModuleManager;
@@ -40,7 +39,6 @@ use Validate;
 /**
  * Bulk toggles Module status
  */
-#[AsCommandHandler]
 class BulkToggleModuleStatusHandler implements BulkToggleModuleStatusHandlerInterface
 {
     /**

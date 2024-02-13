@@ -25,7 +25,6 @@
  */
 use PrestaShop\PrestaShop\Adapter\Category\CategoryProductSearchProvider;
 use PrestaShop\PrestaShop\Adapter\Image\ImageRetriever;
-use PrestaShop\PrestaShop\Adapter\Presenter\Category\CategoryPresenter;
 use PrestaShop\PrestaShop\Core\Product\Search\ProductSearchQuery;
 use PrestaShop\PrestaShop\Core\Product\Search\SortOrder;
 
@@ -45,10 +44,7 @@ class CategoryControllerCore extends ProductListingFrontController
      */
     protected $category;
 
-    /** @var CategoryPresenter */
-    protected $categoryPresenter;
-
-    public function canonicalRedirection(string $canonicalURL = '')
+    public function canonicalRedirection($canonicalURL = '')
     {
         if (Validate::isLoadedObject($this->category)) {
             parent::canonicalRedirection($this->context->link->getCategoryLink($this->category));
@@ -56,11 +52,9 @@ class CategoryControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Returns canonical URL for current category
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getCanonicalURL(): string
+    public function getCanonicalURL()
     {
         if (!Validate::isLoadedObject($this->category)) {
             return '';
@@ -102,19 +96,31 @@ class CategoryControllerCore extends ProductListingFrontController
             return;
         }
 
-        // Initialize presenter, we will use it for all cases
-        $this->categoryPresenter = new CategoryPresenter($this->context->link);
+        $categoryVar = $this->getTemplateVarCategory();
+
+        // Chained hook call - if multiple modules are hooked here, they will receive the result of the previous one as a parameter
+        $filteredCategory = Hook::exec(
+            'filterCategoryContent',
+            ['object' => $categoryVar],
+            null,
+            false,
+            true,
+            false,
+            null,
+            true
+        );
+        if (!empty($filteredCategory['object'])) {
+            $categoryVar = $filteredCategory['object'];
+        }
 
         $this->context->smarty->assign([
-            'category' => $this->getTemplateVarCategory(),
+            'category' => $categoryVar,
             'subcategories' => $this->getTemplateVarSubCategories(),
         ]);
     }
 
     /**
-     * Assign template vars related to page content.
-     *
-     * @see FrontController::initContent()
+     * {@inheritdoc}
      */
     public function initContent()
     {
@@ -164,9 +170,6 @@ class CategoryControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Gets the product search query for the controller. This is a set of information that
-     * a filtering module or the default provider will use to fetch our products.
-     *
      * @return ProductSearchQuery
      *
      * @throws \PrestaShop\PrestaShop\Core\Product\Search\Exception\InvalidSortOrderDirectionException
@@ -183,8 +186,6 @@ class CategoryControllerCore extends ProductListingFrontController
     }
 
     /**
-     * Default product search provider used if no filtering module stood up for the job
-     *
      * @return CategoryProductSearchProvider
      */
     protected function getDefaultProductSearchProvider()
@@ -197,46 +198,38 @@ class CategoryControllerCore extends ProductListingFrontController
 
     protected function getTemplateVarCategory()
     {
-        $categoryVar = $this->categoryPresenter->present(
+        $category = $this->objectPresenter->present($this->category);
+        $category['image'] = $this->getImage(
             $this->category,
-            $this->context->language
+            $this->category->id_image
         );
 
-        $filteredCategory = Hook::exec(
-            'filterCategoryContent',
-            ['object' => $categoryVar],
-            $id_module = null,
-            $array_return = false,
-            $check_exceptions = true,
-            $use_push = false,
-            $id_shop = null,
-            $chain = true
-        );
-        if (!empty($filteredCategory['object'])) {
-            $categoryVar = $filteredCategory['object'];
-        }
-
-        return $categoryVar;
+        return $category;
     }
 
     protected function getTemplateVarSubCategories()
     {
-        $subcategories = $this->category->getSubCategories($this->context->language->id);
-
-        foreach ($subcategories as &$subcategory) {
-            $subcategory = $this->categoryPresenter->present(
-                $subcategory,
-                $this->context->language
+        return array_map(function (array $category) {
+            $object = new Category(
+                $category['id_category'],
+                $this->context->language->id
             );
-        }
 
-        return $subcategories;
+            $category['image'] = $this->getImage(
+                $object,
+                $object->id_image
+            );
+
+            $category['url'] = $this->context->link->getCategoryLink(
+                $category['id_category'],
+                $category['link_rewrite']
+            );
+
+            return $category;
+        }, $this->category->getSubCategories($this->context->language->id));
     }
 
-    /**
-     * @deprecated since 9.0.0 and will be removed in 10.0.0
-     */
-    protected function getImage(Category $object, int $id_image)
+    protected function getImage($object, $id_image)
     {
         $retriever = new ImageRetriever(
             $this->context->link
@@ -277,12 +270,6 @@ class CategoryControllerCore extends ProductListingFrontController
         return $this->category;
     }
 
-    /**
-     * Initializes a set of commonly used variables related to the current page, available for use
-     * in the template. @see FrontController::assignGeneralPurposeVariables for more information.
-     *
-     * @return array
-     */
     public function getTemplateVarPage()
     {
         $page = parent::getTemplateVarPage();

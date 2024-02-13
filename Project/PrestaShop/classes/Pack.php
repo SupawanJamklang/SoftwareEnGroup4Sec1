@@ -86,8 +86,6 @@ class PackCore extends Product
         }
 
         if (!array_key_exists($id_product, self::$cacheIsPack)) {
-            // This is not very efficient, isn't an entry in pack table a proof that it's a pack?
-            // Moreover, we already have cache_is_pack column, product_type is just a duplicate.
             $result = Db::getInstance()->getValue('SELECT COUNT(*) FROM `' . _DB_PREFIX_ . 'pack` WHERE id_product_pack = ' . (int) $id_product);
             $productType = Db::getInstance()->getValue('SELECT product_type FROM `' . _DB_PREFIX_ . 'product` WHERE id_product = ' . (int) $id_product);
             self::$cacheIsPack[$id_product] = ($result > 0) || $productType === ProductType::TYPE_PACK;
@@ -243,7 +241,7 @@ class PackCore extends Product
         $idProduct = (int) $idProduct;
         $wantedQuantity = (int) $wantedQuantity;
         $product = new Product($idProduct, false);
-        $packQuantity = self::getQuantity($idProduct, null, null, $cart, false);
+        $packQuantity = self::getQuantity($idProduct, null, null, $cart);
 
         if ($product->isAvailableWhenOutOfStock($product->out_of_stock)) {
             return true;
@@ -261,7 +259,7 @@ class PackCore extends Product
      * @param int|null $idProductAttribute Product attribute id (optional)
      * @param bool|null $cacheIsPack
      * @param CartCore|null $cart
-     * @param bool|int|null $idCustomization Product customization id (optional)
+     * @param int|null $idCustomization Product customization id (optional)
      *
      * @return int
      *
@@ -407,13 +405,19 @@ class PackCore extends Product
             $line = Product::getTaxesInformations($line);
         }
 
-        foreach ($result as $k => $v) {
-            if (!Pack::isPack($v['id_product'])) {
-                $result[$k]['id_product_attribute'] = (int) $v['id_product_attribute_item'];
+        if (!$full) {
+            return $result;
+        }
+
+        $array_result = [];
+        foreach ($result as $prow) {
+            if (!Pack::isPack($prow['id_product'])) {
+                $prow['id_product_attribute'] = (int) $prow['id_product_attribute_item'];
+                $array_result[] = Product::getProductProperties($id_lang, $prow);
             }
         }
 
-        return $result;
+        return $array_result;
     }
 
     public static function getPacksTable($id_product, $id_lang, $full = false, $limit = null)
@@ -458,7 +462,7 @@ class PackCore extends Product
         $array_result = [];
         foreach ($result as $row) {
             if (!Pack::isPacked($row['id_product'])) {
-                $array_result[] = $row;
+                $array_result[] = Product::getProductProperties($id_lang, $row);
             }
         }
 
@@ -549,16 +553,21 @@ class PackCore extends Product
      * @param int $id_product id_pack
      *
      * @return bool
-     *
-     * @deprecated Since 9.0 and will be removed in 10.0
      */
     public static function usesAdvancedStockManagement($id_product)
     {
-        @trigger_error(sprintf(
-            '%s is deprecated since 9.0 and will be removed in 10.0.',
-            __METHOD__
-        ), E_USER_DEPRECATED);
+        if (!Pack::isPack($id_product)) {
+            return false;
+        }
 
+        $products = Pack::getItems($id_product, Configuration::get('PS_LANG_DEFAULT'));
+        foreach ($products as $product) {
+            // if one product uses the advanced stock management
+            if ($product->advanced_stock_management == 1) {
+                return true;
+            }
+        }
+        // not used
         return false;
     }
 
@@ -568,17 +577,22 @@ class PackCore extends Product
      * @param int $id_product id_pack
      *
      * @return bool
-     *
-     * @deprecated Since 9.0 and will be removed in 10.0
      */
     public static function allUsesAdvancedStockManagement($id_product)
     {
-        @trigger_error(sprintf(
-            '%s is deprecated since 9.0 and will be removed in 10.0.',
-            __METHOD__
-        ), E_USER_DEPRECATED);
+        if (!Pack::isPack($id_product)) {
+            return false;
+        }
 
-        return false;
+        $products = Pack::getItems($id_product, Configuration::get('PS_LANG_DEFAULT'));
+        foreach ($products as $product) {
+            // if one product uses the advanced stock management
+            if ($product->advanced_stock_management == 0) {
+                return false;
+            }
+        }
+        // not used
+        return true;
     }
 
     /**

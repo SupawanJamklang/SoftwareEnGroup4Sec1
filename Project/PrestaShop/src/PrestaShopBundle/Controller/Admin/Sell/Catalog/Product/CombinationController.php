@@ -112,7 +112,7 @@ class CombinationController extends FrameworkBundleAdminController
     }
 
     /**
-     * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))")
+     * @AdminSecurity("is_granted(['read'], request.get('_legacy_controller'))")
      *
      * @param Request $request
      * @param string $languageCode
@@ -162,7 +162,7 @@ class CombinationController extends FrameworkBundleAdminController
     }
 
     /**
-     * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))")
+     * @AdminSecurity("is_granted(['read'], request.get('_legacy_controller'))")
      *
      * @param Request $request
      * @param int $productId
@@ -234,7 +234,6 @@ class CombinationController extends FrameworkBundleAdminController
 
         return $this->render('@PrestaShop/Admin/Sell/Catalog/Product/Combination/bulk.html.twig', [
             'bulkCombinationForm' => $bulkCombinationForm->createView(),
-            'lightDisplay' => true,
         ]);
     }
 
@@ -556,7 +555,7 @@ class CombinationController extends FrameworkBundleAdminController
      */
     public function generateCombinationsAction(int $productId, ?int $shopId, Request $request): JsonResponse
     {
-        $requestAttributeGroups = $request->request->all('attributes');
+        $requestAttributeGroups = $request->request->get('attributes');
         $attributes = [];
         foreach ($requestAttributeGroups as $attributeGroupId => $requestAttributes) {
             $attributes[(int) $attributeGroupId] = array_map('intval', $requestAttributes);

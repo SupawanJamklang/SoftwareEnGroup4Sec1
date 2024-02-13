@@ -30,8 +30,10 @@ use Address;
 use Db;
 use PrestaShop\PrestaShop\Adapter\Product\Update\ProductSupplierUpdater;
 use PrestaShop\PrestaShop\Adapter\Supplier\SupplierAddressProvider;
+use PrestaShop\PrestaShop\Adapter\Supplier\SupplierOrderValidator;
 use PrestaShop\PrestaShop\Core\Domain\Product\ValueObject\ProductId;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\CannotDeleteSupplierAddressException;
+use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\CannotDeleteSupplierException;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\CannotDeleteSupplierProductRelationException;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\SupplierException;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\SupplierNotFoundException;
@@ -45,6 +47,11 @@ use Supplier;
  */
 abstract class AbstractDeleteSupplierHandler
 {
+    /**
+     * @var SupplierOrderValidator
+     */
+    private $supplierOrderValidator;
+
     /**
      * @var string
      */
@@ -61,15 +68,18 @@ abstract class AbstractDeleteSupplierHandler
     private $productSupplierUpdater;
 
     /**
+     * @param SupplierOrderValidator $supplierOrderValidator
      * @param SupplierAddressProvider $supplierAddressProvider
      * @param ProductSupplierUpdater $productSupplierUpdater
      * @param string $dbPrefix
      */
     public function __construct(
+        SupplierOrderValidator $supplierOrderValidator,
         SupplierAddressProvider $supplierAddressProvider,
         ProductSupplierUpdater $productSupplierUpdater,
         string $dbPrefix
     ) {
+        $this->supplierOrderValidator = $supplierOrderValidator;
         $this->dbPrefix = $dbPrefix;
         $this->supplierAddressProvider = $supplierAddressProvider;
         $this->productSupplierUpdater = $productSupplierUpdater;
@@ -90,6 +100,16 @@ abstract class AbstractDeleteSupplierHandler
 
             if (0 >= $entity->id) {
                 throw new SupplierNotFoundException(sprintf('Supplier object with id "%s" was not found for deletion.', $supplierId->getValue()));
+            }
+
+            if ($this->hasPendingOrders($supplierId)) {
+                throw new CannotDeleteSupplierException(
+                    sprintf(
+                        'Supplier with id %d cannot be deleted due to it has pending orders',
+                        $supplierId->getValue()
+                    ),
+                    CannotDeleteSupplierException::HAS_PENDING_ORDERS
+                );
             }
 
             if (false === $this->deleteProductSupplierRelation($supplierId)) {
@@ -165,5 +185,17 @@ abstract class AbstractDeleteSupplierHandler
         }
 
         return true;
+    }
+
+    /**
+     * Checks if the given supplier has pending orders.
+     *
+     * @param SupplierId $supplierId
+     *
+     * @return bool
+     */
+    private function hasPendingOrders(SupplierId $supplierId)
+    {
+        return $this->supplierOrderValidator->hasPendingOrders($supplierId->getValue());
     }
 }

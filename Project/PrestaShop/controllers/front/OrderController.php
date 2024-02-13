@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2007 PrestaShop SA and Contributors
  * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
@@ -240,11 +241,6 @@ class OrderControllerCore extends FrontController
         $this->ajaxRender(json_encode($responseData));
     }
 
-    /**
-     * Assign template vars related to page content.
-     *
-     * @see FrontController::initContent()
-     */
     public function initContent()
     {
         if (Configuration::isCatalogMode()) {

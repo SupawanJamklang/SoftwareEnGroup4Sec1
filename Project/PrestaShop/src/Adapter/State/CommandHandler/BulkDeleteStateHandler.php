@@ -28,7 +28,6 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\State\CommandHandler;
 
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\State\Command\BulkDeleteStateCommand;
 use PrestaShop\PrestaShop\Core\Domain\State\CommandHandler\BulkDeleteStateHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\State\Exception\DeleteStateException;
@@ -38,7 +37,6 @@ use State;
 /**
  * Handles command that bulk delete states
  */
-#[AsCommandHandler]
 class BulkDeleteStateHandler implements BulkDeleteStateHandlerInterface
 {
     /**

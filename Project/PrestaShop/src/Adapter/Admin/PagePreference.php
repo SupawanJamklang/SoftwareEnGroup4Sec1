@@ -59,7 +59,7 @@ class PagePreference implements AdminPagePreferenceInterface
         if ($session->isStarted()) {
             $this->session = $session;
         } else {
-            $sessionClass = $session::class;
+            $sessionClass = get_class($session);
             $this->session = new $sessionClass(new PhpBridgeSessionStorage());
         }
         $this->isDebug = $isDebug;

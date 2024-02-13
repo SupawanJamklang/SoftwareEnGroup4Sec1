@@ -30,17 +30,7 @@ use PrestaShop\PrestaShop\Core\Grid\Column\AbstractColumn;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Class LinkColumn is used to define a column in which there is a link targeting an action route (view, edit, add...).
- *
- * Example:
- * new LinkColumn('name'))
- *  ->setName('Name')
- *   ->setOptions([
- *       'field' => 'name',
- *       'route' => 'admin_edit',
- *       'route_param_name' => 'myId',
- *       'route_param_field' => 'id',
- *   ])
+ * Class LinkColumn is used to define column which is link to record action (view, edit, add).
  */
 final class LinkColumn extends AbstractColumn
 {

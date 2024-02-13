@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\CMS\PageCategory\QueryHandler;
 
 use CMSCategory;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\Exception\CmsPageCategoryException;
 use PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\Query\GetCmsPageParentCategoryIdForRedirection;
 use PrestaShop\PrestaShop\Core\Domain\CmsPageCategory\QueryHandler\GetCmsPageParentCategoryIdForRedirectionHandlerInterface;
@@ -38,7 +37,6 @@ use PrestaShopException;
  * Class GetCmsPageParentCategoryIdForRedirectionHandler is responsible for providing cms page categories parent id
  * for redirecting to the right controller after create, edit, delete, toggle actions.
  */
-#[AsQueryHandler]
 final class GetCmsPageParentCategoryIdForRedirectionHandler implements GetCmsPageParentCategoryIdForRedirectionHandlerInterface
 {
     /**

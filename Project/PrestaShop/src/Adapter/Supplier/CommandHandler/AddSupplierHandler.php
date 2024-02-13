@@ -29,7 +29,6 @@ namespace PrestaShop\PrestaShop\Adapter\Supplier\CommandHandler;
 
 use Address;
 use PrestaShop\PrestaShop\Adapter\Supplier\AbstractSupplierHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Command\AddSupplierCommand;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\CommandHandler\AddSupplierHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Supplier\Exception\SupplierException;
@@ -41,7 +40,6 @@ use Supplier;
 /**
  * Handles command which adds new supplier using legacy object model
  */
-#[AsCommandHandler]
 final class AddSupplierHandler extends AbstractSupplierHandler implements AddSupplierHandlerInterface
 {
     /**

@@ -29,7 +29,6 @@ declare(strict_types=1);
 namespace PrestaShop\PrestaShop\Adapter\Attachment\QueryHandler;
 
 use PrestaShop\PrestaShop\Adapter\Attachment\AttachmentRepository;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\Exception\EmptySearchException;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\Query\SearchAttachment;
 use PrestaShop\PrestaShop\Core\Domain\Attachment\QueryHandler\SearchAttachmentHandlerInterface;
@@ -38,7 +37,6 @@ use PrestaShop\PrestaShop\Core\Domain\Attachment\QueryResult\AttachmentInformati
 /**
  * Handles @see SearchAttachment query using legacy object model
  */
-#[AsQueryHandler]
 class SearchAttachmentHandler implements SearchAttachmentHandlerInterface
 {
     /**

@@ -37,7 +37,6 @@ use PrestaShop\Decimal\DecimalNumber;
 use PrestaShop\PrestaShop\Adapter\Address\AddressFormatter;
 use PrestaShop\PrestaShop\Adapter\Entity\Address;
 use PrestaShop\PrestaShop\Core\Address\AddressFormatterInterface;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Address\ValueObject\AddressId;
 use PrestaShop\PrestaShop\Core\Domain\Order\Exception\OrderNotFoundException;
 use PrestaShop\PrestaShop\Core\Domain\Order\Query\GetOrderPreview;
@@ -56,7 +55,6 @@ use Validate;
 /**
  * Handles GetOrderPreview query using legacy object model
  */
-#[AsQueryHandler]
 final class GetOrderPreviewHandler implements GetOrderPreviewHandlerInterface
 {
     /**

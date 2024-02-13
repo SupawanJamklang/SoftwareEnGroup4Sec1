@@ -84,12 +84,12 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('update', request.get('_legacy_controller')) && is_granted('create', request.get('_legacy_controller')) && is_granted('delete', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index"
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @param Request $request
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function saveOptionsAction(Request $request)
     {
         $taxOptionsFormHandler = $this->getTaxOptionsFormHandler();
@@ -190,7 +190,6 @@ class TaxController extends FrameworkBundleAdminController
                 'Admin.Notifications.Info'
             ),
             'multistoreIsUsed' => $this->get('prestashop.adapter.multistore_feature')->isUsed(),
-            'layoutTitle' => $this->trans('New tax', 'Admin.Navigation.Menu'),
         ]);
     }
 
@@ -248,13 +247,6 @@ class TaxController extends FrameworkBundleAdminController
             'taxName' => $editableTax->getLocalizedNames()[$this->getContextLangId()],
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
             'enableSidebar' => true,
-            'layoutTitle' => $this->trans(
-                'Editing tax %name%',
-                'Admin.Navigation.Menu',
-                [
-                    '%name%' => $editableTax->getLocalizedNames()[$this->getContextLangId()],
-                ]
-            ),
         ]);
     }
 
@@ -265,12 +257,12 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('delete', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index",
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @param int $taxId
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function deleteAction($taxId)
     {
         try {
@@ -294,10 +286,10 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('update', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index",
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function toggleStatusAction($taxId)
     {
         try {
@@ -324,13 +316,13 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('update', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index",
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function bulkEnableStatusAction(Request $request)
     {
-        $taxIds = $request->request->all('tax_bulk');
+        $taxIds = $request->request->get('tax_bulk');
         try {
             $this->getCommandBus()->handle(new BulkToggleTaxStatusCommand($taxIds, true));
             $this->addFlash(
@@ -353,13 +345,13 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('update', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index",
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function bulkDisableStatusAction(Request $request)
     {
-        $taxIds = $request->request->all('tax_bulk');
+        $taxIds = $request->request->get('tax_bulk');
         try {
             $this->getCommandBus()->handle(new BulkToggleTaxStatusCommand($taxIds, false));
             $this->addFlash(
@@ -382,13 +374,13 @@ class TaxController extends FrameworkBundleAdminController
      *     "is_granted('delete', request.get('_legacy_controller'))",
      *     redirectRoute="admin_taxes_index",
      * )
+     * @DemoRestricted(redirectRoute="admin_taxes_index")
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_taxes_index')]
     public function bulkDeleteAction(Request $request)
     {
-        $taxIds = $request->request->all('tax_bulk');
+        $taxIds = $request->request->get('tax_bulk');
         try {
             $this->getCommandBus()->handle(new BulkDeleteTaxCommand($taxIds));
             $this->addFlash(

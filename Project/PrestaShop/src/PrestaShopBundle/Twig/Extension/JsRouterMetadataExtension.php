@@ -26,7 +26,6 @@
 
 namespace PrestaShopBundle\Twig\Extension;
 
-use PrestaShopBundle\Service\DataProvider\UserProvider;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use Twig\Extension\AbstractExtension;
@@ -37,17 +36,40 @@ use Twig\TwigFunction;
  */
 class JsRouterMetadataExtension extends AbstractExtension
 {
+    /**
+     * @var RequestStack
+     */
+    private $requestStack;
+
+    /**
+     * @var CsrfTokenManagerInterface
+     */
+    private $tokenManager;
+
+    /**
+     * @var string
+     */
+    private $username;
+
+    /**
+     * @param RequestStack $requestStack
+     * @param CsrfTokenManagerInterface $tokenManager
+     * @param string $username
+     */
     public function __construct(
-        private readonly RequestStack $requestStack,
-        private readonly CsrfTokenManagerInterface $tokenManager,
-        private readonly UserProvider $userProvider
+        RequestStack $requestStack,
+        CsrfTokenManagerInterface $tokenManager,
+        string $username
     ) {
+        $this->requestStack = $requestStack;
+        $this->tokenManager = $tokenManager;
+        $this->username = $username;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getFunctions(): array
+    public function getFunctions()
     {
         return [
             new TwigFunction('js_router_metadata', [$this, 'getJsRouterMetadata']),
@@ -59,13 +81,13 @@ class JsRouterMetadataExtension extends AbstractExtension
      *
      * @return array
      */
-    public function getJsRouterMetadata(): array
+    public function getJsRouterMetadata()
     {
         return [
             // base url for javascript router
             'base_url' => $this->requestStack->getCurrentRequest()->getBaseUrl(),
             //security token for javascript router
-            'token' => $this->tokenManager->getToken($this->userProvider->getUsername())->getValue(),
+            'token' => $this->tokenManager->getToken($this->username)->getValue(),
         ];
     }
 }

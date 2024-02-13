@@ -27,27 +27,12 @@
 namespace PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Exception;
 
 /**
- * When attribute group Id contains invalid values
+ * Is thrown when attribute group constraints are violated
  */
 class AttributeGroupConstraintException extends AttributeGroupException
 {
     /**
-     * Used when attribute group id is invalid
+     * When attribute group Id contains invalid values
      */
     public const INVALID_ID = 10;
-
-    /**
-     * Code is used when attribute group does not have name.
-     */
-    public const EMPTY_NAME = 20;
-
-    /**
-     * Code is used when attribute group does not have public name.
-     */
-    public const EMPTY_PUBLIC_NAME = 30;
-
-    /**
-     * Used when attribute group name is invalid.
-     */
-    public const INVALID_NAME = 40;
 }

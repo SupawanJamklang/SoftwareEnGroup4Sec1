@@ -31,7 +31,7 @@ namespace PrestaShopBundle\Form\Admin\Improve\International\Locations;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\DefaultLanguage;
 use PrestaShop\PrestaShop\Core\ConstraintValidator\Constraints\TypedRegex;
 use PrestaShop\PrestaShop\Core\Form\ConfigurableFormChoiceProviderInterface;
-use PrestaShopBundle\Form\Admin\Type\CurrencyChoiceType;
+use PrestaShop\PrestaShop\Core\Form\FormChoiceProviderInterface;
 use PrestaShopBundle\Form\Admin\Type\ShopChoiceTreeType;
 use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatableType;
@@ -55,6 +55,11 @@ class CountryType extends AbstractType
     protected $isMultistoreEnabled;
 
     /**
+     * @var FormChoiceProviderInterface
+     */
+    protected $currencyChoiceProvider;
+
+    /**
      * @var ConfigurableFormChoiceProviderInterface
      */
     protected $zoneChoiceProvider;
@@ -65,10 +70,12 @@ class CountryType extends AbstractType
     public function __construct(
         TranslatorInterface $translator,
         bool $isMultistoreEnabled,
+        FormChoiceProviderInterface $currencyChoiceProvider,
         ConfigurableFormChoiceProviderInterface $zoneChoiceProvider
     ) {
         $this->translator = $translator;
         $this->isMultistoreEnabled = $isMultistoreEnabled;
+        $this->currencyChoiceProvider = $currencyChoiceProvider;
         $this->zoneChoiceProvider = $zoneChoiceProvider;
     }
 
@@ -112,9 +119,10 @@ class CountryType extends AbstractType
                 'required' => true,
                 'label' => $this->translator->trans('Call prefix', [], 'Admin.International.Feature'),
             ])
-            ->add('default_currency', CurrencyChoiceType::class, [
+            ->add('default_currency', ChoiceType::class, [
                 'required' => false,
                 'label' => $this->translator->trans('Default currency', [], 'Admin.International.Feature'),
+                'choices' => $this->currencyChoiceProvider->getChoices(),
                 'placeholder' => $this->translator->trans('Default store currency', [], 'Admin.International.Feature'),
             ])
             ->add('zone', ChoiceType::class, [

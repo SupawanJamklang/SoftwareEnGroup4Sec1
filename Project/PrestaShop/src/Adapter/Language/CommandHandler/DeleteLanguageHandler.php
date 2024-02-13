@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Language\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\File\RobotsTextFileGenerator;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Language\Command\DeleteLanguageCommand;
 use PrestaShop\PrestaShop\Core\Domain\Language\CommandHandler\DeleteLanguageHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Language\Exception\DefaultLanguageException;
@@ -39,7 +38,6 @@ use Shop;
  *
  * @internal
  */
-#[AsCommandHandler]
 final class DeleteLanguageHandler extends AbstractLanguageHandler implements DeleteLanguageHandlerInterface
 {
     /**

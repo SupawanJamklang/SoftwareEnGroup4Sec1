@@ -313,11 +313,11 @@ class AdminFilter
             return function ($subject) use ($filter) {
                 $operator = null;
 
-                if (str_contains($subject, '<=')) {
+                if (false !== strpos($subject, '<=')) {
                     $operator = '<=';
                 }
 
-                if (str_contains($subject, '>=')) {
+                if (false !== strpos($subject, '>=')) {
                     $operator = '>=';
                 }
 

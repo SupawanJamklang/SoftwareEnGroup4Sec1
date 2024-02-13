@@ -91,8 +91,6 @@ class DebugModeConfiguration implements DataConfigurationInterface
         return [
             'disable_overrides' => $this->configuration->getBoolean('PS_DISABLE_OVERRIDES'),
             'debug_mode' => $this->debugMode->isDebugModeEnabled(),
-            'debug_cookie_name' => $this->configuration->get('PS_DEBUG_COOKIE_NAME'),
-            'debug_cookie_value' => $this->configuration->get('PS_DEBUG_COOKIE_VALUE'),
             'debug_profiling' => $this->debugProfiling->isProfilingEnabled(),
         ];
     }
@@ -108,21 +106,10 @@ class DebugModeConfiguration implements DataConfigurationInterface
             // Set configuration
             $this->configuration->set('PS_DISABLE_OVERRIDES', $configuration['disable_overrides']);
 
-            $this->configuration->set('PS_DEBUG_COOKIE_NAME', $configuration['debug_cookie_name']);
-            $this->configuration->set('PS_DEBUG_COOKIE_VALUE', $configuration['debug_cookie_value']);
-
-            if (empty($configuration['debug_cookie_name']) && !empty($configuration['debug_cookie_value'])) {
-                $errors[] = [
-                    'key' => 'Error: The cookie name is required when the cookie value is set.',
-                    'domain' => 'Admin.Advparameters.Notification',
-                    'parameters' => [],
-                ];
-            }
-
             $this->classIndexCacheClearer->clear();
 
             // Update Debug Mode
-            $status = $this->updateDebugMode($configuration);
+            $status = $this->updateDebugMode((bool) $configuration['debug_mode']);
             switch ($status) {
                 case DebugMode::DEBUG_MODE_ERROR_NO_WRITE_ACCESS_CUSTOM:
                 case DebugMode::DEBUG_MODE_ERROR_NO_READ_ACCESS:
@@ -182,37 +169,26 @@ class DebugModeConfiguration implements DataConfigurationInterface
      */
     public function validateConfiguration(array $configuration)
     {
-        $keys = [
-            'disable_overrides',
-            'debug_mode',
-            'debug_cookie_name',
-            'debug_cookie_value',
-            'debug_profiling',
-        ];
-        $array_keys = array_keys($configuration);
-
-        return count(array_intersect($keys, $array_keys)) === count($keys);
+        return isset(
+            $configuration['disable_overrides'],
+            $configuration['debug_mode'],
+            $configuration['debug_profiling']
+        );
     }
 
     /**
      * Change Debug mode value if needed.
      *
-     * @param array $configuration {
-     *                             debug_mode: bool
-     *                             debug_cookie_name: string
-     *                             debug_cookie_value: string
-     *                             }
+     * @param bool $enableStatus
      *
      * @return int|null Status of update
      */
-    private function updateDebugMode(array $configuration): ?int
+    private function updateDebugMode(bool $enableStatus): ?int
     {
-        $currentDebugMode = $this->debugMode->getCurrentDebugMode();
+        $currentDebugMode = $this->debugMode->isDebugModeEnabled();
 
-        $newDebugMode = $this->debugMode->createDebugModeFromConfiguration($configuration);
-
-        if ($newDebugMode !== $currentDebugMode) {
-            return $this->debugMode->changePsModeDevValue($newDebugMode);
+        if ($enableStatus !== $currentDebugMode) {
+            return (true === $enableStatus) ? $this->debugMode->enable() : $this->debugMode->disable();
         }
 
         return null;

@@ -4,31 +4,45 @@ services:
 
   PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\AddTaxRulesGroupHandler:
     autowire: true
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\AddTaxRulesGroupCommand'
 
   PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\EditTaxRulesGroupHandler:
     autowire: true
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\EditTaxRulesGroupCommand'
 
   prestashop.adapter.tax_rules_group.command_handler.delete_tax_rules_group_handler:
     class: 'PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\DeleteTaxRulesGroupHandler'
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\DeleteTaxRulesGroupCommand'
 
   prestashop.adapter.tax_rules_group.command_handler.bulk_delete_tax_rules_group_handler:
     class: 'PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\BulkDeleteTaxRulesGroupHandler'
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\BulkDeleteTaxRulesGroupCommand'
 
   prestashop.adapter.tax_rules_group.command_handler.bulk_set_tax_rules_group_status_handler:
     class: 'PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\BulkSetTaxRulesGroupStatusHandler'
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\BulkSetTaxRulesGroupStatusCommand'
 
   prestashop.adapter.tax_rules_group.query_handler.get_tax_rules_group_for_editing:
     class: 'PrestaShop\PrestaShop\Adapter\TaxRulesGroup\QueryHandler\GetTaxRulesGroupForEditingHandler'
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Query\GetTaxRulesGroupForEditing'
 
   prestashop.adapter.tax_rules_group.command_handler.set_tax_rules_group_status_handler:
     class: 'PrestaShop\PrestaShop\Adapter\TaxRulesGroup\CommandHandler\SetTaxRulesGroupStatusHandler'
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\TaxRulesGroup\Command\SetTaxRulesGroupStatusCommand'
 
   PrestaShop\PrestaShop\Adapter\TaxRulesGroup\Repository\TaxRulesGroupRepository:
     arguments:
@@ -37,3 +51,7 @@ services:
       - '@PrestaShop\PrestaShop\Adapter\TaxRulesGroup\Validate\TaxRulesGroupValidator'
 
   PrestaShop\PrestaShop\Adapter\TaxRulesGroup\Validate\TaxRulesGroupValidator: ~
+
+  prestashop.adapter.tax_rules_group.repository.tax_rules_group_repository:
+    alias: PrestaShop\PrestaShop\Adapter\TaxRulesGroup\Repository\TaxRulesGroupRepository
+    deprecated: ~

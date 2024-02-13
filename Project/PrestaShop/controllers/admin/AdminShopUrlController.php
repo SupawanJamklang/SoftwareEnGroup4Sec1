@@ -355,11 +355,6 @@ class AdminShopUrlControllerCore extends AdminController
         }
     }
 
-    /**
-     * AdminController::initContent() override.
-     *
-     * @see AdminController::initContent()
-     */
     public function initContent()
     {
         parent::initContent();
@@ -478,7 +473,7 @@ class AdminShopUrlControllerCore extends AdminController
         }
 
         $unallowed = str_replace('/', '', Tools::getValue('virtual_uri'));
-        if ($unallowed == 'c' || $unallowed == 'img' || is_numeric($unallowed) || !preg_match('/^[a-z\d\-_]*$/i', $unallowed)) {
+        if ($unallowed == 'c' || $unallowed == 'img' || is_numeric($unallowed)) {
             $this->errors[] = $this->trans(
                 'A shop virtual URL cannot be "%URL%"',
                 [

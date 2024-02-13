@@ -60,7 +60,7 @@ class FooterType extends TranslatorAwareType
     /**
      * @var FeatureInterface
      */
-    private $multiStoreFeature;
+    private $multistoreFeature;
 
     /**
      * @var int|null
@@ -73,7 +73,7 @@ class FooterType extends TranslatorAwareType
      * @param ProductProvider $productUrlProvider
      * @param ProductPreviewProvider $productPreviewUrlProvider
      * @param RouterInterface $router
-     * @param FeatureInterface $multiStoreFeature
+     * @param FeatureInterface $multistoreFeature
      * @param int|null $contextShopId
      */
     public function __construct(
@@ -82,7 +82,7 @@ class FooterType extends TranslatorAwareType
         ProductProvider $productUrlProvider,
         ProductPreviewProvider $productPreviewUrlProvider,
         RouterInterface $router,
-        FeatureInterface $multiStoreFeature,
+        FeatureInterface $multistoreFeature,
         ?int $contextShopId
     ) {
         parent::__construct($translator, $locales);
@@ -90,7 +90,7 @@ class FooterType extends TranslatorAwareType
         $this->productPreviewUrlProvider = $productPreviewUrlProvider;
         $this->router = $router;
         $this->contextShopId = $contextShopId;
-        $this->multiStoreFeature = $multiStoreFeature;
+        $this->multistoreFeature = $multistoreFeature;
     }
 
     /**
@@ -115,7 +115,7 @@ class FooterType extends TranslatorAwareType
         $seoUrl = $this->productUrlProvider->getUrl($productId, '{friendly-url}');
 
         $duplicateLabel = $this->trans('Duplicate', 'Admin.Actions');
-        if ($this->multiStoreFeature->isActive()) {
+        if ($this->multistoreFeature->isActive()) {
             $duplicateLabel = $this->trans('Duplicate for current store', 'Admin.Actions');
         }
 

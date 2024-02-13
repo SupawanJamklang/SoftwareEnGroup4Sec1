@@ -27,6 +27,7 @@
 namespace PrestaShop\PrestaShop\Core\Grid\Data\Factory;
 
 use Doctrine\DBAL\Query\QueryBuilder;
+use PDO;
 use PrestaShop\PrestaShop\Core\Grid\Data\GridData;
 use PrestaShop\PrestaShop\Core\Grid\Query\DoctrineQueryBuilderInterface;
 use PrestaShop\PrestaShop\Core\Grid\Query\QueryParserInterface;
@@ -92,8 +93,8 @@ final class DoctrineGridDataFactory implements GridDataFactoryInterface
             'search_criteria' => $searchCriteria,
         ]);
 
-        $records = $searchQueryBuilder->executeQuery()->fetchAllAssociative();
-        $recordsTotal = (int) $countQueryBuilder->executeQuery()->fetchOne();
+        $records = $searchQueryBuilder->execute()->fetchAll();
+        $recordsTotal = (int) $countQueryBuilder->execute()->fetch(PDO::FETCH_COLUMN);
 
         $records = new RecordCollection($records);
 

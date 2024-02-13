@@ -108,7 +108,7 @@ final class CreditSlipPdfGenerator implements PDFGeneratorInterface
                 ->setParameter('creditSlipIds', $creditSlipIds, Connection::PARAM_INT_ARRAY)
             ;
 
-            $slipsList = $qb->executeQuery()->fetchAll();
+            $slipsList = $qb->execute()->fetchAll();
         }
 
         if (!empty($slipsList)) {

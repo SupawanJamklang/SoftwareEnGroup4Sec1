@@ -8,8 +8,8 @@ services:
   prestashop.adapter.admin.data_provider.module:
     class: PrestaShop\PrestaShop\Adapter\Module\AdminModuleDataProvider
     arguments:
+      - "@prestashop.categories_provider"
       - "@prestashop.adapter.data_provider.module"
-      - '@translator'
       - "@=service('prestashop.adapter.legacy.context').getContext().employee"
     calls:
       - [ setRouter, [ '@router' ] ]
@@ -18,6 +18,10 @@ services:
 
   prestashop.adapter.data_provider.supplier:
     class: PrestaShop\PrestaShop\Adapter\Supplier\SupplierDataProvider
+    deprecated: ~
+
+  prestashop.adapter.data_provider.warehouse:
+    class: PrestaShop\PrestaShop\Adapter\Warehouse\WarehouseDataProvider
     deprecated: ~
 
   prestashop.adapter.data_provider.category:
@@ -78,6 +82,11 @@ services:
     class: PrestaShop\PrestaShop\Adapter\Pack\PackDataProvider
     deprecated: ~
 
+  prestashop.adapter.data_provider.tab:
+    alias: PrestaShop\PrestaShop\Adapter\Tab\TabDataProvider
+    deprecated: ~
+    public: true
+
   PrestaShop\PrestaShop\Adapter\Tab\TabDataProvider:
     class: PrestaShop\PrestaShop\Adapter\Tab\TabDataProvider
     public: false
@@ -98,18 +107,11 @@ services:
     calls:
       - [ "setEmployeeId", [ "@=service('prestashop.adapter.legacy.context').getContext().employee?service('prestashop.adapter.legacy.context').getContext().employee.id:0" ] ]
 
-  PrestaShop\PrestaShop\Adapter\Category\CategoriesProviderBuilder:
-    arguments:
-      - '@prestashop.adapter.legacy.context'
-      - '@prestashop.core.addon.theme.repository'
-      - !php/const _PS_CACHE_DIR_
-      - !php/const _PS_ROOT_DIR_
-      - '/app/config/addons/categories.yml'
-
   prestashop.categories_provider:
-    lazy: true
     class: PrestaShopBundle\Service\DataProvider\Admin\CategoriesProvider
-    factory: [ '@PrestaShop\PrestaShop\Adapter\Category\CategoriesProviderBuilder', 'build' ]
+    arguments:
+      - "%prestashop.addons.categories%"
+      - "@=service('prestashop.adapter.legacy.context').getContext().shop.theme_name?service('prestashop.core.addon.theme.repository').getInstanceByName(service('prestashop.adapter.legacy.context').getContext().shop.theme_name).getModulesToEnable():[]"
 
   prestashop.adapter.data_provider.default_route:
     class: PrestaShop\PrestaShop\Adapter\Routes\DefaultRouteProvider

@@ -28,7 +28,6 @@ namespace PrestaShop\PrestaShop\Adapter\Category\CommandHandler;
 
 use Category;
 use ImageType;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Domain\Category\Command\DeleteCategoryCoverImageCommand;
 use PrestaShop\PrestaShop\Core\Domain\Category\CommandHandler\DeleteCategoryCoverImageHandlerInterface;
@@ -43,7 +42,6 @@ use Symfony\Component\Filesystem\Filesystem;
  *
  * @internal
  */
-#[AsCommandHandler]
 final class DeleteCategoryCoverImageHandler implements DeleteCategoryCoverImageHandlerInterface
 {
     /**

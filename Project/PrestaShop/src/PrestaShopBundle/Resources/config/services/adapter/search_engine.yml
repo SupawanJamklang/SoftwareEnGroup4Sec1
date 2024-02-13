@@ -5,21 +5,31 @@ services:
   # Command Handlers
   prestashop.adapter.search_engine.command_handler.add_search_engine_handler:
     class: PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler\AddSearchEngineHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\AddSearchEngineCommand
 
   prestashop.adapter.search_engine.command_handler.bulk_delete_search_engine_handler:
     class: PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler\BulkDeleteSearchEngineHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\BulkDeleteSearchEngineCommand
 
   prestashop.adapter.search_engine.command_handler.delete_search_engine_handler:
     class: PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler\DeleteSearchEngineHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\DeleteSearchEngineCommand
 
   prestashop.adapter.search_engine.command_handler.edit_search_engine_handler:
     class: PrestaShop\PrestaShop\Adapter\SearchEngine\CommandHandler\EditSearchEngineHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\SearchEngine\Command\EditSearchEngineCommand
 
   # Query Handlers
   prestashop.adapter.search_engine.query_handler.get_search_engine_for_editing_handler:
     class: PrestaShop\PrestaShop\Adapter\SearchEngine\QueryHandler\GetSearchEngineForEditingHandler
-    autoconfigure: true
+    tags:
+      - name: tactician.handler
+        command: PrestaShop\PrestaShop\Core\Domain\SearchEngine\Query\GetSearchEngineForEditing

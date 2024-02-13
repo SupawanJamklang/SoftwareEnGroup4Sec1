@@ -144,7 +144,7 @@ final class HookDescriptionGenerator implements HookDescriptionGeneratorInterfac
      */
     private function doesHookDescriptionContainsPlaceholder($description)
     {
-        return str_contains($description, '%s');
+        return false !== strpos($description, '%s');
     }
 
     /**
@@ -156,6 +156,6 @@ final class HookDescriptionGenerator implements HookDescriptionGeneratorInterfac
      */
     private function doesPlaceholderIsTheFirstElementOfTheDescription($description)
     {
-        return str_starts_with($description, '%s');
+        return 0 === strncmp($description, '%s', 2);
     }
 }

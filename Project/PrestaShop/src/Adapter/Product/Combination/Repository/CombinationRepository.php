@@ -177,7 +177,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('attributeIds', implode('-', $attributeIds))
             ->addGroupBy('pa.id_product_attribute')
         ;
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
 
         if (empty($result)) {
             return null;
@@ -226,7 +226,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->andWhere('pa.id_product_attribute = :combinationId')
             ->setParameter('combinationId', $combinationId->getValue())
         ;
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
         if (empty($result) || empty($result['id_product'])) {
             throw new CombinationNotFoundException(sprintf('Combination #%d was not found', $combinationId->getValue()));
         }
@@ -347,7 +347,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('combinationId', $combinationId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetch();
 
         if (empty($result['id_shop_default'])) {
             throw new ProductNotFoundException(sprintf(
@@ -442,7 +442,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->addGroupBy('pas.id_product_attribute')
         ;
 
-        $combinationIds = $qb->executeQuery()->fetchAllAssociative();
+        $combinationIds = $qb->execute()->fetchAllAssociative();
 
         return array_map(
             function (array $combination) { return new CombinationId((int) $combination['id_product_attribute']); },
@@ -478,7 +478,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('productId', $productId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
 
         if (!$result) {
             return null;
@@ -506,7 +506,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('shopId', $shopId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
 
         return isset($result['id_product_attribute']);
     }
@@ -533,7 +533,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('shopId', $shopId->getValue())
         ;
 
-        $result = $qb->executeQuery()->fetchAssociative();
+        $result = $qb->execute()->fetchAssociative();
         if (empty($result['id_product_attribute'])) {
             return null;
         }
@@ -563,7 +563,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             static function (array $result): ShopId {
                 return new ShopId((int) $result['id_shop']);
             },
-            $qb->executeQuery()->fetchAllAssociative()
+            $qb->execute()->fetchAll()
         );
     }
 
@@ -593,7 +593,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
 
         return array_map(static function (array $shop) {
             return new ShopId((int) $shop['id_shop']);
-        }, $qb->executeQuery()->fetchAllAssociative());
+        }, $qb->execute()->fetchAllAssociative());
     }
 
     /**
@@ -650,7 +650,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ->setParameter('productId', $productId->getValue())
         ;
 
-        $this->applyShopConstraint($qb, $shopConstraint)->executeStatement();
+        $this->applyShopConstraint($qb, $shopConstraint)->execute();
     }
 
     /**
@@ -822,7 +822,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             $qb->setMaxResults($limit);
         }
 
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAll();
         if (!$results) {
             return [];
         }
@@ -885,7 +885,7 @@ class CombinationRepository extends AbstractMultiShopObjectModelRepository
             ;
         }
 
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAllAssociative();
 
         return array_map('intval', array_column($results, 'id_attribute'));
     }

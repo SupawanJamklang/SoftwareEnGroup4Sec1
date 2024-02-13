@@ -31,6 +31,9 @@ use Context;
 use PrestaShopBundle\Translation\TranslatorComponent;
 use Product;
 use SpecificPriceRule;
+use Stock;
+use StockAvailable;
+use Tools;
 use Validate;
 
 /**
@@ -110,19 +113,34 @@ class AdminAttributeGeneratorControllerWrapper
         }
 
         if ($idProduct && Validate::isUnsignedId($idProduct) && Validate::isLoadedObject($product = new Product($idProduct))) {
-            $product->deleteAttributeCombination((int) $idAttribute);
-            $product->checkDefaultAttributes();
-            if (!$product->hasAttributes()) {
-                $product->cache_default_attribute = 0;
-                $product->update();
+            if (($depends_on_stock = StockAvailable::dependsOnStock($idProduct)) && StockAvailable::getQuantityAvailableByProduct($idProduct, $idAttribute)) {
+                return [
+                    'status' => 'error',
+                    'message' => $this->translator->trans('It is not possible to delete a combination while it still has some quantities in the Advanced Stock Management. You must delete its stock first.', [], 'Admin.Catalog.Notification'),
+                ];
             } else {
-                Product::updateDefaultAttribute($idProduct);
-            }
+                $product->deleteAttributeCombination((int) $idAttribute);
+                $product->checkDefaultAttributes();
+                Tools::clearColorListCache((int) $product->id);
+                if (!$product->hasAttributes()) {
+                    $product->cache_default_attribute = 0;
+                    $product->update();
+                } else {
+                    Product::updateDefaultAttribute($idProduct);
+                }
 
-            return [
-                'status' => 'ok',
-                'message' => $this->translator->trans('Successful deletion', [], 'Admin.Catalog.Notification'),
-            ];
+                if ($depends_on_stock && !Stock::deleteStockByIds($idProduct, $idAttribute)) {
+                    return [
+                        'status' => 'error',
+                        'message' => $this->translator->trans('Error while deleting the stock', [], 'Admin.Catalog.Notification'),
+                    ];
+                } else {
+                    return [
+                        'status' => 'ok',
+                        'message' => $this->translator->trans('Successful deletion', [], 'Admin.Catalog.Notification'),
+                    ];
+                }
+            }
         } else {
             return [
                 'status' => 'error',

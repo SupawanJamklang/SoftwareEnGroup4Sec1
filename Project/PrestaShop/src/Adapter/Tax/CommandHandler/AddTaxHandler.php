@@ -27,7 +27,6 @@
 namespace PrestaShop\PrestaShop\Adapter\Tax\CommandHandler;
 
 use PrestaShop\PrestaShop\Adapter\Tax\AbstractTaxHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\Domain\Tax\Command\AddTaxCommand;
 use PrestaShop\PrestaShop\Core\Domain\Tax\CommandHandler\AddTaxHandlerInterface;
 use PrestaShop\PrestaShop\Core\Domain\Tax\Exception\TaxException;
@@ -38,7 +37,6 @@ use Tax;
 /**
  * Handles command which is responsible for tax editing
  */
-#[AsCommandHandler]
 final class AddTaxHandler extends AbstractTaxHandler implements AddTaxHandlerInterface
 {
     /**

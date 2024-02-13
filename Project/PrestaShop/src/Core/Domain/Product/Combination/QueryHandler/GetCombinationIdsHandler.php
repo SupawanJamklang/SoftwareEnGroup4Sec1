@@ -27,13 +27,11 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Core\Domain\Product\Combination\QueryHandler;
 
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsQueryHandler;
 use PrestaShop\PrestaShop\Core\Domain\Product\Combination\Query\GetCombinationIds;
 use PrestaShop\PrestaShop\Core\Domain\Product\Combination\ValueObject\CombinationId;
 use PrestaShop\PrestaShop\Core\Grid\Query\ProductCombinationQueryBuilder;
 use PrestaShop\PrestaShop\Core\Search\Filters\ProductCombinationFilters;
 
-#[AsQueryHandler]
 class GetCombinationIdsHandler implements GetCombinationIdsHandlerInterface
 {
     /**
@@ -80,7 +78,7 @@ class GetCombinationIdsHandler implements GetCombinationIdsHandlerInterface
         $results = $this->productCombinationQueryBuilder
             ->getSearchQueryBuilder($searchCriteria)
             ->select('pas.id_product_attribute')
-            ->executeQuery()
+            ->execute()
             ->fetchAllAssociative()
         ;
 

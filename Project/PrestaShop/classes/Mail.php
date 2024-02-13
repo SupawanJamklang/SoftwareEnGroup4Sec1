@@ -24,15 +24,6 @@
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
 
-use Symfony\Component\Mailer\Exception\ExceptionInterface;
-use Symfony\Component\Mailer\Mailer;
-use Symfony\Component\Mailer\Transport\SendmailTransport;
-use Symfony\Component\Mailer\Transport\Smtp\EsmtpTransport;
-use Symfony\Component\Mime\Address;
-use Symfony\Component\Mime\Crypto\DkimSigner;
-use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\Header\IdentificationHeader;
-
 /**
  * Class MailCore.
  */
@@ -154,7 +145,7 @@ class MailCore extends ObjectModel
         $idShop = null,
         $bcc = null,
         $replyTo = null,
-        $replyToName = ''
+        $replyToName = null
     ) {
         if (!$idShop) {
             $idShop = Context::getContext()->shop->id;
@@ -248,9 +239,7 @@ class MailCore extends ObjectModel
         if (!isset($configuration['PS_MAIL_SMTP_ENCRYPTION']) ||
             Tools::strtolower($configuration['PS_MAIL_SMTP_ENCRYPTION']) === 'off'
         ) {
-            $isTls = false;
-        } else {
-            $isTls = true;
+            $configuration['PS_MAIL_SMTP_ENCRYPTION'] = false;
         }
 
         if (!isset($configuration['PS_MAIL_SMTP_PORT'])) {
@@ -315,7 +304,21 @@ class MailCore extends ObjectModel
             return false;
         }
 
-        $email = new Email();
+        $message = new Swift_Message();
+
+        /* Create new message and DKIM sign it, if enabled and all data for signature are provided */
+        if ((bool) $configuration['PS_MAIL_DKIM_ENABLE'] === true
+            && !empty($configuration['PS_MAIL_DKIM_DOMAIN'])
+            && !empty($configuration['PS_MAIL_DKIM_SELECTOR'])
+            && !empty($configuration['PS_MAIL_DKIM_KEY'])
+        ) {
+            $signer = new Swift_Signers_DKIMSigner(
+                $configuration['PS_MAIL_DKIM_KEY'],
+                $configuration['PS_MAIL_DKIM_DOMAIN'],
+                $configuration['PS_MAIL_DKIM_SELECTOR']
+            );
+            $message->attachSigner($signer);
+        }
 
         /* Construct multiple recipients list if needed */
         if (is_array($to)) {
@@ -336,14 +339,14 @@ class MailCore extends ObjectModel
                 $addrName = ($addrName == null || $addrName == $addr || !Validate::isGenericName($addrName)) ?
                           '' :
                           self::mimeEncode($addrName);
-                $email->addTo(new Address(self::toPunycode($addr), $addrName));
+                $message->addTo(self::toPunycode($addr), $addrName);
             }
             $toPlugin = $to[0];
         } else {
             /* Simple recipient, one address */
             $toPlugin = $to;
             $toName = (($toName == null || $toName == $to) ? '' : self::mimeEncode($toName));
-            $email->addTo(new Address(self::toPunycode($to), $toName));
+            $message->addTo(self::toPunycode($to), $toName);
         }
 
         if (isset($bcc) && is_array($bcc)) {
@@ -355,10 +358,10 @@ class MailCore extends ObjectModel
                     return false;
                 }
 
-                $email->addBcc(new Address(self::toPunycode($addr)));
+                $message->addBcc(self::toPunycode($addr));
             }
         } elseif (isset($bcc)) {
-            $email->addBcc(new Address(self::toPunycode($bcc)));
+            $message->addBcc(self::toPunycode($bcc));
         }
 
         try {
@@ -369,19 +372,26 @@ class MailCore extends ObjectModel
 
                     return false;
                 }
-                $transport = (new EsmtpTransport(
+
+                $connection = (new Swift_SmtpTransport(
                     $configuration['PS_MAIL_SERVER'],
                     $configuration['PS_MAIL_SMTP_PORT'],
-                    $isTls
+                    $configuration['PS_MAIL_SMTP_ENCRYPTION']
                 ))
                     ->setUsername($configuration['PS_MAIL_USER'])
-                    ->setPassword($configuration['PS_MAIL_PASSWD'])
-                ;
+                    ->setPassword($configuration['PS_MAIL_PASSWD']);
             } else {
-                $transport = new SendmailTransport();
+                /**
+                 * mail() support was removed from SwiftMailer for security reasons
+                 * previously => $connection = \Swift_MailTransport::newInstance();
+                 * Use Swift_SendmailTransport instead
+                 *
+                 * @see https://github.com/swiftmailer/swiftmailer/issues/866
+                 */
+                $connection = new Swift_SendmailTransport();
             }
 
-            $mailer = new Mailer($transport);
+            $swift = new Swift_Mailer($connection);
             /* Get templates content */
             $iso = Language::getIsoById((int) $idLang);
             $isoDefault = Language::getIsoById((int) Configuration::get('PS_LANG_DEFAULT'));
@@ -492,20 +502,19 @@ class MailCore extends ObjectModel
             if (Configuration::get('PS_MAIL_SUBJECT_PREFIX')) {
                 $subject = '[' . strip_tags($configuration['PS_SHOP_NAME']) . '] ' . $subject;
             }
-            $email->subject($subject);
+            $message->setSubject($subject);
+
+            $message->setCharset('utf-8');
 
             /* Set Message-ID - getmypid() is blocked on some hosting */
-            $email
-                ->getHeaders()
-                ->add(new IdentificationHeader('Message-ID', Mail::generateId()))
-            ;
+            $message->setId(Mail::generateId());
 
             if (!($replyTo && Validate::isEmail($replyTo))) {
                 $replyTo = $from;
             }
 
             if (isset($replyTo) && $replyTo) {
-                $email->replyTo(new Address($replyTo, (string) $replyToName));
+                $message->setReplyTo($replyTo, ($replyToName !== '' ? $replyToName : null));
             }
 
             if (false !== Configuration::get('PS_LOGO_MAIL', null, null, $idShop) &&
@@ -522,8 +531,7 @@ class MailCore extends ObjectModel
             ShopUrl::cacheMainDomainForShop((int) $idShop);
             /* don't attach the logo as */
             if (isset($logo) && $configuration['PS_MAIL_TYPE'] != Mail::TYPE_TEXT) {
-                $templateVars['{shop_logo}'] = 'cid:shop_logo';
-                $email->embedFromPath($logo, 'shop_logo');
+                $templateVars['{shop_logo}'] = $message->embed(\Swift_Image::fromPath($logo));
             }
 
             if (!(Context::getContext()->link instanceof Link)) {
@@ -588,19 +596,16 @@ class MailCore extends ObjectModel
                 true
             );
             $templateVars = array_merge($templateVars, $extraTemplateVars);
-
+            $swift->registerPlugin(new Swift_Plugins_DecoratorPlugin([self::toPunycode($toPlugin) => $templateVars]));
             if ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH ||
                 $configuration['PS_MAIL_TYPE'] == Mail::TYPE_HTML
             ) {
-                $templateHtml = strtr($templateHtml, $templateVars);
-                $email->html($templateHtml);
+                $message->setBody($templateHtml, 'text/html', 'utf-8');
                 if ($configuration['PS_MAIL_TYPE'] == Mail::TYPE_BOTH) {
-                    $templateTxt = strtr($templateTxt, $templateVars);
-                    $email->text($templateTxt);
+                    $message->addPart($templateTxt, 'text/plain', 'utf-8');
                 }
             } else {
-                $templateTxt = strtr($templateTxt, $templateVars);
-                $email->text($templateTxt);
+                $message->setBody($templateTxt, 'text/plain', 'utf-8');
             }
 
             if (!empty($fileAttachment)) {
@@ -611,46 +616,35 @@ class MailCore extends ObjectModel
 
                 foreach ($fileAttachment as $attachment) {
                     if (isset($attachment['content'], $attachment['name'], $attachment['mime'])) {
-                        $email->attach($attachment['content'], $attachment['name'], $attachment['mime']);
+                        $message->attach(
+                            (new Swift_Attachment())->setFilename(
+                                $attachment['name']
+                            )->setContentType($attachment['mime'])
+                                ->setBody($attachment['content'])
+                        );
                     }
                 }
             }
             /* Send mail */
-            $email->from(new Address($from, (string) $fromName));
+            $message->setFrom([$from => $fromName]);
 
-            // Hook to alter Symfony Mailer before sending mail
+            // Hook to alter Swift Message before sending mail
             Hook::exec('actionMailAlterMessageBeforeSend', [
-                'message' => &$email,
+                'message' => &$message,
             ]);
 
-            /* Create new message and DKIM sign it, if enabled and all data for signature are provided */
-            if ((bool) $configuration['PS_MAIL_DKIM_ENABLE'] === true
-                && !empty($configuration['PS_MAIL_DKIM_DOMAIN'])
-                && !empty($configuration['PS_MAIL_DKIM_SELECTOR'])
-                && !empty($configuration['PS_MAIL_DKIM_KEY'])
-            ) {
-                $signer = new DkimSigner(
-                    $configuration['PS_MAIL_DKIM_KEY'],
-                    $configuration['PS_MAIL_DKIM_DOMAIN'],
-                    $configuration['PS_MAIL_DKIM_SELECTOR']
-                );
+            $send = $swift->send($message);
 
-                $signedEmail = $signer->sign($email);
-            }
-
-            $mailer->send($signedEmail ?? $email);
             ShopUrl::resetMainDomainCache();
 
-            if (Configuration::get('PS_LOG_EMAILS')) {
+            if ($send && Configuration::get('PS_LOG_EMAILS')) {
                 $mail = new Mail();
                 $mail->template = Tools::substr($template, 0, 62);
-                $mail->subject = Tools::substr($email->getSubject(), 0, 255);
+                $mail->subject = Tools::substr($message->getSubject(), 0, 255);
                 $mail->id_lang = (int) $idLang;
-
-                $recipientsTo = self::convertAdressesToArray($email->getTo());
-                $recipientsCc = self::convertAdressesToArray($email->getCc());
-                $recipientsBcc = self::convertAdressesToArray($email->getBcc());
-
+                $recipientsTo = $message->getTo();
+                $recipientsCc = $message->getCc();
+                $recipientsBcc = $message->getBcc();
                 if (!is_array($recipientsTo)) {
                     $recipientsTo = [];
                 }
@@ -660,20 +654,21 @@ class MailCore extends ObjectModel
                 if (!is_array($recipientsBcc)) {
                     $recipientsBcc = [];
                 }
-                foreach (array_merge($recipientsTo, $recipientsCc, $recipientsBcc) as $emailAlias => $recipient_name) {
+                foreach (array_merge($recipientsTo, $recipientsCc, $recipientsBcc) as $email => $recipient_name) {
+                    /* @var Swift_Address $recipient */
                     $mail->id = null;
-                    $mail->recipient = Tools::substr($emailAlias, 0, 255);
+                    $mail->recipient = Tools::substr($email, 0, 255);
                     $mail->add();
                 }
             }
 
-            return true;
-        } catch (ExceptionInterface $e) {
+            return $send;
+        } catch (Swift_SwiftException $e) {
             PrestaShopLogger::addLog(
-                'Mailer Error: ' . $e->getMessage(),
+                'Swift Error: ' . $e->getMessage(),
                 3,
                 null,
-                'MailerMessage'
+                'SwiftMessage'
             );
 
             return false;
@@ -761,30 +756,28 @@ class MailCore extends ObjectModel
         try {
             if ($smtpChecked) {
                 if (Tools::strtolower($smtpEncryption) === 'off') {
-                    $isTls = false;
-                } else {
-                    $isTls = true;
+                    $smtpEncryption = false;
                 }
-                $transport = (new EsmtpTransport(
+                $connection = (new Swift_SmtpTransport(
                     $smtpServer,
                     $smtpPort,
-                    $isTls
+                    $smtpEncryption
                 ))
                     ->setUsername($smtpLogin)
-                    ->setPassword($smtpPassword)
-                ;
+                    ->setPassword($smtpPassword);
             } else {
-                $transport = new SendmailTransport();
+                /**
+                 * mail() support was removed from SwiftMailer for security reasons
+                 * previously => $connection = \Swift_MailTransport::newInstance();
+                 * Use Swift_SendmailTransport instead
+                 *
+                 * @see https://github.com/swiftmailer/swiftmailer/issues/866
+                 */
+                $connection = new Swift_SendmailTransport();
             }
 
-            $mailer = new Mailer($transport);
-
-            $email = (new Email())
-                ->from($from)
-                ->to($to)
-                ->subject($subject)
-                ->text($content)
-            ;
+            $swift = new Swift_Mailer($connection);
+            $message = new Swift_Message();
 
             /* Create new message and DKIM sign it, if enabled and all data for signature are provided */
             if ($dkimEnable === true
@@ -792,18 +785,24 @@ class MailCore extends ObjectModel
                 && !empty($dkimDomain)
                 && !empty($dkimSelector)
             ) {
-                $signer = new DkimSigner(
+                $signer = new Swift_Signers_DKIMSigner(
                     $dkimKey,
                     $dkimDomain,
                     $dkimSelector
                 );
-
-                $signedEmail = $signer->sign($email);
+                $message->attachSigner($signer);
             }
 
-            $mailer->send($signedEmail ?? $email);
-            $result = true;
-        } catch (ExceptionInterface $e) {
+            $message
+                ->setFrom($from)
+                ->setTo($to)
+                ->setSubject($subject)
+                ->setBody($content);
+
+            if ($swift->send($message)) {
+                $result = true;
+            }
+        } catch (\Swift_SwiftException $e) {
             $result = $e->getMessage();
         }
 
@@ -858,13 +857,13 @@ class MailCore extends ObjectModel
         );
     }
 
-    /* Generate a Message-ID */
+    /* Rewrite of Swift_Message::generateId() without getmypid() */
     protected static function generateId($idstring = null)
     {
         $midparams = [
             'utctime' => date('YmdHis'),
             'randint' => mt_rand(),
-            'customstr' => ($idstring !== null && preg_match('/^(?<!\\.)[a-z0-9\\.]+(?!\\.)$/iD', $idstring) ? $idstring : 'mailer'),
+            'customstr' => ($idstring !== null && preg_match('/^(?<!\\.)[a-z0-9\\.]+(?!\\.)$/iD', $idstring) ? $idstring : 'swift'),
             'hostname' => !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : php_uname('n'),
         ];
 
@@ -994,21 +993,5 @@ class MailCore extends ObjectModel
             ),
             $die
         );
-    }
-
-    /**
-     * @param Address[] $addresses
-     *
-     * @return array<string, string|null>
-     */
-    private static function convertAdressesToArray(array $addresses): array
-    {
-        $recipientsTo = [];
-
-        foreach ($addresses as $address) {
-            $recipientsTo[$address->getAddress()] = $address->getName();
-        }
-
-        return $recipientsTo;
     }
 }

@@ -26,8 +26,6 @@
 
 namespace PrestaShopBundle\Entity;
 
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\Selectable;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -157,21 +155,9 @@ class Tab
         return $this->icon;
     }
 
-    public function getTabLangs(): Collection & Selectable
+    public function getTabLangs()
     {
         return $this->tabLangs;
-    }
-
-    public function getTabLangByLanguageId(int $languageId): ?TabLang
-    {
-        /** @var TabLang $tabLang */
-        foreach ($this->getTabLangs() as $tabLang) {
-            if ($tabLang->getLang()->getId() === $languageId) {
-                return $tabLang;
-            }
-        }
-
-        return null;
     }
 
     /**

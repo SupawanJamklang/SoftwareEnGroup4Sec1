@@ -58,22 +58,20 @@ use PrestaShop\PrestaShop\Core\Domain\Shop\Exception\ShopAssociationNotFound;
 use PrestaShop\PrestaShop\Core\Domain\Shop\ValueObject\ShopConstraint;
 use PrestaShop\PrestaShop\Core\Domain\Shop\ValueObject\ShopId;
 use PrestaShop\PrestaShop\Core\FeatureFlag\FeatureFlagSettings;
-use PrestaShop\PrestaShop\Core\FeatureFlag\FeatureFlagStateCheckerInterface;
 use PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Builder\FormBuilderInterface;
 use PrestaShop\PrestaShop\Core\Form\IdentifiableObject\Handler\FormHandlerInterface;
 use PrestaShop\PrestaShop\Core\Grid\Definition\Factory\GridDefinitionFactoryInterface;
 use PrestaShop\PrestaShop\Core\Grid\Definition\Factory\ProductGridDefinitionFactory;
 use PrestaShop\PrestaShop\Core\Search\Filters\ProductFilters;
-use PrestaShop\PrestaShop\Core\Security\Permission;
 use PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController;
-use PrestaShopBundle\Controller\BulkActionsTrait;
 use PrestaShopBundle\Entity\AdminFilter;
 use PrestaShopBundle\Entity\ProductDownload;
+use PrestaShopBundle\Entity\Repository\FeatureFlagRepository;
 use PrestaShopBundle\Form\Admin\Sell\Product\Category\CategoryFilterType;
 use PrestaShopBundle\Form\Admin\Type\ShopSelectorType;
-use PrestaShopBundle\Security\Admin\Employee;
 use PrestaShopBundle\Security\Annotation\AdminSecurity;
 use PrestaShopBundle\Security\Annotation\DemoRestricted;
+use PrestaShopBundle\Security\Voter\PageVoter;
 use PrestaShopBundle\Service\Grid\ResponseBuilder;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -100,17 +98,10 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
  */
 class ProductController extends FrameworkBundleAdminController
 {
-    use BulkActionsTrait;
-
     /**
      * Used to validate connected user authorizations.
      */
     private const PRODUCT_CONTROLLER_PERMISSION = 'ADMINPRODUCTS_';
-
-    /**
-     * Request key to retrieve product ids for various bulk actions
-     */
-    private const BULK_PRODUCT_IDS_KEY = 'product_bulk';
 
     /**
      * @var ProductRepository
@@ -158,7 +149,6 @@ class ProductController extends FrameworkBundleAdminController
             'enableSidebar' => true,
             'layoutHeaderToolbarBtn' => $this->getProductToolbarButtons($request->get('_legacy_controller')),
             'help_link' => $this->generateSidebarLink('AdminProducts'),
-            'layoutTitle' => $this->trans('Products', 'Admin.Navigation.Menu'),
         ]);
     }
 
@@ -736,18 +726,21 @@ class ProductController extends FrameworkBundleAdminController
      *     redirectQueryParamsToKeep={"id_category"},
      *     message="You do not have permission to edit this."
      * )
+     * @DemoRestricted(
+     *     redirectRoute="admin_products_index",
+     *     redirectQueryParamsToKeep={"id_category"}
+     * )
      *
      * @param Request $request
      *
      * @return RedirectResponse
      */
-    #[DemoRestricted(redirectRoute: 'admin_products_index', redirectQueryParamsToKeep: ['id_category'])]
     public function updatePositionAction(Request $request): RedirectResponse
     {
         try {
             $this->getCommandBus()->handle(
                 new UpdateProductsPositionsCommand(
-                    $request->request->all('positions'),
+                    $request->request->get('positions'),
                     $request->query->getInt('id_category')
                 )
             );
@@ -992,7 +985,7 @@ class ProductController extends FrameworkBundleAdminController
     }
 
     /**
-     * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))")
+     * @AdminSecurity("is_granted(['read'], request.get('_legacy_controller'))")
      *
      * @param Request $request
      * @param string $languageCode
@@ -1039,7 +1032,7 @@ class ProductController extends FrameworkBundleAdminController
     }
 
     /**
-     * @AdminSecurity("is_granted('read', request.get('_legacy_controller'))")
+     * @AdminSecurity("is_granted(['read'], request.get('_legacy_controller'))")
      *
      * @param int $productId
      * @param int $shopId
@@ -1092,7 +1085,7 @@ class ProductController extends FrameworkBundleAdminController
             'showContentHeader' => false,
             'productForm' => $productForm->createView(),
             'helpLink' => $this->generateSidebarLink('AdminProducts'),
-            'editable' => $this->isGranted(Permission::UPDATE, self::PRODUCT_CONTROLLER_PERMISSION),
+            'editable' => $this->isGranted(PageVoter::UPDATE, self::PRODUCT_CONTROLLER_PERMISSION),
         ]);
     }
 
@@ -1120,7 +1113,7 @@ class ProductController extends FrameworkBundleAdminController
             'productForm' => $productForm->createView(),
             'statsLink' => $statsLink,
             'helpLink' => $this->generateSidebarLink('AdminProducts'),
-            'editable' => $this->isGranted(Permission::UPDATE, self::PRODUCT_CONTROLLER_PERMISSION),
+            'editable' => $this->isGranted(PageVoter::UPDATE, self::PRODUCT_CONTROLLER_PERMISSION),
             'taxEnabled' => (bool) $configuration->get('PS_TAX'),
             'stockEnabled' => (bool) $configuration->get('PS_STOCK_MANAGEMENT'),
             'isMultistoreActive' => $this->get('prestashop.adapter.multistore_feature')->isActive(),
@@ -1156,7 +1149,7 @@ class ProductController extends FrameworkBundleAdminController
         try {
             $this->getCommandBus()->handle(
                 new BulkDuplicateProductCommand(
-                    $this->getBulkActionIds($request, self::BULK_PRODUCT_IDS_KEY),
+                    $this->getProductIdsFromRequest($request),
                     $shopConstraint
                 )
             );
@@ -1212,7 +1205,7 @@ class ProductController extends FrameworkBundleAdminController
     {
         try {
             $this->getCommandBus()->handle(new BulkDeleteProductCommand(
-                $this->getBulkActionIds($request, self::BULK_PRODUCT_IDS_KEY),
+                $this->getProductIdsFromRequest($request),
                 $shopConstraint
             ));
             $this->addFlash(
@@ -1231,6 +1224,33 @@ class ProductController extends FrameworkBundleAdminController
     }
 
     /**
+     * @param Request $request
+     *
+     * @return array<int, int>
+     */
+    private function getProductIdsFromRequest(Request $request): array
+    {
+        $productIds = $request->request->get('product_bulk');
+
+        if (is_numeric($productIds)) {
+            return [(int) $productIds];
+        }
+
+        if (!is_array($productIds)) {
+            return [];
+        }
+
+        foreach ($productIds as $i => $productId) {
+            $productIds[$i] = (int) $productId;
+        }
+
+        // Return product IDs ordered
+        sort($productIds);
+
+        return $productIds;
+    }
+
+    /**
      * @param string $securitySubject
      *
      * @return array<string, array<string, mixed>>
@@ -1240,13 +1260,13 @@ class ProductController extends FrameworkBundleAdminController
         $toolbarButtons = [];
 
         // do not show create button if user has no permissions for it
-        if (!$this->isGranted(Permission::CREATE, $securitySubject)) {
+        if (!$this->isGranted(PageVoter::CREATE, $securitySubject)) {
             return $toolbarButtons;
         }
 
         $toolbarButtons['add'] = [
             'href' => $this->generateUrl('admin_products_create', ['shopId' => $this->getShopIdFromShopContext()]),
-            'desc' => $this->trans('Add new product', 'Admin.Actions'),
+            'desc' => $this->trans('New product', 'Admin.Actions'),
             'icon' => 'add_circle_outline',
             'class' => 'btn-primary new-product-button',
             'floating_class' => 'new-product-button',
@@ -1295,7 +1315,7 @@ class ProductController extends FrameworkBundleAdminController
         try {
             $this->getCommandBus()->handle(
                 new BulkUpdateProductStatusCommand(
-                    $this->getBulkActionIds($request, self::BULK_PRODUCT_IDS_KEY),
+                    $this->getProductIdsFromRequest($request),
                     $newStatus,
                     $shopConstraint
                 )
@@ -1503,7 +1523,7 @@ class ProductController extends FrameworkBundleAdminController
         }
 
         $adminFiltersRepository = $this->get('prestashop.core.admin.admin_filter.repository');
-        $employeeId = $this->getUser() instanceof Employee ? $this->getUser()->getId() : 0;
+        $employeeId = $this->getUser()->getId();
         $shopId = $this->getContext()->shop->id;
 
         return $adminFiltersRepository->findByEmployeeAndFilterId($employeeId, $shopId, ProductGridDefinitionFactory::GRID_ID);
@@ -1514,7 +1534,7 @@ class ProductController extends FrameworkBundleAdminController
      */
     private function shouldRedirectToV1(): bool
     {
-        return $this->get(FeatureFlagStateCheckerInterface::class)->isDisabled(FeatureFlagSettings::FEATURE_FLAG_PRODUCT_PAGE_V2);
+        return $this->get(FeatureFlagRepository::class)->isDisabled(FeatureFlagSettings::FEATURE_FLAG_PRODUCT_PAGE_V2);
     }
 
     /**

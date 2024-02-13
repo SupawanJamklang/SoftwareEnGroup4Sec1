@@ -27,57 +27,67 @@
 namespace PrestaShopBundle\Controller\Admin;
 
 use Exception;
+use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShop\PrestaShop\Core\Domain\Configuration\ShopConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Grid\GridInterface;
 use PrestaShop\PrestaShop\Core\Help\Documentation;
+use PrestaShop\PrestaShop\Core\Localization\Locale;
 use PrestaShop\PrestaShop\Core\Localization\Locale\Repository as LocaleRepository;
-use PrestaShop\PrestaShop\Core\Localization\LocaleInterface;
 use PrestaShop\PrestaShop\Core\Module\Exception\ModuleErrorInterface;
-use PrestaShop\PrestaShop\Core\Security\Permission;
-use Psr\Container\ContainerInterface;
+use PrestaShopBundle\Security\Voter\PageVoter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Extends The Symfony framework bundle controller to add common functions for PrestaShop needs.
- *
- * @deprecated since 9.0 to be removed in future versions (10+ at least, when it will not be used anymore),
- * should stop using it in favor of PrestaShopAdminController.
  */
-class FrameworkBundleAdminController extends AbstractController implements ContainerAwareInterface
+class FrameworkBundleAdminController extends AbstractController
 {
-    /**
-     * @deprecated since 9.0
-     */
     public const PRESTASHOP_CORE_CONTROLLERS_TAG = 'prestashop.core.controllers';
 
     /**
-     * Override to make this compatible with the ContainerAware signature, content should be the same as in the abstract.
-     * Do not override this neither use this, it will be removed in next versions. This overridden method
-     * along with the ContainerAwareInterface was added to skip the error sent by Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver
-     * that forces the controllers extending AbstractController to be defined as service subscriber.
+     * @deprecated since version 8.1, use $this->getConfiguration() instead
      *
-     * This method allows us to keep controllers based on FrameworkBundleAdminController from being
-     * adapted. However, the core and the modules should stop using it in favor of PrestaShopAdminController
-     *
-     * @internal
+     * @var Configuration
      */
-    public function setContainer(ContainerInterface $container = null): ?ContainerInterface
-    {
-        $previous = $this->container;
-        $this->container = $container;
-
-        return $previous;
-    }
+    protected $configuration;
 
     /**
      * @var string|null
      */
     protected $layoutTitle;
+
+    /**
+     * Constructor.
+     */
+    public function __construct()
+    {
+        @trigger_error(__FUNCTION__ . ' is deprecated since version 8.1 and will be removed in the next major version.', E_USER_DEPRECATED);
+
+        $this->configuration = new Configuration();
+    }
+
+    /**
+     * @Template
+     *
+     * @deprecated Since 8.0, to be removed in the next major version
+     *
+     * @return array|Response Template vars if the action uses template annotation, or a Response object
+     */
+    public function overviewAction()
+    {
+        @trigger_error(__FUNCTION__ . 'is deprecated since version 8.0 and will be removed in the next major version.', E_USER_DEPRECATED);
+
+        return [
+            'is_shop_context' => $this->container->get('prestashop.adapter.shop.context')->isShopContext(),
+            'layoutTitle' => empty($this->layoutTitle) ? '' : $this->trans($this->layoutTitle, 'Admin.Navigation.Menu'),
+        ];
+    }
 
     /**
      * @return ShopConfigurationInterface
@@ -120,12 +130,10 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
             }
 
             if ($error->getMessagePluralization()) {
-                $errors[$formId][] = $translator->trans(
+                $errors[$formId][] = $translator->transChoice(
                     $error->getMessageTemplate(),
-                    array_merge(
-                        $error->getMessageParameters(),
-                        ['%count%' => $error->getMessagePluralization()]
-                    ),
+                    $error->getMessagePluralization(),
+                    $error->getMessageParameters(),
                     'validators'
                 );
             } else {
@@ -188,13 +196,10 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
 
         $iso = (string) $legacyContext->getEmployeeLanguageIso();
 
-        $url = $this->generateUrl('admin_common_sidebar', [
+        return $this->generateUrl('admin_common_sidebar', [
             'url' => $this->container->get(Documentation::class)->generateLink($section, $iso),
             'title' => $title,
         ]);
-
-        //this line is allow to revert a new behaviour introduce in sf 5.4 which break the result we used to have
-        return strtr($url, ['%2F' => '%252F']);
     }
 
     /**
@@ -220,9 +225,9 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
     /**
      * Get the locale based on the context
      *
-     * @return LocaleInterface
+     * @return Locale
      */
-    protected function getContextLocale(): LocaleInterface
+    protected function getContextLocale(): Locale
     {
         $locale = $this->getContext()->getCurrentLocale();
         if (null !== $locale) {
@@ -275,20 +280,20 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
      */
     protected function authorizationLevel($controller)
     {
-        if ($this->isGranted(Permission::DELETE, $controller)) {
-            return Permission::LEVEL_DELETE;
+        if ($this->isGranted(PageVoter::DELETE, $controller)) {
+            return PageVoter::LEVEL_DELETE;
         }
 
-        if ($this->isGranted(Permission::CREATE, $controller)) {
-            return Permission::LEVEL_CREATE;
+        if ($this->isGranted(PageVoter::CREATE, $controller)) {
+            return PageVoter::LEVEL_CREATE;
         }
 
-        if ($this->isGranted(Permission::UPDATE, $controller)) {
-            return Permission::LEVEL_UPDATE;
+        if ($this->isGranted(PageVoter::UPDATE, $controller)) {
+            return PageVoter::LEVEL_UPDATE;
         }
 
-        if ($this->isGranted(Permission::READ, $controller)) {
-            return Permission::LEVEL_READ;
+        if ($this->isGranted(PageVoter::READ, $controller)) {
+            return PageVoter::LEVEL_READ;
         }
 
         return 0;
@@ -350,13 +355,13 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
     protected function actionIsAllowed($action, $object = '', $suffix = '')
     {
         return (
-                $action === 'delete' . $suffix && $this->isGranted(Permission::DELETE, $object)
+                $action === 'delete' . $suffix && $this->isGranted(PageVoter::DELETE, $object)
             ) || (
                 ($action === 'activate' . $suffix || $action === 'deactivate' . $suffix) &&
-                $this->isGranted(Permission::UPDATE, $object)
+                $this->isGranted(PageVoter::UPDATE, $object)
             ) || (
                 ($action === 'duplicate' . $suffix) &&
-                ($this->isGranted(Permission::UPDATE, $object) || $this->isGranted(Permission::CREATE, $object))
+                ($this->isGranted(PageVoter::UPDATE, $object) || $this->isGranted(PageVoter::CREATE, $object))
             );
     }
 
@@ -523,7 +528,7 @@ class FrameworkBundleAdminController extends AbstractController implements Conta
             return $e->getMessage();
         }
 
-        $exceptionType = $e::class;
+        $exceptionType = get_class($e);
         $exceptionCode = $e->getCode();
 
         if (isset($messages[$exceptionType])) {

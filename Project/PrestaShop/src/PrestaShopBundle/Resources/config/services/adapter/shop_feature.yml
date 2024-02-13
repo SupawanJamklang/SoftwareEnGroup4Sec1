@@ -2,11 +2,9 @@ services:
   _defaults:
     public: true
 
-  PrestaShop\PrestaShop\Adapter\Feature\CombinationFeature:
-    public: false
-    arguments: [ '@prestashop.adapter.legacy.configuration' ]
   prestashop.adapter.combination_feature:
-    alias: 'PrestaShop\PrestaShop\Adapter\Feature\CombinationFeature'
+    class: 'PrestaShop\PrestaShop\Adapter\Feature\CombinationFeature'
+    arguments: [ '@prestashop.adapter.legacy.configuration' ]
 
   prestashop.adapter.feature.feature:
     class: 'PrestaShop\PrestaShop\Adapter\Feature\FeatureFeature'

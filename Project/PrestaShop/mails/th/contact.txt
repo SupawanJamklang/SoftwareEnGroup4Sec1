@@ -1,0 +1,19 @@
+ 
+
+{shop_url}
+
+ข้อความจากลูกค้า {shop_name}
+
+Customer Email Address: {email}
+
+Order ID #:  {order_name}
+
+ไฟล์ที่แนบ: {attached_file}
+
+ข้อความลูกค้า:
+
+{message}
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

@@ -28,27 +28,30 @@ declare(strict_types=1);
 
 namespace PrestaShop\PrestaShop\Adapter\Title\CommandHandler;
 
-use PrestaShop\PrestaShop\Adapter\Title\AbstractTitleHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
+use Gender;
 use PrestaShop\PrestaShop\Core\Domain\Title\Command\DeleteTitleCommand;
 use PrestaShop\PrestaShop\Core\Domain\Title\CommandHandler\DeleteTitleHandlerInterface;
-use PrestaShop\PrestaShop\Core\Domain\Title\Exception\CannotDeleteTitleException;
+use PrestaShop\PrestaShop\Core\Domain\Title\Exception\DeleteTitleException;
+use PrestaShop\PrestaShop\Core\Domain\Title\Exception\TitleNotFoundException;
 
 /**
  * Handles command that delete title
  */
-#[AsCommandHandler]
-class DeleteTitleHandler extends AbstractTitleHandler implements DeleteTitleHandlerInterface
+class DeleteTitleHandler implements DeleteTitleHandlerInterface
 {
     /**
      * {@inheritdoc}
-     *
-     * @throws CannotDeleteTitleException
      */
     public function handle(DeleteTitleCommand $command): void
     {
-        $this->titleRepository->delete(
-            $this->titleRepository->get($command->getTitleId())
-        );
+        $title = new Gender($command->getTitleId()->getValue());
+
+        if (0 >= $title->id) {
+            throw new TitleNotFoundException(sprintf('Unable to find title with id "%d" for deletion', $command->getTitleId()->getValue()));
+        }
+
+        if (!$title->delete()) {
+            throw DeleteTitleException::createDeleteFailure($command->getTitleId());
+        }
     }
 }

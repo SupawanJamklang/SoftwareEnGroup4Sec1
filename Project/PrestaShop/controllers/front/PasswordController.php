@@ -160,7 +160,7 @@ class PasswordControllerCore extends FrontController
                         $this->errors[] = $this->trans('The confirmation password doesn\'t match.', [], 'Shop.Notifications.Error');
                     }
 
-                    if (!Validate::isAcceptablePasswordLength($passwd)) {
+                    if (!Validate::isPlaintextPassword($passwd)) {
                         $this->errors[] = $this->trans('The password is not in a valid format.', [], 'Shop.Notifications.Error');
                     }
                 }

@@ -64,7 +64,7 @@ class FilterCmsPageCategorySearchCriteriaListener
             return;
         }
 
-        $searchCriteriaClass = $event->getSearchCriteria()::class;
+        $searchCriteriaClass = get_class($event->getSearchCriteria());
 
         $searchCriteria = $event->getSearchCriteria();
 

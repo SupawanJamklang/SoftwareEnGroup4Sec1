@@ -33,19 +33,23 @@ class CmsControllerCore extends FrontController
     public $assignCase;
 
     /**
+     * @deprecated Since 8.1, it will become protected in next major version. Use getCms() method instead.
+     *
      * @var CMS|null
      */
-    protected $cms;
+    public $cms;
 
     /**
+     * @deprecated Since 8.1, it will become protected in next major version. Use getCmsCategory() method instead.
+     *
      * @var CMSCategory|null
      */
-    protected $cms_category;
+    public $cms_category;
 
     /** @var bool */
     public $ssl = false;
 
-    public function canonicalRedirection(string $canonicalURL = '')
+    public function canonicalRedirection($canonicalURL = '')
     {
         if (Validate::isLoadedObject($this->cms) && ($canonicalURL = $this->context->link->getCMSLink($this->cms, $this->cms->link_rewrite, $this->ssl))) {
             parent::canonicalRedirection($canonicalURL);
@@ -197,12 +201,6 @@ class CmsControllerCore extends FrontController
         return $breadcrumb;
     }
 
-    /**
-     * Initializes a set of commonly used variables related to the current page, available for use
-     * in the template. @see FrontController::assignGeneralPurposeVariables for more information.
-     *
-     * @return array
-     */
     public function getTemplateVarPage()
     {
         $page = parent::getTemplateVarPage();

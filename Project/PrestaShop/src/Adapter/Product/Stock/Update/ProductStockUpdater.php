@@ -121,6 +121,10 @@ class ProductStockUpdater
         }
 
         $this->updateStockByShopConstraint($stockAvailable, $properties, $shopConstraint);
+
+        if ($this->isAdvancedStockEnabled($shopConstraint) && $product->depends_on_stock) {
+            StockAvailable::synchronize($product->id);
+        }
     }
 
     /**
@@ -181,6 +185,10 @@ class ProductStockUpdater
                 new OrderStateId((int) $this->configuration->get('PS_OS_ERROR', null, $shopConstraint)),
                 new OrderStateId((int) $this->configuration->get('PS_OS_CANCELED', null, $shopConstraint))
             );
+
+            if ($this->isAdvancedStockEnabled($shopConstraint)) {
+                StockAvailable::synchronize($productId->getValue(), $shopId->getValue());
+            }
         }
     }
 
@@ -314,5 +322,10 @@ class ProductStockUpdater
                 'id_shop' => (int) $affectedShopId,
             ]
         );
+    }
+
+    private function isAdvancedStockEnabled(ShopConstraint $shopConstraint): bool
+    {
+        return (bool) $this->configuration->get('PS_ADVANCED_STOCK_MANAGEMENT', null, $shopConstraint);
     }
 }

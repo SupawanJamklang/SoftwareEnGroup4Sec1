@@ -27,7 +27,6 @@
 namespace PrestaShopBundle\Form\Admin\Improve\Design\MailTheme;
 
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
-use PrestaShopBundle\Form\Admin\Type\LocaleChoiceType;
 use PrestaShopBundle\Form\Admin\Type\SwitchType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -82,7 +81,11 @@ class GenerateMailsType extends TranslatorAwareType
                 'choices' => $this->mailThemes,
                 'data' => $this->configuration->get('PS_MAIL_THEME'),
             ])
-            ->add('language', LocaleChoiceType::class)
+            ->add('language', ChoiceType::class, [
+                'placeholder' => $this->trans('Language', 'Admin.Global'),
+                'choices' => $this->getLocaleChoices(),
+                'choice_translation_domain' => false,
+            ])
             ->add('theme', ChoiceType::class, [
                 'choices' => $this->themes,
                 'placeholder' => $noTheme,

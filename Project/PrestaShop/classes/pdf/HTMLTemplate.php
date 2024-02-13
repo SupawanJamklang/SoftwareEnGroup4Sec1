@@ -55,11 +55,6 @@ abstract class HTMLTemplateCore
     public $shop;
 
     /**
-     * @var Order|null
-     */
-    public $order;
-
-    /**
      * Returns the template's HTML header.
      *
      * @return string HTML header

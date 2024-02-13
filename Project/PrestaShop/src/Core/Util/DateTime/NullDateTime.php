@@ -67,7 +67,7 @@ class NullDateTime extends DateTimeImmutable
         }
 
         throw new RuntimeException(
-            sprintf('Format "%s" is not supported by %s', $format, static::class)
+            sprintf('Format "%s" is not supported by %s', $format, get_class($this))
         );
     }
 
@@ -95,7 +95,6 @@ class NullDateTime extends DateTimeImmutable
     /**
      * {@inheritdoc}
      */
-    #[\ReturnTypeWillChange]
     public static function createFromMutable($object): DateTimeImmutable
     {
         throw self::buildUnusableMethodException('createFromMutable');

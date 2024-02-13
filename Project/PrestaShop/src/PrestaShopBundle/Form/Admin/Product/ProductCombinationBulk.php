@@ -26,10 +26,9 @@
 
 namespace PrestaShopBundle\Form\Admin\Product;
 
-use PrestaShop\PrestaShop\Core\Domain\Configuration\ShopConfigurationInterface;
+use PrestaShop\PrestaShop\Adapter\Configuration;
 use PrestaShopBundle\Form\Admin\Type\CommonAbstractType;
 use PrestaShopBundle\Form\Admin\Type\DatePickerType;
-use PrestaShopBundle\Form\FormHelper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -46,10 +45,11 @@ use Symfony\Contracts\Translation\TranslatorInterface;
  */
 class ProductCombinationBulk extends CommonAbstractType
 {
+    private $isoCode;
     private $translator;
     private $configuration;
 
-    public function __construct(TranslatorInterface $translator, ShopConfigurationInterface $configuration)
+    public function __construct(TranslatorInterface $translator, Configuration $configuration)
     {
         $this->translator = $translator;
         $this->configuration = $configuration;
@@ -57,8 +57,8 @@ class ProductCombinationBulk extends CommonAbstractType
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $is_stock_management = $this->configuration->getBoolean('PS_STOCK_MANAGEMENT');
-        $isoCode = $options['iso_code'];
+        $is_stock_management = $this->configuration->get('PS_STOCK_MANAGEMENT');
+        $this->isoCode = $options['iso_code'];
 
         if ($is_stock_management) {
             $builder->add('quantity', NumberType::class, [
@@ -70,8 +70,8 @@ class ProductCombinationBulk extends CommonAbstractType
         $builder->add('cost_price', MoneyType::class, [
             'required' => false,
             'label' => $this->translator->trans('Cost Price', [], 'Admin.Catalog.Feature'),
-            'attr' => ['data-display-price-precision' => FormHelper::DEFAULT_PRICE_PRECISION],
-            'currency' => $isoCode,
+            'attr' => ['data-display-price-precision' => self::PRESTASHOP_DECIMALS],
+            'currency' => $this->isoCode,
         ])
             ->add('impact_on_weight', NumberType::class, [
                 'required' => false,
@@ -80,13 +80,13 @@ class ProductCombinationBulk extends CommonAbstractType
             ->add('impact_on_price_te', MoneyType::class, [
                 'required' => false,
                 'label' => $this->translator->trans('Impact on price (tax excl.)', [], 'Admin.Catalog.Feature'),
-                'currency' => $isoCode,
+                'currency' => $this->isoCode,
             ])
             ->add('impact_on_price_ti', MoneyType::class, [
                 'required' => false,
                 'mapped' => false,
                 'label' => $this->translator->trans('Impact on price (tax incl.)', [], 'Admin.Catalog.Feature'),
-                'currency' => $isoCode,
+                'currency' => $this->isoCode,
             ])
             ->add('date_availability', DatePickerType::class, [
                 'required' => false,

@@ -29,7 +29,6 @@ namespace PrestaShop\PrestaShop\Adapter\Cart\CommandHandler;
 use Cart;
 use CartRule;
 use PrestaShop\PrestaShop\Adapter\Cart\AbstractCartHandler;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Domain\Cart\Command\UpdateCartDeliverySettingsCommand;
 use PrestaShop\PrestaShop\Core\Domain\Cart\CommandHandler\UpdateCartDeliverySettingsHandlerInterface;
@@ -44,7 +43,6 @@ use Validate;
 /**
  * @internal
  */
-#[AsCommandHandler]
 final class UpdateCartDeliverySettingsHandler extends AbstractCartHandler implements UpdateCartDeliverySettingsHandlerInterface
 {
     /**

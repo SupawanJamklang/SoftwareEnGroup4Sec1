@@ -50,11 +50,7 @@ final class SymfonyContainer
             global $kernel;
 
             if (null !== $kernel && $kernel instanceof KernelInterface) {
-                try {
-                    self::$instance = $kernel->getContainer();
-                } catch (\LogicException $e) {
-                    self::$instance = null;
-                }
+                self::$instance = $kernel->getContainer();
             }
         }
 

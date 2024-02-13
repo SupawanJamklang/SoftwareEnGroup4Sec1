@@ -49,15 +49,11 @@ class ViewableCustomer
     private $ordersInformation;
 
     /**
-     * @deprecated Since 9.0.0 for performance reasons and returns only empty array.
-     *
      * @var CartInformation[]
      */
     private $cartsInformation;
 
     /**
-     * @deprecated Since 9.0.0, returns empty ProductsInformation object with no data.
-     *
      * @var ProductsInformation
      */
     private $productsInformation;
@@ -68,8 +64,6 @@ class ViewableCustomer
     private $messagesInformation;
 
     /**
-     * @deprecated Since 9.0.0, returns only empty array.
-     *
      * @var DiscountInformation[]
      */
     private $discountsInformation;
@@ -90,8 +84,6 @@ class ViewableCustomer
     private $groupsInformation;
 
     /**
-     * @deprecated Since 9.0.0, returns only empty array.
-     *
      * @var AddressInformation[]
      */
     private $addressesInformation;
@@ -168,8 +160,6 @@ class ViewableCustomer
     }
 
     /**
-     * @deprecated Since 9.0.0 for performance reasons and returns only empty array.
-     *
      * @return CartInformation[]
      */
     public function getCartsInformation()
@@ -178,8 +168,6 @@ class ViewableCustomer
     }
 
     /**
-     * @deprecated Since 9.0.0, returns empty ProductsInformation object with no data.
-     *
      * @return ProductsInformation
      */
     public function getProductsInformation()
@@ -196,8 +184,6 @@ class ViewableCustomer
     }
 
     /**
-     * @deprecated Since 9.0.0, returns only empty array.
-     *
      * @return DiscountInformation[]
      */
     public function getDiscountsInformation()
@@ -230,8 +216,6 @@ class ViewableCustomer
     }
 
     /**
-     * @deprecated Since 9.0.0, returns only empty array.
-     *
      * @return AddressInformation[]
      */
     public function getAddressesInformation()

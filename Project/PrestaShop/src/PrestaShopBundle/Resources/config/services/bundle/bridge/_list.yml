@@ -17,7 +17,7 @@ services:
     class: PrestaShopBundle\Bridge\Helper\Listing\HelperBridge\HelperListBridge
     arguments:
       - '@prestashop.adapter.legacy.context'
-      - '@PrestaShopBundle\Service\DataProvider\UserProvider'
+      - '@prestashop.user_provider'
       - '@prestashop.hook.dispatcher'
       - '@prestashop.adapter.legacy.configuration'
       - '@prestashop.bridge.smarty.breadcrumbs_and_title_configurator'

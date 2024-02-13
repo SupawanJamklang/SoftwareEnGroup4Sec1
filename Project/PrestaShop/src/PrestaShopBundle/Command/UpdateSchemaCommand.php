@@ -102,7 +102,7 @@ class UpdateSchemaCommand extends Command
                 throw ($e);
             }
         }
-        if (!$connection->getNativeConnection() instanceof PDO || $connection->getNativeConnection()->inTransaction()) {
+        if (!$connection->getWrappedConnection() instanceof PDO || $connection->getWrappedConnection()->inTransaction()) {
             $connection->commit();
         }
 
@@ -284,8 +284,8 @@ class UpdateSchemaCommand extends Command
                 $originalFieldName = $fieldName;
                 $fieldName = str_replace('`', '', $fieldName);
                 // get old default value
-                $result = $connection->executeQuery('SHOW FULL COLUMNS FROM ' . $tableName . ' WHERE Field="' . $fieldName . '"');
-                $results = $result->fetchAllAssociative();
+                $query = $connection->executeQuery('SHOW FULL COLUMNS FROM ' . $tableName . ' WHERE Field="' . $fieldName . '"');
+                $results = $query->fetchAllAssociative();
                 if (empty($results[0])) {
                     continue;
                 }
@@ -294,7 +294,7 @@ class UpdateSchemaCommand extends Command
                 $extra = $results[0]['Extra'];
 
                 if ($oldDefaultValue !== null
-                    && !str_contains($oldDefaultValue, 'CURRENT_TIMESTAMP')) {
+                    && strpos($oldDefaultValue, 'CURRENT_TIMESTAMP') === false) {
                     $oldDefaultValue = "'" . $oldDefaultValue . "'";
                 }
 
@@ -305,9 +305,9 @@ class UpdateSchemaCommand extends Command
                 // set the old default value
                 if (!($results[0]['Null'] == 'NO' && $results[0]['Default'] === null)
                     && !($oldDefaultValue === 'NULL'
-                         && str_contains($matches[0][$matchKey], 'NOT NULL'))
-                    && (!str_contains($matches[0][$matchKey], 'BLOB'))
-                    && (!str_contains($matches[0][$matchKey], 'TEXT'))
+                         && strpos($matches[0][$matchKey], 'NOT NULL') !== false)
+                    && (strpos($matches[0][$matchKey], 'BLOB') === false)
+                    && (strpos($matches[0][$matchKey], 'TEXT') === false)
                 ) {
                     if (preg_match('/DEFAULT/', $matches[0][$matchKey])) {
                         $matches[0][$matchKey] = preg_replace(

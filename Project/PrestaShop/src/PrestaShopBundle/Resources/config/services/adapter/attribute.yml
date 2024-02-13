@@ -3,10 +3,14 @@ services:
     public: true
 
   PrestaShop\PrestaShop\Adapter\Attribute\CommandHandler\DeleteAttributeHandler:
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Command\DeleteAttributeCommand'
 
   PrestaShop\PrestaShop\Adapter\Attribute\CommandHandler\BulkDeleteAttributeHandler:
-    autoconfigure: true
+    tags:
+      - name: 'tactician.handler'
+        command: 'PrestaShop\PrestaShop\Core\Domain\AttributeGroup\Attribute\Command\BulkDeleteAttributeCommand'
 
   PrestaShop\PrestaShop\Adapter\Attribute\Repository\AttributeRepository:
     arguments:

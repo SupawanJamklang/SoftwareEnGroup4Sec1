@@ -78,7 +78,8 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
     private function prepareProductForTemplate(array $rawProduct)
     {
         // Enrich data of product
-        $product = (new ProductAssembler($this->context))->assembleProduct($rawProduct);
+        $product = (new ProductAssembler($this->context))
+            ->assembleProduct($rawProduct);
 
         // Prepare configuration
         $presenter = $this->getProductPresenter();
@@ -103,7 +104,8 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
     protected function prepareMultipleProductsForTemplate(array $products)
     {
         // Enrich data set of products
-        $products = (new ProductAssembler($this->context))->assembleProducts($products);
+        $products = (new ProductAssembler($this->context))
+            ->assembleProducts($products);
 
         // Prepare configuration
         $presenter = $this->getProductPresenter();
@@ -151,12 +153,12 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
         foreach ($facetsArray['filters'] as &$filter) {
             $filter['facetLabel'] = $facet->getLabel();
             if ($filter['nextEncodedFacets']) {
-                $filter['nextEncodedFacetsURL'] = Tools::updateCurrentQueryString([
+                $filter['nextEncodedFacetsURL'] = $this->updateQueryString([
                     'q' => $filter['nextEncodedFacets'],
                     'page' => null,
                 ]);
             } else {
-                $filter['nextEncodedFacetsURL'] = Tools::updateCurrentQueryString([
+                $filter['nextEncodedFacetsURL'] = $this->updateQueryString([
                     'q' => null,
                 ]);
             }
@@ -200,7 +202,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             'js_enabled' => $this->ajax,
             'activeFilters' => $activeFilters,
             'sort_order' => $result->getCurrentSortOrder()->toString(),
-            'clear_all_link' => Tools::updateCurrentQueryString(['q' => null, 'page' => null]),
+            'clear_all_link' => $this->updateQueryString(['q' => null, 'page' => null]),
         ]);
     }
 
@@ -235,7 +237,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
 
         return $this->render('catalog/_partials/active_filters', [
             'activeFilters' => $activeFilters,
-            'clear_all_link' => Tools::updateCurrentQueryString(['q' => null, 'page' => null]),
+            'clear_all_link' => $this->updateQueryString(['q' => null, 'page' => null]),
         ]);
     }
 
@@ -434,7 +436,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
             'rendered_facets' => $rendered_facets,
             'rendered_active_filters' => $rendered_active_filters,
             'js_enabled' => $this->ajax,
-            'current_url' => Tools::updateCurrentQueryString([
+            'current_url' => $this->updateQueryString([
                 'q' => $result->getEncodedFacets(),
             ]),
         ];
@@ -507,7 +509,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
         $itemsShownTo = $query->getResultsPerPage() * $query->getPage();
 
         $pages = array_map(function ($link) {
-            $link['url'] = Tools::updateCurrentQueryString([
+            $link['url'] = $this->updateQueryString([
                 'page' => $link['page'] > 1 ? $link['page'] : null,
             ]);
 
@@ -555,7 +557,7 @@ abstract class ProductListingFrontControllerCore extends ProductPresentingFrontC
         return array_map(function ($sortOrder) use ($currentSortOrderURLParameter) {
             $order = $sortOrder->toArray();
             $order['current'] = $order['urlParameter'] === $currentSortOrderURLParameter;
-            $order['url'] = Tools::updateCurrentQueryString([
+            $order['url'] = $this->updateQueryString([
                 'order' => $order['urlParameter'],
                 'page' => null,
             ]);

@@ -25,7 +25,6 @@
  */
 use Defuse\Crypto\Key;
 use PrestaShop\PrestaShop\Core\Exception\CoreException;
-use PrestaShop\PrestaShop\Core\Http\CookieOptions;
 use PrestaShop\PrestaShop\Core\Session\SessionInterface;
 
 /**
@@ -45,22 +44,15 @@ use PrestaShop\PrestaShop\Core\Session\SessionInterface;
  */
 class CookieCore
 {
-    /**
-     * @deprecated since 9.0 use CookieOptions constants instead.
-     */
-    public const SAMESITE_NONE = CookieOptions::SAMESITE_NONE;
-    /**
-     * @deprecated since 9.0 use CookieOptions constants instead.
-     */
-    public const SAMESITE_LAX = CookieOptions::SAMESITE_LAX;
-    /**
-     * @deprecated since 9.0 use CookieOptions constants instead.
-     */
-    public const SAMESITE_STRICT = CookieOptions::SAMESITE_STRICT;
-    /**
-     * @deprecated since 9.0 use CookieOptions constants instead.
-     */
-    public const SAMESITE_AVAILABLE_VALUES = CookieOptions::SAMESITE_AVAILABLE_VALUES;
+    public const SAMESITE_NONE = 'None';
+    public const SAMESITE_LAX = 'Lax';
+    public const SAMESITE_STRICT = 'Strict';
+
+    public const SAMESITE_AVAILABLE_VALUES = [
+        self::SAMESITE_NONE => self::SAMESITE_NONE,
+        self::SAMESITE_LAX => self::SAMESITE_LAX,
+        self::SAMESITE_STRICT => self::SAMESITE_STRICT,
+    ];
 
     /** @var array Contain cookie content in a key => value format */
     protected $_content = [];
@@ -405,7 +397,7 @@ class CookieCore
                 'domain' => (string) $this->_domain,
                 'secure' => $this->_secure,
                 'httponly' => true,
-                'samesite' => in_array((string) $this->_sameSite, CookieOptions::SAMESITE_AVAILABLE_VALUES) ? (string) $this->_sameSite : CookieOptions::SAMESITE_NONE,
+                'samesite' => in_array((string) $this->_sameSite, static::SAMESITE_AVAILABLE_VALUES) ? (string) $this->_sameSite : static::SAMESITE_NONE,
             ]
         );
     }

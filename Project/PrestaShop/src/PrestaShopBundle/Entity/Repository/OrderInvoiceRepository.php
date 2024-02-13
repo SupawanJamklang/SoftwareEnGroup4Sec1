@@ -70,11 +70,11 @@ class OrderInvoiceRepository
         $sql = str_replace('{table_prefix}', $this->tablePrefix, $sql);
 
         $statement = $this->connection->prepare($sql);
-        $statementResult = $statement->executeQuery();
+        $statement->execute();
 
         $result = [];
 
-        while ($row = $statementResult->fetchAssociative()) {
+        while ($row = $statement->fetch()) {
             $result[$row['id_order_state']] = $row['nbOrders'];
         }
 

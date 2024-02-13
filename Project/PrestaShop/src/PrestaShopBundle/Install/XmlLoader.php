@@ -266,7 +266,7 @@ class XmlLoader
             return;
         }
 
-        if (str_starts_with($entity, '.') || str_starts_with($entity, '_')) {
+        if (substr($entity, 0, 1) == '.' || substr($entity, 0, 1) == '_') {
             return;
         }
 
@@ -537,7 +537,7 @@ class XmlLoader
             $entity_id = 0;
             if (!$xml->fields['primary']) {
                 $primary = 'id_' . $entity;
-            } elseif (!str_contains((string) $xml->fields['primary'], ',')) {
+            } elseif (strpos((string) $xml->fields['primary'], ',') === false) {
                 $primary = (string) $xml->fields['primary'];
             }
             unset($xml);
@@ -662,7 +662,7 @@ class XmlLoader
         // Generate primary key manually
         if (!$xml->fields['primary']) {
             $primary = 'id_' . $entity;
-        } elseif (!str_contains((string) $xml->fields['primary'], ',')) {
+        } elseif (strpos((string) $xml->fields['primary'], ',') === false) {
             $primary = (string) $xml->fields['primary'];
         } else {
             $primary = '';
@@ -1210,7 +1210,7 @@ class XmlLoader
 
         // Check if current table is an association table (if multiple primary keys)
         $is_association = false;
-        if (str_contains($primary, ',')) {
+        if (strpos($primary, ',') !== false) {
             $is_association = true;
             $primary = array_map('trim', explode(',', $primary));
         }

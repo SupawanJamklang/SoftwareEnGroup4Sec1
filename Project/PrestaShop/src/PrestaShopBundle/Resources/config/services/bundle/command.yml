@@ -33,7 +33,7 @@ services:
 
   PrestaShopBundle\Command\UpdateEUTaxruleGroupsCommand:
     arguments:
-      - '%kernel.project_dir%/localization'
+      - '%kernel.root_dir%/../localization'
     tags:
       - 'console.command'
 
@@ -42,7 +42,7 @@ services:
       - '@translator'
       - '@prestashop.adapter.legacy.context'
       - '@prestashop.adapter.module.self_configurator'
-      - '@PrestaShop\PrestaShop\Core\Module\ModuleManager'
+      - '@prestashop.module.manager'
     tags:
       - 'console.command'
 
@@ -57,10 +57,5 @@ services:
     arguments:
       - '@prestashop.adapter.legacy.configuration'
       - '@prestashop.adapter.data_provider.language'
-    tags:
-      - 'console.command'
-
-  PrestaShopBundle\Command\FeatureFlagCommand:
-    autowire: true
     tags:
       - 'console.command'

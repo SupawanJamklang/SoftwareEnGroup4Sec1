@@ -28,7 +28,6 @@ namespace PrestaShopBundle\Form\Admin\Improve\Shipping\Preferences;
 
 use PrestaShopBundle\Form\Admin\Type\MultistoreConfigurationType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
-use PrestaShopBundle\Form\Extension\MultistoreConfigurationTypeExtension;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -91,7 +90,10 @@ class CarrierOptionsType extends TranslatorAwareType
                     'Admin.Shipping.Help'
                 ),
                 'multistore_configuration_key' => 'PS_CARRIER_DEFAULT',
-                'autocomplete' => true,
+                'attr' => [
+                    'data-toggle' => 'select2',
+                    'data-minimumResultsForSearch' => '7',
+                ],
             ])
             ->add('carrier_default_order_by', ChoiceType::class, [
                 'choices' => $this->orderByChoices,

@@ -63,9 +63,9 @@ class StockMvt
     /**
      * @var int
      *
-     * @ORM\Column(name="id_supply_order", type="integer", nullable=true, options={"default":0})
+     * @ORM\Column(name="id_supply_order", type="integer", nullable=true)
      */
-    private $idSupplyOrder = 0;
+    private $idSupplyOrder;
 
     /**
      * @var int

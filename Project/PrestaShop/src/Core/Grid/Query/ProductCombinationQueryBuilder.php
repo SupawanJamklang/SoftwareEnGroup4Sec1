@@ -67,7 +67,7 @@ final class ProductCombinationQueryBuilder extends AbstractDoctrineQueryBuilder
             throw new InvalidArgumentException(
                 sprintf(
                     'Expected %s, but got %s',
-                    ProductCombinationFilters::class, $searchCriteria::class
+                    ProductCombinationFilters::class, get_class($searchCriteria)
                 )
             );
         }
@@ -99,7 +99,7 @@ final class ProductCombinationQueryBuilder extends AbstractDoctrineQueryBuilder
             throw new InvalidArgumentException(
                 sprintf(
                     'Expected %s, but got %s',
-                    ProductCombinationFilters::class, $searchCriteria::class
+                    ProductCombinationFilters::class, get_class($searchCriteria)
                 )
             );
         }
@@ -228,7 +228,7 @@ final class ProductCombinationQueryBuilder extends AbstractDoctrineQueryBuilder
             ->setParameter('attributes', $allAttributes, Connection::PARAM_INT_ARRAY)
             ->setParameter('productId', $productId)
         ;
-        $results = $qb->executeQuery()->fetchAllAssociative();
+        $results = $qb->execute()->fetchAll();
         if (!$results) {
             return [];
         }

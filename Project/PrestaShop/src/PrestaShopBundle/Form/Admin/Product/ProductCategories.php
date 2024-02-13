@@ -47,23 +47,23 @@ class ProductCategories extends TranslatorAwareType
     /**
      * @var int
      */
-    private $contextLangId;
+    private $languageId;
 
     /**
      * @param TranslatorInterface $translator
      * @param CategoryDataProvider $categoryDataProvider
-     * @param array $locales
-     * @param int $contextLangId
+     * @param array $languages
+     * @param int $languageId
      */
     public function __construct(
         TranslatorInterface $translator,
         CategoryDataProvider $categoryDataProvider,
-        array $locales,
-        int $contextLangId
+        array $languages,
+        $languageId
     ) {
         $this->categoryProvider = $categoryDataProvider;
-        $this->contextLangId = $contextLangId;
-        parent::__construct($translator, $locales);
+        $this->languageId = $languageId;
+        parent::__construct($translator, $languages);
     }
 
     /**
@@ -73,7 +73,7 @@ class ProductCategories extends TranslatorAwareType
     {
         $builder->add('categories', ChoiceCategoriesTreeType::class, [
             'label' => $this->trans('Categories', 'Admin.Catalog.Feature'),
-            'list' => $this->categoryProvider->getNestedCategories(null, $this->contextLangId, false),
+            'list' => $this->categoryProvider->getNestedCategories(null, $this->languageId, false),
             'valid_list' => [],
             'multiple' => false,
             'expanded' => false,

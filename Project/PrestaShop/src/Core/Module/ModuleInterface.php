@@ -67,6 +67,16 @@ interface ModuleInterface
     /**
      * @return bool
      */
+    public function onMobileEnable(): bool;
+
+    /**
+     * @return bool
+     */
+    public function onMobileDisable(): bool;
+
+    /**
+     * @return bool
+     */
     public function onReset(): bool;
 
     /**

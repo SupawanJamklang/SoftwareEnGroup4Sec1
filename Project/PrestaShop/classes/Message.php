@@ -111,8 +111,12 @@ class MessageCore extends ObjectModel
      *
      * @return array Messages
      */
-    public static function getMessagesByOrderId($idOrder, bool $private = false, Context $context = null)
+    public static function getMessagesByOrderId($idOrder, $private = false, Context $context = null)
     {
+        if (!Validate::isBool($private)) {
+            die(Tools::displayError('Parameter "private" is invalid.'));
+        }
+
         if (!$context) {
             $context = Context::getContext();
         }
@@ -142,8 +146,12 @@ class MessageCore extends ObjectModel
      *
      * @return array Messages
      */
-    public static function getMessagesByCartId($idCart, bool $private = false, Context $context = null)
+    public static function getMessagesByCartId($idCart, $private = false, Context $context = null)
     {
+        if (!Validate::isBool($private)) {
+            die(Tools::displayError('Parameter "private" is invalid.'));
+        }
+
         if (!$context) {
             $context = Context::getContext();
         }

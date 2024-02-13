@@ -65,7 +65,7 @@ final class RequestSqlQueryBuilder extends AbstractDoctrineQueryBuilder
         return $searchQueryBuilder
             ->select('rs.*')
             ->orderBy(sprintf('`%s`', $searchCriteria->getOrderBy()), $searchCriteria->getOrderWay())
-            ->setFirstResult($searchCriteria->getOffset() ?? 0)
+            ->setFirstResult($searchCriteria->getOffset())
             ->setMaxResults($searchCriteria->getLimit());
     }
 

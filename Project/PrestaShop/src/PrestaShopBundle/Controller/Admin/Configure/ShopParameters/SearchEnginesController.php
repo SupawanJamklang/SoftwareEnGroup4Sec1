@@ -159,13 +159,6 @@ class SearchEnginesController extends FrameworkBundleAdminController
             'searchEngineServer' => $editableSearchEngine->getServer(),
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
             'enableSidebar' => true,
-            'layoutTitle' => $this->trans(
-                'Editing search engine %name%',
-                'Admin.Navigation.Menu',
-                [
-                    '%name%' => $editableSearchEngine->getServer(),
-                ]
-            ),
         ]);
     }
 
@@ -258,7 +251,11 @@ class SearchEnginesController extends FrameworkBundleAdminController
      */
     private function getBulkSearchEnginesFromRequest(Request $request): array
     {
-        $searchEngineIds = $request->request->all('search_engine_bulk');
+        $searchEngineIds = $request->request->get('search_engine_bulk');
+
+        if (!is_array($searchEngineIds)) {
+            return [];
+        }
 
         return array_map('intval', $searchEngineIds);
     }

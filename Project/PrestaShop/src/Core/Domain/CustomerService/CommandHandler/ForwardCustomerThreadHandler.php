@@ -33,7 +33,6 @@ use Db;
 use Employee;
 use Mail;
 use Order;
-use PrestaShop\PrestaShop\Core\CommandBus\Attributes\AsCommandHandler;
 use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 use PrestaShop\PrestaShop\Core\Domain\CustomerService\Command\ForwardCustomerThreadCommand;
 use PrestaShop\PrestaShop\Core\Domain\CustomerService\Exception\CustomerServiceException;
@@ -45,7 +44,6 @@ use Validate;
 /**
  * @internal
  */
-#[AsCommandHandler]
 class ForwardCustomerThreadHandler implements ForwardCustomerThreadHandlerInterface
 {
     /**

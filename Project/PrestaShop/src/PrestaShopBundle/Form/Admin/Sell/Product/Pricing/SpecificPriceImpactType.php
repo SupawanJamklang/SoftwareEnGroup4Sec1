@@ -34,7 +34,6 @@ use PrestaShop\PrestaShop\Core\Domain\ValueObject\Reduction as ReductionVO;
 use PrestaShopBundle\Form\Admin\Sell\Product\DataTransformer\SpecificPriceFixedPriceTransformer;
 use PrestaShopBundle\Form\Admin\Type\PriceReductionType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
-use PrestaShopBundle\Form\FormHelper;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
@@ -55,15 +54,15 @@ class SpecificPriceImpactType extends TranslatorAwareType
     /**
      * @var string
      */
-    private $defaultCurrencyIsoCode;
+    private $defaultCurrencyIso;
 
     public function __construct(
         TranslatorInterface $translator,
         array $locales,
-        string $defaultCurrencyIsoCode
+        string $defaultCurrencyIso
     ) {
         parent::__construct($translator, $locales);
-        $this->defaultCurrencyIsoCode = $defaultCurrencyIsoCode;
+        $this->defaultCurrencyIso = $defaultCurrencyIso;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -96,11 +95,11 @@ class SpecificPriceImpactType extends TranslatorAwareType
                 'required' => false,
                 'label' => $this->trans('Set specific price', 'Admin.Catalog.Feature'),
                 'label_subtitle' => $this->trans('Retail price (tax excl.)', 'Admin.Catalog.Feature'),
-                'attr' => ['data-display-price-precision' => FormHelper::DEFAULT_PRICE_PRECISION],
+                'attr' => ['data-display-price-precision' => self::PRESTASHOP_DECIMALS],
                 'row_attr' => [
                     'class' => 'js-fixed-price-row',
                 ],
-                'currency' => $this->defaultCurrencyIsoCode,
+                'currency' => $this->defaultCurrencyIso,
                 'constraints' => [
                     new NotBlank(['groups' => [self::FIXED_PRICE_GROUP]]),
                     new Type(['type' => 'float', 'groups' => [self::FIXED_PRICE_GROUP]]),

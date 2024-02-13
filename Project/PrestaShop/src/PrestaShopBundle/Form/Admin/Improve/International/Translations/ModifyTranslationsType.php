@@ -27,7 +27,6 @@
 namespace PrestaShopBundle\Form\Admin\Improve\International\Translations;
 
 use PrestaShop\PrestaShop\Core\Translation\Storage\Provider\Definition\ThemeProviderDefinition;
-use PrestaShopBundle\Form\Admin\Type\LocaleChoiceType;
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -137,13 +136,18 @@ class ModifyTranslationsType extends TranslatorAwareType
                     'class' => 'js-module-form-group d-none',
                 ],
                 'placeholder' => '---',
-                'autocomplete' => true,
+                'attr' => [
+                    'data-minimumResultsForSearch' => '7',
+                    'data-toggle' => 'select2',
+                ],
                 'choices' => $this->moduleChoices,
                 'choice_translation_domain' => false,
             ])
-            ->add('language', LocaleChoiceType::class, [
+            ->add('language', ChoiceType::class, [
                 'label' => $this->trans('Select your language', 'Admin.International.Feature'),
                 'placeholder' => $this->trans('Language', 'Admin.Global'),
+                'choices' => $this->getLocaleChoices(),
+                'choice_translation_domain' => false,
             ]);
     }
 }

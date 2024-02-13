@@ -170,9 +170,6 @@ final class MailPreviewVariablesBuilder
     private function buildOrderVariables(LayoutInterface $mailLayout)
     {
         $orders = Order::getOrdersWithInformations(1);
-        if (!isset($orders[0]['id_order'])) {
-            return [];
-        }
         $order = new Order($orders[0]['id_order']);
 
         if (self::ORDER_CONFIRMATION == $mailLayout->getName()) {

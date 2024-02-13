@@ -81,7 +81,6 @@ class MerchandiseReturnController extends FrameworkBundleAdminController
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
             'merchandiseReturnsGrid' => $this->presentGrid($gridFactory->getGrid($filters)),
             'merchandiseReturnsOptionsForm' => $optionsForm->createView(),
-            'enableSidebar' => true,
         ]);
     }
 
@@ -89,7 +88,7 @@ class MerchandiseReturnController extends FrameworkBundleAdminController
      * Edit existing order return
      *
      * @AdminSecurity(
-     *     "is_granted('update', request.get('_legacy_controller'))",
+     *     "is_granted(['update'], request.get('_legacy_controller'))",
      *     redirectRoute="admin_merchandise_returns_index"
      * )
      *
@@ -124,7 +123,7 @@ class MerchandiseReturnController extends FrameworkBundleAdminController
             'orderReturnForm' => $form->createView(),
             'help_link' => $this->generateSidebarLink($request->attributes->get('_legacy_controller')),
             'enableSidebar' => true,
-            'layoutTitle' => $this->trans('Return merchandise authorization (RMA)', 'Admin.Navigation.Menu'),
+            'layoutTitle' => $this->trans('Return Merchandise Authorization (RMA)', 'Admin.Orderscustomers.Feature'),
         ]);
     }
 

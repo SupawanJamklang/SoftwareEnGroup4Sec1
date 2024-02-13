@@ -33,7 +33,7 @@ use PrestaShop\PrestaShop\Core\Domain\Product\ValueObject\ProductId;
 use PrestaShop\PrestaShop\Core\Domain\Shop\ValueObject\ShopConstraint;
 
 /**
- * Updates status of multiple products
+ * Deletes multiple products
  */
 class BulkUpdateProductStatusCommand
 {

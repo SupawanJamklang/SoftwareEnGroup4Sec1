@@ -33,7 +33,6 @@ use Doctrine\DBAL\Query\QueryBuilder;
 use FeatureValue;
 use PrestaShop\PrestaShop\Adapter\Feature\Validate\FeatureValueValidator;
 use PrestaShop\PrestaShop\Core\Domain\Feature\Exception\CannotAddFeatureValueException;
-use PrestaShop\PrestaShop\Core\Domain\Feature\Exception\CannotDeleteFeatureValueException;
 use PrestaShop\PrestaShop\Core\Domain\Feature\Exception\CannotUpdateFeatureValueException;
 use PrestaShop\PrestaShop\Core\Domain\Feature\Exception\FeatureValueNotFoundException;
 use PrestaShop\PrestaShop\Core\Domain\Feature\Exception\InvalidFeatureValueIdException;
@@ -215,11 +214,11 @@ class FeatureValueRepository extends AbstractObjectModelRepository
     {
         $qb = $this->getFeatureValuesQueryBuilder($filters)
             ->select('fv.*')
-            ->setFirstResult($offset ?? 0)
+            ->setFirstResult($offset)
             ->setMaxResults($limit)
         ;
 
-        $featureValues = $qb->executeQuery()->fetchAllAssociative();
+        $featureValues = $qb->execute()->fetchAllAssociative();
 
         $indexedFeatureValues = [];
         foreach ($featureValues as $featureValue) {
@@ -257,12 +256,7 @@ class FeatureValueRepository extends AbstractObjectModelRepository
             ->select('COUNT(fv.id_feature_value) AS total_feature_values')
         ;
 
-        return (int) $qb->executeQuery()->fetchAssociative()['total_feature_values'];
-    }
-
-    public function delete(FeatureValueId $featureValueId): void
-    {
-        $this->deleteObjectModel($this->get($featureValueId), CannotDeleteFeatureValueException::class);
+        return (int) $qb->execute()->fetch()['total_feature_values'];
     }
 
     /**
@@ -288,7 +282,7 @@ class FeatureValueRepository extends AbstractObjectModelRepository
             ;
         }
 
-        return $qb->executeQuery()->fetchAllAssociative();
+        return $qb->execute()->fetchAllAssociative();
     }
 
     /**

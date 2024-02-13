@@ -6,9 +6,11 @@ services:
     alias: PrestaShop\PrestaShop\Core\CommandBus\CommandBusInterface
 
   PrestaShop\PrestaShop\Core\CommandBus\CommandBusInterface:
-    class: PrestaShopBundle\CommandBus\MessengerCommandBus
+    class: PrestaShop\PrestaShop\Core\CommandBus\TacticianCommandBusAdapter
     autowire: true
     public: false
+    arguments:
+      - '@tactician.commandbus.default'
 
   prestashop.core.query_bus:
     parent: 'prestashop.core.command_bus'
@@ -17,13 +19,15 @@ services:
   prestashop.core.provider.command_definition_provider:
     class: 'PrestaShop\PrestaShop\Core\CommandBus\Parser\CommandDefinitionParser'
 
-  PrestaShopBundle\CommandBus\Middleware\CommandRegisterMiddleware:
-    autowire: true
-    public: false
+  prestashop.core.command_bus.middleware.command_register_middleware:
+    class: PrestaShop\PrestaShop\Core\CommandBus\Middleware\CommandRegisterMiddleware
     arguments:
-      - '@messenger.bus.default.messenger.handlers_locator'
+      - '@tactician.handler.locator.symfony'
+      - '@tactician.handler.command_name_extractor.class_name'
+      - '@prestashop.core.command_bus.executed_command_registry'
 
-  PrestaShop\PrestaShop\Core\CommandBus\ExecutedCommandRegistry:
+  prestashop.core.command_bus.executed_command_registry:
+    class: PrestaShop\PrestaShop\Core\CommandBus\ExecutedCommandRegistry
     arguments:
       - '@prestashop.core.command_bus.parser.command_type_parser'
 
