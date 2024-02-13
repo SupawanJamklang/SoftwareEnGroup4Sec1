@@ -1,27 +1,56 @@
 version: '3'
 
 services:
-  prestashop:
-    image: bannakorns/g04_prestashop
-    environment:
-      - DB_SERVER=db
-    ports:
-      - "8080:80"
-   
-
-  db:
+  mysql:
+    container_name: some-mysql
     image: mysql:5.7
+    restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: your_root_password
-      MYSQL_DATABASE: prestashop_db
-      MYSQL_USER: prestashop_user
-      MYSQL_PASSWORD: prestashop_password
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: prestashop
+    networks:
+      - prestashop_network
+    volumes:
+      - dbdata:/var/lib/mysql
+
+  prestashop:
+    container_name: prestashop
+    image: prestashop/prestashop:latest
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    environment:
+      DB_SERVER: some-mysql
+      DB_NAME: prestashop
+      DB_USER: root
+      DB_PASSWD: admin
+    networks:
+      - prestashop_network
+    volumes:
+      - ./app/controllers:/var/www/html/controllers # To develop controller
+      - ./app/modules:/var/www/html/modules # To develop module
+      - ./app/themes/cp_theme:/var/www/html/themes/cp_theme # To develop theme
+      - ./app/themes/child_cp_theme:/var/www/html/themes/child_cp_theme # To develop child theme
+      - ./app/img:/var/www/html/img # To store image data
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    networks:
+      - prestashop_network
     environment:
-      PMA_HOST: db
-      PMA_USER: prestashop_user
-      PMA_PASSWORD: prestashop_password
+      PMA_HOST: some-mysql
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    restart: unless-stopped
     ports:
-      - "8181:80"
+      - 8082:80
+
+networks:
+  prestashop_network:
+
+volumes:
+  psdata:
+  dbdata:
