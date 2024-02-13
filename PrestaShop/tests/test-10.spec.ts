@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('http://localhost:8080/en/');
+  await page.getByText('Vouchers 100 THB').first().click();
+  await page.getByRole('button', { name: ' Add to cart' }).click();
+  await page.getByRole('link', { name: ' Proceed to checkout' }).click();
+  await page.getByRole('button', { name: 'Process with invoice' }).click();
+  await page.getByLabel('Mr.').check();
+  await page.getByLabel('First name').click();
+  await page.getByLabel('First name').fill('Ch');
+  await page.getByLabel('Last name').click();
+  await page.getByLabel('Last name').fill('Choke');
+  await page.getByLabel('Email').click();
+  await page.getByLabel('Email').fill('Ch@kkuamail.com');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowLeft');
+  await page.getByLabel('Email').press('ArrowRight');
+  await page.getByLabel('Email').fill('Ch@kkumail.com');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByLabel('Address', { exact: true }).click();
+  await page.getByLabel('Address', { exact: true }).fill('123 KKU');
+  await page.getByLabel('Zip/Postal Code').click();
+  await page.getByLabel('Zip/Postal Code').fill('40002');
+  await page.getByLabel('City').click();
+  await page.getByLabel('City').fill('KKC');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByLabel('I agree to the terms of').check();
+});
