@@ -15,7 +15,11 @@ services:
 
   prestashop:
     container_name: prestashop
+<<<<<<< HEAD
     image: bannakorns/g04_prestashop:latest
+=======
+    image: prestashop/prestashop:latest
+>>>>>>> 7d86c2e35d693e916888837f84410a519844f9fa
     restart: unless-stopped
     depends_on:
       - mysql
@@ -29,6 +33,7 @@ services:
     networks:
       - prestashop_network
     volumes:
+<<<<<<< HEAD
       - type: bind
         source: ./modules/testModule
         target: /var/www/html/modules/testModule
@@ -36,6 +41,13 @@ services:
         source: ./themes/myTheme
         target: /var/www/html/themes/myTheme
       - psdata:/var/www/html
+=======
+      - ./app/controllers:/var/www/html/controllers # To develop controller
+      - ./app/modules:/var/www/html/modules # To develop module
+      - ./app/themes/cp_theme:/var/www/html/themes/cp_theme # To develop theme
+      - ./app/themes/child_cp_theme:/var/www/html/themes/child_cp_theme # To develop child theme
+      - ./app/img:/var/www/html/img # To store image data
+>>>>>>> 7d86c2e35d693e916888837f84410a519844f9fa
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -55,4 +67,8 @@ networks:
 
 volumes:
   psdata:
+<<<<<<< HEAD
   dbdata:
+=======
+  dbdata:
+>>>>>>> 7d86c2e35d693e916888837f84410a519844f9fa

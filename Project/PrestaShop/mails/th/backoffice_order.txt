@@ -1,0 +1,13 @@
+ 
+
+{shop_url}
+
+Hi {firstname} {lastname},
+
+มีการสร้างคำสั่งซื้อใหม่ในนามของคุณ
+
+Please go on {order_link} to complete the payment.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

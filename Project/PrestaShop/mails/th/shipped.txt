@@ -1,0 +1,17 @@
+ 
+
+{shop_url}
+
+Hi {firstname} {lastname},
+
+ขอบคุณที่ซื้อสินค้ากับ {shop_name}!
+
+Your order with the reference {order_name} has been shipped.
+
+Follow your order and download your invoice on our store, go to the [ประวัติและรายละเอียดการสั่งซื้อ]({history_url}) section of your customer account.
+
+If you have a guest account, you can follow your order via the [แกะรอยลูกค้า]({guest_tracking_url}) section on our shop.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)

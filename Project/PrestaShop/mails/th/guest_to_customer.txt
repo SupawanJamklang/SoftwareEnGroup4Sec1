@@ -1,0 +1,20 @@
+ 
+
+{shop_url}
+
+Hi {firstname} {lastname},
+
+Your guest account has been turned into a customer account
+
+Congratulations, your guest account for {shop_name} has been turned into a customer account!
+
+Email address: {email}
+
+คลิกที่ลิงก์ต่อไปนี้เพื่อตั้งค่ารหัสผ่านของคุณ:
+{url}
+
+You can access your customer account on our store: [{shop_name}]({shop_url})
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)
