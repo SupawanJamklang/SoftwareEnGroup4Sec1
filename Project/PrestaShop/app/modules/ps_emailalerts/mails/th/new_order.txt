@@ -1,0 +1,43 @@
+ 
+
+{shop_url}
+
+Congratulations!
+
+A new order was placed on {shop_name} by the following customer: {firstname} {lastname} ({email})
+
+Order details
+
+รายการสั่งซื้อ: {order_name} Placed on {date}
+
+การชำระเงิน: {payment}
+
+อ้างอิง	สินค้า	ราคา	จำนวน	ราคารวม   {items}
+รายการ	{total_products}
+ส่วนลด	{total_discounts}
+Gift-wrapping	{total_wrapping}
+จัดส่ง	{total_shipping}
+Including total tax	{total_tax_paid}
+total paid	{total_paid}
+
+ค่าจัดส่ง
+
+ผู้จัดส่งสินค้า {carrier}
+
+การชำระเงิน: {payment}
+
+ที่อยู่สำหรับจัดส่งสินค้า
+
+{delivery_block_html}
+
+ที่อยู่สำหรับออกใบเสร็จ
+
+{invoice_block_html}
+
+ข้อความลูกค้า:
+
+{message}
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop-project.org/)
